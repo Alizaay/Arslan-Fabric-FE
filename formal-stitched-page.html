@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formal Stitched Dresses</title>
+    <link rel="stylesheet" href="css/formal-stitched-page.css">
+    <script src="js/formal-stitched-page.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="header-container"></div>
+    </header>
+
+    <main>
+
+        <!--Hero Section-->
+
+        <section class="hero">
+            <div class="hero-content">
+                <a href="#" class="hero-back">
+                    <span class="hero-back-arrow">←</span>
+                    <span>Ready-to-Wear Couture</span>
+                </a>
+                <h1>Formal Stitched</h1>
+                <p>Experience the luxury of effortless elegance with Arsalan Fabrics signature stitched formal
+                    ensembles. Impeccably finished Raw Silks, heavy embroidered Chiffons, and pure Organza suits,
+                    tailored to exquisite standards for your modern celebrations. </p>
+                <div class="hero-context">
+                    <h2>Pret Masterpieces</h2>
+                    <p>Skipping the wait of tailoring, our Formal Stitched line represents heritage craftsmanship
+                        meticulously patterned onto finished shirts, precise trousers, and expertly draped dupattas.
+                        Ready to grace any festive occasion.</p>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="Assets/images/formal-stitched-page-banner.png" alt="Arsalan Fabrics Formal Dresses">
+            </div>
+        </section>
+
+        <!-- List Section -->
+
+        <section class="listsection">
+            <ul class="listsection-nav">
+                <li class="listsection-item"> <a href="#">All Stitched</a> </li>
+                <li class="listsection-item"> <a href="#">2-Piece Pret</a> </li>
+                <li class="listsection-item"> <a href="#">3-Piece Complete</a> </li>
+                <li class="listsection-item"> <a href="#">Hand-Embroidered</a> </li>
+                <li class="listsection-item"> <a href="#">Organza Collection</a> </li>
+                <li class="listsection-item"> <a href="#">Pure Silk</a></li>
+                <li class="listsection-item"> <a href="#">Soft Chiffon</a></li>
+            </ul>
+        </section>
+
+        <!-- Choose Section -->
+
+        <section class="choose" id="choose">
+            <div class="choose-container">
+                <div class="choose-item">
+                    <h3>Inclusive Sizing</h3>
+                    <p>
+                        Crafted in standard sizes XS to XL. Tailored with
+                        precise comfort ease.
+                    </p>
+                </div>
+                <div class="choose-item">
+                    <h3>Premium Finishes</h3>
+                    <p>
+                        Pre-shrunk fabrics, neat overlocked seams, and
+                        finished pure duppattas.
+                    </p>
+                </div>
+                <div class="choose-item">
+                    <h3>Swift Dispatch</h3>
+                    <p>
+                        Dispatched locally from Lahore within 24 to 48
+                        hours for immediate wear.
+                    </p>
+                </div>
+                <div class="choose-item">
+                    <h3>Atelier Care</h3>
+                    <p>
+                        Dry clean only to maintain raw silks and delicate
+                        handwork embellishments.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--Filter Section -->
+
+        <section class="filter-section">
+            <div class="filter-middle">
+                <div class="filter-left">
+                    <div class="filter-by">
+                        <span class="filter-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <path d="M3 5h18L14 13v6l-4 2v-8L3 5z" />
+                            </svg>
+                        </span>
+                        <span>FILTER BY</span>
+                    </div>
+                    <div class="filter-select">
+                        <select name="fabric" id="fabric">
+                            <option value="">Fabric </option>
+                            <option value="cotton">Cotton</option>
+                            <option value="linen">Lawn</option>
+                            <option value="silk">Chiffon</option>
+                            <option value="velvet">Velvet</option>
+                        </select>
+                    </div>
+                    <div class="filter-select">
+                        <select name="price" id="price">
+                            <option value="">Price</option>
+                            <option value="low-high">Low to High</option>
+                            <option value="high-low">High to Low</option>
+                            <option value="under-5000">Under 5,000</option>
+                            <option value="5000-10000">5,000 - 10,000</option>
+                        </select>
+                    </div>
+                    <div class="filter-select">
+                        <select name="color" id="color">
+                            <option value="">Color</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                            <option value="blue">Blue</option>
+                            <option value="brown">Brown</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-right">
+                    <span class="showing">
+                        Showing 16 of 64 designs
+                    </span>
+                    <div class="sort-dropdown">
+                        <span>Sort by:</span>
+                        <select name="sort" id="sort">
+                            <option value="featured">Featured</option>
+                            <option value="newest">Newest</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+
+        <section class="products" id="products">
+            <div class="products-container">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (16).png" alt="Ziba">
+                        <span class="product-badge sale">SALE</span>
+                        <button class="wishlist" type="button" aria-label="Add Ziba to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Ziba</h3>
+                            <div class="product-price">
+                                <del>Rs. 18,500</del>
+                                <strong>Rs. 22,000</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Raw Silk — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#6B1D1D;"></span>
+                                <span style="--dot:#1F1E1C;"></span>
+                                <span style="--dot: #8C7F74"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">XS</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                        </div>
+                        <button class="quick-add" type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (15).png" alt="Meher">
+                        <span class="product-badge limited">LIMITED</span>
+                        <button class="wishlist" type="button" aria-label="Add Meher to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Meher</h3>
+                            <div class="product-price">
+                                <strong>Rs. 14,200</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Pure Organza — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#E5D9D3;"></span>
+                                <span style="--dot:#D2C2B9;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                            <p class="product-dimension">XL</p>
+                        </div>
+                        <button class="quick-add" type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (14).png" alt="Sahar">
+                        <span class="product-badge new">NEW</span>
+                        <button class="wishlist" type="button" aria-label="Add Sahar to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Sahar</h3>
+                            <div class="product-price">
+                                <strong>Rs. 9,800</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                           Premium Cotton — 2 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#526253;"></span>
+                                <span style="--dot:#999183;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">XS</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                            <p class="product-dimension">XL</p>
+                        </div>
+                        <button class="quick-add" type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (13).png" alt="Anaya">
+                        <button class="wishlist" type="button" aria-label="Add Anaya to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Anaya</h3>
+                            <div class="product-price">
+                                <strong>Rs. 21,000</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Chiffon — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#27344B;"></span>
+                                <span style="--dot:#772A2A;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                        </div>
+                        <button class="quick-add" type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (12).png" alt="Noor-ul-Ain">
+                        <span class="product-badge new">NEW</span>
+                        <button class="wishlist" type="button" aria-label="Add Noor-ul-Ain to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Noor-ul-Ain</h3>
+                            <div class="product-price">
+                                <strong>Rs. 16,500</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Raw Silk — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#D6C1A8;"></span>
+                                <span style="--dot:#282725;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">XS</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                        </div>
+                        <button class="quick-add" type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (11).png" alt="Fiza">
+                        <button class="wishlist" type="button" aria-label="Add Fiza to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Fiza</h3>
+                            <div class="product-price">
+                                <strong>Rs. 7,500</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Lawn Shaded — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#A9CFD9;"></span>
+                                <span style="--dot:#F1F0EA;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                            <p class="product-dimension">XL</p>
+                        </div>
+                        <button class="quick-add" type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (10).png" alt="Zoya">
+                        <span class="product-badge limited">LIMITED</span>
+                        <button class="wishlist" type="button" aria-label="Add Zoya to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Zoya</h3>
+                            <div class="product-price">
+                                <strong>Rs. 24,500</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Pure Velvet — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#54263D;"></span>
+                                <span style="--dot:#282725;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                            <p class="product-dimension">XL</p>
+                        </div>
+                        <button class="quick-add" type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (9).png" alt="Nisha">
+                        <span class="product-badge new">NEW</span>
+                        <button class="wishlist" type="button" aria-label="Add Nisha to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Nisha</h3>
+                            <div class="product-price">
+                                <strong>Rs. 11,500</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Heavy Karandi — 2 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#B89B7B;"></span>
+                                <span style="--dot:#E4DCCB;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">XS</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                        </div>
+                        <button class="quick-add" type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (8).png" alt="Dariya">
+                        <button class="wishlist" type="button" aria-label="Add Dariya to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Dariya</h3>
+                            <div class="product-price">
+                                <strong>Rs. 8,200</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                           Structured Cotton — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#DDBF9B;"></span>
+                                <span style="--dot:#F0DCC1;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                            <p class="product-dimension">XL</p>
+                        </div>
+                        <button class="quick-add" type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (7).png" alt="Haleema">
+                        <span class="product-badge new">NEW</span>
+                        <button class="wishlist" type="button" aria-label="Add Haleema to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Haleema</h3>
+                            <div class="product-price">
+                                <strong>Rs. 15,800</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Pure Organza — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#D4A69C;"></span>
+                                <span style="--dot:#EEE4DF;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">XS</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                        </div>
+                        <button class="quick-add" type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (6).png" alt="Amara">
+                        <span class="product-badge new">NEW</span>
+                        <button class="wishlist" type="button" aria-label="Add Amara to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Amara</h3>
+                            <div class="product-price">
+                                <strong>Rs. 19,500</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Raw Silk Panels — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#282725;"></span>
+                                <span style="--dot:#782F32;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                        </div>
+                        <button class="quick-add" type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (5).png" alt="Leyla">
+                        <button class="wishlist" type="button" aria-label="Add Leyla to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Leyla</h3>
+                            <div class="product-price">
+                                <strong>Rs. 13,000</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Cotton Net — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#B7C8BC;"></span>
+                                <span style="--dot:#E6E4DC;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">XS</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                            <p class="product-dimension">XL</p>
+                        </div>
+                        <button class="quick-add " type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (4).png" alt="Zara">
+
+                        <span class="product-badge new">NEW</span>
+                        <button class="wishlist" type="button" aria-label="Add Zara to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Zara</h3>
+                            <div class="product-price">
+                                <strong>Rs. 17,900</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Soft Chiffon — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#A98E69;"></span>
+                                <span style="--dot:#D7C5A6;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                        </div>
+                        <button class="quick-add " type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (3).png" alt="Alia">
+                        <button class="wishlist" type="button" aria-label="Add Alia to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Alia</h3>
+                            <div class="product-price">
+                                <strong>Rs. 7,900</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Breeze Lawn — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#D9B8C0;"></span>
+                                <span style="--dot:#EDE4DC;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                            <p class="product-dimension">XL</p>
+                        </div>
+                        <button class="quick-add " type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (2).png" alt="Yasmin">
+                        <span class="product-badge limited">LIMITED</span>
+                        <button class="wishlist" type="button" aria-label="Add Yasmin to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Yasmin</h3>
+                            <div class="product-price">
+                                <strong>Rs. 22,500</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Pure Organza — 3 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#E7DFCF;"></span>
+                                <span style="--dot:#D2BFA1;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">XS</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                        </div>
+                        <button class="quick-add " type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Assets/images/Formal-stitched-page-product (1).png" alt="Rania">
+
+                        <span class="product-badge new">NEW</span>
+                        <button class="wishlist" type="button" aria-label="Add Rania to wishlist">
+                            ♡
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title-row">
+                            <h3>Rania</h3>
+                            <div class="product-price">
+                                <strong>Rs. 10,200</strong>
+                            </div>
+                        </div>
+                        <p class="product-category">
+                            Formal Stitched Ready-to-Wear
+                        </p>
+                        <p class="product-fabric">
+                            Soft Khaddar — 2 Piece
+                        </p>
+                        <div class="product-bottom">
+                            <div class="product-colors">
+                                <span style="--dot:#286273;"></span>
+                                <span style="--dot:#8E867A;"></span>
+                            </div>
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="product-size-container">
+                            <p class="product-size">Sizes:</p>
+                            <p class="product-dimension">S</p>
+                            <p class="product-dimension">M</p>
+                            <p class="product-dimension">L</p>
+                            <p class="product-dimension">XL</p>
+                        </div>
+                        <button class="quick-add " type="button">
+                            <span>QUICK ADD +</span>
+                            <span>SELECT SIZE &amp; ADD +</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Fabric Section -->
+
+        <section class="fabric-section" id="fabric">
+            <div class="fabric-section-container">
+                <div class="fabric-section-image">
+                    <img src="Assets/images/formal-stitched-page-fabric-banner.png"
+                        alt="Handcrafted blue and gold embroidered fabric">
+                </div>
+                <div class="fabric-section-content">
+                    <span class="fabric-section-eyebrow">
+                        THE CRAFT HERITAGE AT ARSALAN FABRICS
+                    </span>
+                    <h2>
+                        Crafted for Lifetime<br>
+                        Celebrations
+                    </h2>
+                    <p>
+                        At Arsalan fabrics, our finished fits are more than garments;
+                        they are narratives of modern legacy. Every dress is meticulously
+                        tailored using classical Pakistani methods, with hand-placed glass
+                        beads, pure tilla borders, and resilient lightweight lining.
+                        Elegant, contemporary wearability that honors age-old heritage.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--Shop Section-->
+
+        <section class="shop" id="shop">
+            <div class="shop-container">
+                <div class="shop-header">
+                    <h2>Shop Occasion Edits</h2>
+                </div>
+                <div class="shop-grid">
+                    <a href="#" class="shop-card">
+                        <div class="shop-image">
+                            <img src="Assets/images/formal-stitched-page-wedding-guest.png" alt="Wedding Guest">
+                        </div>
+                        <div class="shop-content">
+                            <h3>Wedding Guest</h3>
+                            <p>
+                                Rich raw silks &amp; heavy embellishments
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="shop-card">
+                        <div class="shop-image">
+                            <img src="Assets/images/formal-stitched-page-Evening-formal.png" alt="Evening Formal">
+                        </div>
+                        <div class="shop-content">
+                            <h3>Evening Formal</h3>
+                            <p>
+                                Sleek sheer organza &amp; contemporary sets
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="shop-card">
+                        <div class="shop-image">
+                            <img src="Assets/images/formal-stitched-page-Eid-festive.png" alt="Eid and Festive">
+                        </div>
+                        <div class="shop-content">
+                            <h3>Eid &amp; Festive</h3>
+                            <p>
+                                Lightweight embroidered premium lawn &amp; net
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="shop-card">
+                        <div class="shop-image">
+                            <img src="Assets/images/formal-stitched-page-Family-gathering.png" alt="Family Gathering">
+                        </div>
+                        <div class="shop-content">
+                            <h3>Family Gathering</h3>
+                            <p>
+                                Sleek simple ready-to-wear tailored looks
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Join Section -->
+
+        <section class="join">
+            <div class="join-container">
+                <span class="join-label">JOIN US</span>
+                <h2>Be First to Experience Modern Grace</h2>
+                <p>
+                    Subscribe for early previews of seasonal collections, exclusive drops of stitched edits,
+                    and<br class="join-desktop-break">
+                    stories from our local weaving ateliers.
+                </p>
+                <form class="join-form">
+                    <input type="email" placeholder="Enter your email address..." aria-label="Email address">
+                    <button type="submit">JOIN</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer-container"></div>
+    </footer>
+</body>
+
+</html>

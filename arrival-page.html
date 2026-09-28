@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals</title>
+    <link rel="stylesheet" href="css/arrival-page.css">
+    <script src="js/arrival.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="header-container"></div>
+    </header>
+
+    <main>
+
+        <!-- Section arrivals -->
+
+        <section class="arrival-section">
+            <div class="arrivals-container">
+                <div class="arrivals-label">
+                    <span class="arrivals-arrow">←</span>
+                    <span>ARSALAN FABRICS EDITORIAL — S/S '26</span>
+                </div>
+                <h2 class="arrivals-title">The New Arrivals Edit</h2>
+                <p class="arrivals-description">
+                    Explore our latest curation of stitched and unstitched luxury ensembles.
+                    From the raw silk panels of the Ziba set to intricately designed organza
+                    and karandi, enjoy modern grace paired with pure tradition.
+                </p>
+                <div class="arrivals-image">
+                    <img src="Assets/images/arrival-page-main-banner.png" alt="The New Arrivals Edit">
+                </div>
+            </div>
+        </section>
+
+        <!--Filter Section -->
+
+        <section class="filter-section" id="filter">
+            <div class="filter-top">
+                <ul class="filter-nav">
+                    <li>
+                        <a href="#">All New Arrivals</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Formal Stitched</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Formal Unstitched</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Semi-Formal Stitched</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Semi-Formal Unstitched</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="filter-middle">
+                <div class="filter-left">
+                    <div class="filter-by">
+                        <span class="filter-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <path d="M3 5h18L14 13v6l-4 2v-8L3 5z" />
+                            </svg>
+                        </span>
+                        <span>FILTER BY</span>
+                    </div>
+                    <div class="filter-select">
+                        <select name="fabric" id="fabric">
+                            <option value="">Fabric</option>
+                            <option value="cotton">Cotton</option>
+                            <option value="linen">Lawn</option>
+                            <option value="silk">Chiffon</option>
+                            <option value="velvet">Velvet</option>
+                        </select>
+                    </div>
+                    <div class="filter-select">
+                        <select name="price" id="price">
+                            <option value="">Price</option>
+                            <option value="low-high">Low to High</option>
+                            <option value="high-low">High to Low</option>
+                            <option value="under-5000">Under 5,000</option>
+                            <option value="5000-10000">5,000 - 10,000</option>
+                        </select>
+                    </div>
+                    <div class="filter-select">
+                        <select name="color" id="color">
+                            <option value="">Color</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                            <option value="blue">Blue</option>
+                            <option value="brown">Brown</option>
+                        </select>
+                    </div>
+                    <div class="filter-select">
+                        <select name="availability" id="availability">
+                            <option value="">Availability</option>
+                            <option value="in-stock">In Stock</option>
+                            <option value="out-stock">Out of Stock</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-right">
+                    <span class="showing">
+                        Showing 16 of 48 designs
+                    </span>
+                    <div class="sort-dropdown">
+                        <span>Sort by:</span>
+                        <select name="sort" id="sort">
+                            <option value="featured">Featured</option>
+                            <option value="newest">Newest</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-bottom">
+                <div class="selected-filter">
+                    <button type="button">
+                        Stitched &amp; Unstitched
+                        <span class="close">×</span>
+                    </button>
+                </div>
+                <a href="#" class="clear-filter">
+                    Clear All Filters
+                </a>
+            </div>
+        </section>
+
+        <!--Products Section -->
+
+        <section class="products" id="products">
+            <div class="products-container">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-product-1.png" alt="Ziba">
+                            <span class="product-badge">NEW</span>
+                            <button class="wishlist" aria-label="Add Ziba to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Ziba</h3>
+                                <span class="product-price">Rs. 18,500</span>
+                            </div>
+                            <p class="product-type">Formal Stitched</p>
+                            <p class="product-detail">Raw Silk — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#6d202b"></span>
+                                <span class="color-dot" style="--dot-color:#292929"></span>
+                                <span class="color-dot" style="--dot-color:#b3aaa0"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-product-2.png" alt="Meher">
+                            <span class="product-badge limited">LIMITED</span>
+                            <button class="wishlist" aria-label="Add Meher to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Meher</h3>
+                                <span class="product-price">Rs. 14,200</span>
+                            </div>
+                            <p class="product-type">Formal Unstitched</p>
+                            <p class="product-detail">Organza — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#d9cbb1"></span>
+                                <span class="color-dot" style="--dot-color:#eee6d7"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-product-1.png" alt="Sahar">
+                            <span class="product-badge">NEW</span>
+                            <button class="wishlist" aria-label="Add Sahar to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Sahar</h3>
+                                <span class="product-price">Rs. 9,800</span>
+                            </div>
+                            <p class="product-type">Semi-Formal Stitched</p>
+                            <p class="product-detail">Premium Cotton — 2 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#752a39"></span>
+                                <span class="color-dot" style="--dot-color:#a9a49a"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-product-3.png" alt="Anaya">
+                            <span class="product-badge limited">LIMITED</span>
+                            <button class="wishlist" aria-label="Add Anaya to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Anaya</h3>
+                                <span class="product-price">Rs. 21,000</span>
+                            </div>
+                            <p class="product-type">Formal Stitched</p>
+                            <p class="product-detail">Chiffon — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#182a46"></span>
+                                <span class="color-dot" style="--dot-color:#dedbd3"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-4.png" alt="Noor-ul-Ain">
+                            <span class="product-badge">NEW</span>
+                            <button class="wishlist" aria-label="Add Noor-ul-Ain to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Noor-ul-Ain</h3>
+                                <span class="product-price">Rs. 16,500</span>
+                            </div>
+                            <p class="product-type">Formal Unstitched</p>
+                            <p class="product-detail">Raw Silk — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#d7c6a3"></span>
+                                <span class="color-dot" style="--dot-color:#34312b"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-5.png" alt="Fiza">
+                            <span class="product-badge">NEW</span>
+                            <button class="wishlist" aria-label="Add Fiza to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Fiza</h3>
+                                <span class="product-price">Rs. 7,500</span>
+                            </div>
+                            <p class="product-type">Semi-Formal Unstitched</p>
+                            <p class="product-detail">Lawn — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#9bc4d1"></span>
+                                <span class="color-dot" style="--dot-color:#d4e4e7"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-6.png" alt="Zoya">
+                            <span class="product-badge limited">LIMITED</span>
+                            <button class="wishlist" aria-label="Add Zoya to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Zoya</h3>
+                                <span class="product-price">Rs. 24,500</span>
+                            </div>
+                            <p class="product-type">Formal Stitched</p>
+                            <p class="product-detail">Velvet — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#361524"></span>
+                                <span class="color-dot" style="--dot-color:#1b1b1b"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-7.png" alt="Nisha">
+                            <span class="product-badge">NEW</span>
+                            <button class="wishlist" aria-label="Add Nisha to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Nisha</h3>
+                                <span class="product-price">Rs. 11,500</span>
+                            </div>
+                            <p class="product-type">Semi-Formal Stitched</p>
+                            <p class="product-detail">Karandi — 2 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#c34b18"></span>
+                                <span class="color-dot" style="--dot-color:#d5c3aa"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-8.png" alt="Dariya">
+                            <button class="wishlist" aria-label="Add Dariya to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Dariya</h3>
+                                <span class="product-price">Rs. 8,200</span>
+                            </div>
+                            <p class="product-type">Semi-Formal Unstitched</p>
+                            <p class="product-detail">Lawn — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#d8a12c"></span>
+                                <span class="color-dot" style="--dot-color:#c6a178"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-9.png" alt="Haleema">
+                            <span class="product-badge">NEW</span>
+                            <button class="wishlist" aria-label="Add Haleema to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Haleema</h3>
+                                <span class="product-price">Rs. 15,800</span>
+                            </div>
+                            <p class="product-type">Formal Unstitched</p>
+                            <p class="product-detail">Organza — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#e6c3bc"></span>
+                                <span class="color-dot" style="--dot-color:#d7b2a8"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-10.png" alt="Amara">
+                            <span class="product-badge limited">LIMITED</span>
+                            <button class="wishlist" aria-label="Add Amara to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Amara</h3>
+                                <span class="product-price">Rs. 19,500</span>
+                            </div>
+                            <p class="product-type">Formal Stitched</p>
+                            <p class="product-detail">Raw Silk — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#17191e"></span>
+                                <span class="color-dot" style="--dot-color:#a31e52"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-11.png" alt="Leyla">
+                            <button class="wishlist" aria-label="Add Leyla to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Leyla</h3>
+                                <span class="product-price">Rs. 13,000</span>
+                            </div>
+                            <p class="product-type">Semi-Formal Stitched</p>
+                            <p class="product-detail">Cotton Net — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#b1c9bb"></span>
+                                <span class="color-dot" style="--dot-color:#e0e3d9"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-12.png" alt="Zara">
+                            <span class="product-badge">NEW</span>
+                            <button class="wishlist" aria-label="Add Zara to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Zara</h3>
+                                <span class="product-price">Rs. 17,900</span>
+                            </div>
+                            <p class="product-type">Semi-Formal Unstitched</p>
+                            <p class="product-detail">Chiffon — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#c7974f"></span>
+                                <span class="color-dot" style="--dot-color:#292929"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-13.png" alt="Alia">
+                            <button class="wishlist" aria-label="Add Alia to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Alia</h3>
+                                <span class="product-price">Rs. 7,900</span>
+                            </div>
+                            <p class="product-type">Semi-Formal Unstitched</p>
+                            <p class="product-detail">Lawn — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#e8b7c1"></span>
+                                <span class="color-dot" style="--dot-color:#d9c2ae"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-14.png" alt="Yasmin">
+                            <span class="product-badge limited">LIMITED</span>
+                            <button class="wishlist" aria-label="Add Yasmin to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Yasmin</h3>
+                                <span class="product-price">Rs. 22,500</span>
+                            </div>
+                            <p class="product-type">Semi-Formal Stitched</p>
+                            <p class="product-detail">Organza — 3 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#898491"></span>
+                                <span class="color-dot" style="--dot-color:#b6a8a1"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/arrival-page-products-15.png" alt="Rania">
+                            <span class="product-badge">NEW</span>
+                            <button class="wishlist" aria-label="Add Rania to wishlist">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-heading">
+                                <h3>Rania</h3>
+                                <span class="product-price">Rs. 10,200</span>
+                            </div>
+                            <p class="product-type">Semi-Formal Stitched</p>
+                            <p class="product-detail">Khaddar — 2 Piece</p>
+                            <div class="product-colors">
+                                <span class="color-dot" style="--dot-color:#07546c"></span>
+                                <span class="color-dot" style="--dot-color:#aaa69c"></span>
+                            </div>
+                            <button class="quick-add">
+                                <span>QUICK ADD +</span>
+                                <span>ADD TO BAG +</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Festive Section -->
+
+        <section class="festive">
+            <div class="festive-container">
+                <div class="festive-content">
+                    <p class="festive-subtitle">
+                        THE FESTIVE KARANDI & SILK SHOWCASE
+                    </p>
+                    <h2 class="festive-title">
+                        Unstitched Masterpieces:
+                        <br>
+                        Hand-woven and Dyed
+                    </h2>
+                    <p class="festive-description">
+                        Immerse yourself in authentic fabrics designed to be
+                        tailored to your distinct measurements. Each collection
+                        is woven with premium cotton-net, pure organza linings,
+                        and rich raw silks carrying traditional craftsmanship.
+                    </p>
+                </div>
+                <div class="festive-image">
+                    <img src="Assets/images/arrival-page-festive-banner.png"
+                        alt="Traditional golden embroidery on festive fabric">
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Section -->
+
+        <section class="join">
+            <div class="join-container">
+                <span class="join-label">JOIN US</span>
+                <h2>Be First to Experience Modern Grace</h2>
+                <p>
+                    Subscribe for early previews of seasonal collections, exclusive drops of stitched edits,
+                    and<br class="join-desktop-break">
+                    stories from our local weaving ateliers.
+                </p>
+                <form class="join-form">
+                    <input type="email" placeholder="Enter your email address..." aria-label="Email address">
+                    <button type="submit">JOIN</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer-container"></div>
+    </footer>
+</body>
+
+</html>
