@@ -7476,7 +7476,7 @@ main{
     border: none;
     outline: none;
     background: #292826;
-    color:var(--white);
+    color: var(--primary-color);
     font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 400;
