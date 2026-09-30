@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="css/product-detail-page.css">
+    <script src="js/product-detail-page.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="header-container"></div>
+    </header>
+
+    <main>
+
+        <!-- Products Details Section -->
+
+        <section class="product-details">
+            <div class="product-details-container">
+                <div class="product-gallery">
+                    <a href="index.html" class="gallery-back" aria-label="Go back">
+                        &#8592;
+                    </a>
+                    <div class="product-thumbnails">
+                        <button class="thumbnail active" aria-label="Product image 1">
+                            <img src="Assets/images/products-detail-onclick-image (3).png"
+                                alt="Noor Organza front view">
+                        </button>
+                        <button class="thumbnail" aria-label="Product image 2">
+                            <img src="Assets/images/products-detail-onclick-image (2).png"
+                                alt="Noor Organza embroidery detail">
+                        </button>
+                        <button class="thumbnail" aria-label="Product image 3">
+                            <img src="Assets/images/products-detail-onclick-image (5).png" alt="Noor Organza side view">
+                        </button>
+                        <button class="thumbnail" aria-label="Product image 4">
+                            <img src="Assets/images/products-detail-onclick-image (1).png" alt="Noor Organza back view">
+                        </button>
+                    </div>
+                    <div class="product-main-image">
+                        <img src="Assets/images/products-detail-main-image (4).png"
+                            alt="Noor Organza Stitched Suit in pale champagne">
+                        <span class="zoom-label">
+                            <span class="zoom-icon">&#9906;</span>
+                            CLICK TO ZOOM
+                        </span>
+                    </div>
+                </div>
+                <div class="product-info-panel">
+                    <p class="detail-category">
+                        FORMAL STITCHED READY-TO-WEAR
+                    </p>
+                    <h1 class="detail-product-title">
+                        Noor Organza Stitched Suit
+                    </h1>
+                    <div class="detail-rating">
+                        <span class="rating-stars">★★★★★</span>
+                        <span class="rating-count">(18 Reviews)</span>
+                    </div>
+                    <div class="detail-price">
+                        <span class="current-price">Rs. 16,500</span>
+                        <span class="tax-label">Tax Included</span>
+                    </div>
+                    <p class="product-sku">
+                        SKU: ARL-26-005-ST
+                    </p>
+                    <p class="detail-description">
+                        A masterfully stitched ready-to-wear 3-piece suit. This outfit is crafted from our signature
+                        gossamer-light premium organza, carrying delicate resham and gold tilla patterns, lined with
+                        soft
+                        premium cotton-silk. Finished beautifully with tailored matching raw silk straight trousers and
+                        an
+                        embellished organza dupatta.
+                    </p>
+                    <hr class="detail-divider">
+                    <div class="detail-color-section">
+                        <p class="detail-option-heading">
+                            COLOR: <span>PALE CHAMPAGNE</span>
+                        </p>
+                        <div class="detail-colors">
+                            <button class="detail-color" style="--color-swatch: #e3c5b7;" aria-label="Pale Champagne"
+                                title="Pale Champagne">
+                            </button>
+                            <button class="detail-color" style="--color-swatch: #222222;" aria-label="Black"
+                                title="Black">
+                            </button>
+                            <button class="detail-color" style="--color-swatch: #50352e;" aria-label="Chocolate Brown"
+                                title="Chocolate Brown">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="detail-size-section">
+                        <div class="size-heading-row">
+                            <p class="detail-option-heading">
+                                SELECT SIZE:
+                            </p>
+                            <a href="#size-guide" class="size-guide-link">
+                                <span>&#10013;</span>
+                                Size Guide
+                            </a>
+                        </div>
+                        <div class="detail-sizes">
+                            <button class="size-option">XS</button>
+                            <button class="size-option ">S</button>
+                            <button class="size-option">M</button>
+                            <button class="size-option ">L</button>
+                            <button class="size-option">XL</button>
+                        </div>
+                    </div>
+                    <div class="detail-cart-options">
+                        <div class="quantity-selector">
+                            <button type="button" aria-label="Decrease quantity">
+                                −
+                            </button>
+                            <span>1</span>
+                            <button type="button" aria-label="Increase quantity">
+                                +
+                            </button>
+                        </div>
+                        <button class="detail-wishlist" aria-label="Add to wishlist">
+                            &#9825;
+                        </button>
+                    </div>
+                    <div class="detail-purchase-buttons">
+                        <button class="add-to-bag">
+                            ADD TO BAG
+                        </button>
+                        <button class="buy-now">
+                            BUY IT NOW
+                        </button>
+                    </div>
+                    <div class="delivery-box">
+                        <div class="delivery-icon">
+                            &#128666;
+                        </div>
+                        <div class="delivery-content">
+                            <p class="delivery-title">
+                                Estimated Delivery: 2 - 4 Business Days
+                            </p>
+                            <p class="delivery-description">
+                                Free shipping nationwide on all orders over
+                                Rs. 15,000. Easy cash on delivery.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-accordions">
+                        <details class="accordion-item">
+                            <summary>
+                                <span>FIT &amp; SIZING</span>
+                                <span class="accordion-icon"></span>
+                            </summary>
+                            <div class="accordion-content" id="size-guide">
+                                <p>
+                                    This is a ready-to-wear 3-piece outfit.
+                                    Please refer to the size guide before
+                                    selecting your size.
+                                </p>
+                                <p>
+                                    Available sizes: XS, S, M, L, and XL,
+                                    subject to availability.
+                                </p>
+                            </div>
+                        </details>
+                        <details class="accordion-item">
+                            <summary>
+                                <span>CARE INSTRUCTIONS</span>
+                                <span class="accordion-icon"></span>
+                            </summary>
+                            <div class="accordion-content">
+                                <p>
+                                    Dry clean recommended to maintain the
+                                    delicate organza fabric and embroidery.
+                                </p>
+                                <p>
+                                    Store in a cool, dry place and avoid
+                                    direct contact with rough surfaces.
+                                </p>
+                            </div>
+                        </details>
+                        <details class="accordion-item">
+                            <summary>
+                                <span>SHIPPING &amp; RETURNS</span>
+                                <span class="accordion-icon"></span>
+                            </summary>
+                            <div class="accordion-content">
+                                <p>
+                                    Nationwide shipping is available.
+                                    Estimated delivery is 2–4 business days.
+                                </p>
+                                <p>
+                                    Please refer to the store's shipping
+                                    and return policy for eligibility and
+                                    further details.
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Products-list Section -->
+
+        <section class="products-list">
+            <div class="products-list-container">
+                <div class="products-list-header">
+                    <p class="products-list-subtitle">CURATED CURATION</p>
+                    <h2 class="products-list-title">You May Also Like</h2>
+                </div>
+                <div class="products-list-grid">
+                    <div class="products-list-card">
+                        <div class="products-list-image">
+                            <img src="Assets/images/Product-details-page-chiffon.png" alt="Classic Chiffon Dupatta">
+                            <button class="products-list-wishlist" aria-label="Add Classic Chiffon Dupatta to wishlist">
+                                ♡
+                            </button>
+                        </div>
+                        <div class="products-list-info">
+                            <div class="products-list-name-price">
+                                <h3>Classic Chiffon Dupatta</h3>
+                                <span class="products-list-price">Rs. 2,800</span>
+                            </div>
+                            <p class="products-list-category">
+                                Formal Stitched Ready-to-Wear
+                            </p>
+                            <p class="products-list-description">
+                                Raw Silk Panels 3 Piece
+                            </p>
+                            <p class="products-list-sizes">
+                                Sizes: <span>S M L</span>
+                            </p>
+                            <div class="products-list-bottom">
+                                <div class="products-list-colors">
+                                    <span class="products-list-color" style="--swatch: #222222;" title="Black"></span>
+                                    <span class="products-list-color" style="--swatch: #651c20;" title="Maroon"></span>
+                                </div>
+                                <div class="products-list-rating">
+                                    ★★★★★
+                                </div>
+                            </div>
+                            <button class="products-list-quick-add">
+                                QUICK ADD +
+                            </button>
+                        </div>
+                    </div>
+                    <div class="products-list-card">
+                        <div class="products-list-image">
+                            <img src="Assets/images/Product-details-page-meher.png" alt="Meher Organza Suit">
+                            <button class="products-list-wishlist" aria-label="Add Meher Organza Suit to wishlist">
+                                ♡
+                            </button>
+                        </div>
+                        <div class="products-list-info">
+                            <div class="products-list-name-price">
+                                <h3>Meher Organza Suit</h3>
+                                <span class="products-list-price">Rs. 14,200</span>
+                            </div>
+                            <p class="products-list-category">
+                                Formal Stitched Ready-to-Wear
+                            </p>
+                            <p class="products-list-description">
+                                Raw Silk Panels 3 Piece
+                            </p>
+                            <p class="products-list-sizes">
+                                Sizes: <span>S M L</span>
+                            </p>
+                            <div class="products-list-bottom">
+                                <div class="products-list-colors">
+                                    <span class="products-list-color" style="--swatch: #dce7df;" title="Mint"></span>
+                                    <span class="products-list-color" style="--swatch: #222222;" title="Black"></span>
+                                </div>
+                                <div class="products-list-rating">
+                                    ★★★★★
+                                </div>
+                            </div>
+                            <button class="products-list-quick-add">
+                                QUICK ADD +
+                            </button>
+                        </div>
+                    </div>
+                    <div class="products-list-card">
+                        <div class="products-list-image">
+                            <img src="Assets/images/Product-details-page-Ziba.png" alt="Ziba Raw Silk Suit">
+                            <button class="products-list-wishlist" aria-label="Add Ziba Raw Silk Suit to wishlist">
+                                ♡
+                            </button>
+                        </div>
+                        <div class="products-list-info">
+                            <div class="products-list-name-price">
+                                <h3>Ziba Raw Silk Suit</h3>
+                                <span class="products-list-price">Rs. 18,500</span>
+                            </div>
+                            <p class="products-list-category">
+                                Formal Stitched Ready-to-Wear
+                            </p>
+                            <p class="products-list-description">
+                                Raw Silk Panels 3 Piece
+                            </p>
+                            <p class="products-list-sizes">
+                                Sizes: <span>S M L</span>
+                            </p>
+                            <div class="products-list-bottom">
+                                <div class="products-list-colors">
+                                    <span class="products-list-color" style="--swatch: #222222;" title="Black"></span>
+                                    <span class="products-list-color" style="--swatch: #651c20;" title="Maroon"></span>
+                                </div>
+                                <div class="products-list-rating">
+                                    ★★★★★
+                                </div>
+                            </div>
+                            <button class="products-list-quick-add">
+                                QUICK ADD +
+                            </button>
+                        </div>
+                    </div>
+                    <div class="products-list-card">
+                        <div class="products-list-image">
+                            <img src="Assets/images/Product-details-page-amara.png" alt="Amara Stitched Suit">
+                            <button class="products-list-wishlist "
+                                aria-label="Add Amara Stitched Suit to wishlist">
+                                ♡
+                            </button>
+                        </div>
+                        <div class="products-list-info">
+                            <div class="products-list-name-price">
+                                <h3>Amara</h3>
+                                <span class="products-list-price">Rs. 19,500</span>
+                            </div>
+                            <p class="products-list-category">
+                                Formal Stitched Ready-to-Wear
+                            </p>
+                            <p class="products-list-description">
+                                Raw Silk Panels 3 Piece
+                            </p>
+                            <p class="products-list-sizes">
+                                Sizes: <span>S M L</span>
+                            </p>
+                            <div class="products-list-bottom">
+                                <div class="products-list-colors">
+                                    <span class="products-list-color" style="--swatch: #222222;" title="Black"></span>
+                                    <span class="products-list-color" style="--swatch: #651c20;" title="Maroon"></span>
+                                </div>
+                                <div class="products-list-rating">
+                                    ★★★★★
+                                </div>
+                            </div>
+                            <button class="products-list-quick-add">
+                                QUICK ADD +
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Join Section -->
+
+        <section class="join">
+            <div class="join-container">
+                <span class="join-label">JOIN US</span>
+                <h2>Be First to Experience Modern Grace</h2>
+                <p>
+                    Subscribe for early previews of seasonal collections, exclusive drops of stitched edits,
+                    and<br class="join-desktop-break">
+                    stories from our local weaving ateliers.
+                </p>
+                <form class="join-form">
+                    <input type="email" placeholder="Enter your email address..." aria-label="Email address">
+                    <button type="submit">JOIN</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer-container"></div>
+    </footer>
+</body>
+
+</html>

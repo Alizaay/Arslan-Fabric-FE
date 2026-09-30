@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order</title>
+    <link rel="stylesheet" href="css/track-your-order.css">
+    <script src="js/track-your-order.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="header-container"></div>
+    </header>
+
+    <main>
+        <section class="order-section">
+            <div class="order-container">
+                <div class="order-breadcrumb">
+                    <a href="#">Home</a>
+                    <span>›</span>
+                    <strong>Track Your Order</strong>
+                </div>
+                <div class="order-layout">
+                    <aside class="order-sidebar">
+                        <div class="order-card track-card">
+                            <h1>Track Your Order</h1>
+                            <p class="track-description">
+                                Enter your order details to see the latest delivery update.
+                            </p>
+                            <div class="order-field">
+                                <label for="order-number">
+                                    Order Number
+                                </label>
+                                <input type="text" id="order-number" value="#AF1024">
+                            </div>
+                            <div class="order-field">
+                                <label for="order-contact">
+                                    Email or Phone Number
+                                </label>
+                                <input type="text" id="order-contact" value="0300-1234567">
+                            </div>
+                            <button class="track-order-btn">
+                                TRACK ORDER
+                            </button>
+                            <p class="verification-note">
+                                * Verification details can be found in your SMS
+                                confirmation or email invoice.
+                            </p>
+                        </div>
+                        <div class="specimens">
+                            <h3 class="sidebar-heading">
+                                COMPONENT SPECIMENS (REVIEWER PREVIEW)
+                            </h3>
+                            <div class="specimen-card">
+                                <div class="specimen-title">
+                                    SPECIMEN A: EMPTY SEARCH STATE
+                                </div>
+                                <p>
+                                    No tracking session initiated.
+                                    Enter order credentials above.
+                                </p>
+                            </div>
+                            <div class="specimen-card error-specimen">
+                                <div class="error-title">
+                                    ⚠ We couldn't find that order
+                                </div>
+                                <p>
+                                    Please check the Order Number or Phone Number
+                                    and try again. Contact support if the problem persists.
+                                </p>
+                            </div>
+                            <button class="tracking-state">
+                                <span>✳</span>
+                                TRACKING...
+                            </button>
+                            <div class="specimen-card delivered-specimen">
+                                <div class="delivered-title">
+                                    ● &nbsp; Order Delivered Successfully
+                                </div>
+                                <p>
+                                    Delivered on: 18 September 2026 at 4:12 PM
+                                </p>
+                            </div>
+                        </div>
+                    </aside>
+                    <main class="order-main">
+                        <div class="order-card status-card">
+                            <div class="status-header">
+                                <div>
+                                    <div class="order-label">
+                                        ORDER #AF1024
+                                    </div>
+                                    <h2>
+                                        Estimated Delivery: 20 Sept 2026
+                                    </h2>
+                                </div>
+                                <span class="status-badge">
+                                    SHIPPED
+                                </span>
+                            </div>
+                            <div class="status-divider"></div>
+                            <div class="courier-row">
+                                <div class="courier-info">
+                                    <div class="courier-icon">
+                                        <img width="18" src="Assets/icons/truck.svg">
+                                    </div>
+                                    <div>
+                                        <strong>
+                                            Leopards Courier
+                                        </strong>
+                                        <span>
+                                            Tracking ID: LP123456789
+                                        </span>
+                                    </div>
+                                </div>
+                                <button class="track-shipment-btn">
+                                    TRACK SHIPMENT
+                                </button>
+                            </div>
+                        </div>
+                        <div class="order-card timeline-card">
+                            <h3 class="card-heading">
+                                JOURNEY TIMELINE
+                            </h3>
+                            <div class="timeline">
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <strong>
+                                            Order Placed
+                                        </strong>
+                                        <p>
+                                            12 September 2026, 11:34 AM —
+                                            Received by Arsalan Fabrics systems.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <strong>
+                                            Confirmed
+                                        </strong>
+                                        <p>
+                                            13 September 2026, 09:12 AM —
+                                            Verified and queued for design tailoring.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <strong>
+                                            Processing & Packaging
+                                        </strong>
+                                        <p>
+                                            14 September 2026, 04:45 PM —
+                                            Tailoring confirmed, premium cotton-silk
+                                            lining finished
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item active">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <strong>
+                                            Shipped (In Transit)
+                                        </strong>
+                                        <p>
+                                            <b>15 September 2026, 10:00 AM</b> —
+                                            Handed over to Leopards Courier Service
+                                            in Lahore Hub
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item upcoming">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <strong>
+                                            Delivered (Upcoming)
+                                        </strong>
+                                        <p>
+                                            Estimated by 20 September 2026
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-details-grid">
+                            <div class="order-card package-card">
+                                <h3 class="card-heading">
+                                    ITEMS IN PACKAGE
+                                </h3>
+                                <div class="package-item">
+                                    <img src="Assets/images/track-your-order (1).jpg"
+                                        alt="Noor Formal Dress Suit">
+                                    <div class="package-info">
+                                        <strong>
+                                            Noor Formal Dress Suit
+                                        </strong>
+                                        <span>
+                                            Qty: 1 · Size: S · Stitched
+                                        </span>
+                                        <small>
+                                            Ready-to-Wear
+                                        </small>
+                                    </div>
+                                    <strong class="package-price">
+                                        Rs. 18,500
+                                    </strong>
+                                </div>
+                                <div class="package-item">
+                                    <img src="Assets/images/track-your-order (2).jpg"
+                                        alt="Classic Chiffon Dupatta">
+                                    <div class="package-info">
+                                        <strong>
+                                            Classic Chiffon Dupatta
+                                        </strong>
+                                        <span>
+                                            Qty: 1 · One Size
+                                        </span>
+                                    </div>
+                                    <strong class="package-price">
+                                        Rs. 3,500
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="order-card address-card">
+                                <h3 class="card-heading">
+                                    DELIVERY ADDRESS
+                                </h3>
+                                <strong>
+                                    Ayesha Khan
+                                </strong>
+                                <p>
+                                    House 42-B, Sector L, Gulberg III,
+                                    Lahore, 54660, Pakistan
+                                </p>
+                                <span>
+                                    Phone: +92 300 1234567
+                                </span>
+                            </div>
+                            <div class="order-card summary-card">
+                                <h3 class="card-heading">
+                                    SUMMARY
+                                </h3>
+                                <div class="summary-line">
+                                    <span>Subtotal</span>
+                                    <strong>
+                                        Rs. 22,000
+                                    </strong>
+                                </div>
+                                <div class="summary-line">
+                                    <span>Shipping (Leopards)</span>
+                                    <strong>
+                                        Rs. 250
+                                    </strong>
+                                </div>
+                                <div class="summary-total">
+                                    <span>
+                                        Total Paid
+                                    </span>
+                                    <strong>
+                                        Rs. 22,250
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="order-card payment-detail-card">
+                                <h3 class="card-heading">
+                                    PAYMENT DETAIL
+                                </h3>
+                                <strong>
+                                    Cash on Delivery
+                                </strong>
+                                <p>
+                                    Collect at doorstep
+                                </p>
+                                <span class="pending-badge">
+                                    PENDING
+                                </span>
+                            </div>
+                            <div class="order-card help-card">
+                                <h3>
+                                    Need Help with Delivery?
+                                </h3>
+                                <p>
+                                    Our dedicated concierge is available.
+                                    Whatsapp us at +92 42 111-7788 or email
+                                    at customercare@arsalanfabrics.com
+                                </p>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer-container"></div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,1799 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #F2EDE6;
+    --secondary-color: #FBF9F6;
+    --primary-color: #1F1E1C;
+    --text-color: #EAE6DF;
+    --white: #FFFFFF;
+    --muted-white: rgba(255, 255, 255, 0.72);
+    --border-light: rgba(255, 255, 255, 0.4);
+    --color: #6B1D1D;
+    --heading: #5D524A;
+    --paragraph: #8C7F74;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    margin-top: 85px;
+}
+
+.order-section {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--secondary-color);
+}
+
+.order-container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 20px 0 60px;
+}
+
+.order-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    font-family: "Inter", sans-serif;
+}
+
+.order-breadcrumb a {
+    color: var(--paragraph);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.order-breadcrumb span {
+    color: var(--paragraph);
+}
+
+.order-breadcrumb strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.order-layout {
+    display: grid;
+    grid-template-columns: 450px minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+}
+
+.order-card {
+    background: var(--white);
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+}
+
+.order-sidebar {
+    min-width: 0;
+}
+
+.track-card {
+    padding: 24px 20px 20px;
+    width: 100%;
+    max-width: 450px;
+    min-height: 0;
+}
+
+.track-card h1 {
+    margin: 0 0 10px;
+    font-family: "Instrument Serif", Georgia, serif;
+    font-size: 36px;
+    line-height: 1.1;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+.track-description {
+    margin: 0 0 18px;
+    color: var(--heading);
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    line-height: 1.5;
+}
+
+.order-field {
+    margin-bottom: 14px;
+}
+
+.order-field label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+    font-size: 12px;
+    font-family: "Inter", sans-serif;
+    line-height: 1;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.order-field input {
+    width: 100%;
+    height: 34px;
+    border: 1px solid var(--text-color);
+    border-radius: 3px;
+    padding: 0 10px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    outline: none;
+    font-family: inherit;
+    font-size: 10px;
+}
+
+.order-field input:focus {
+    border-color: var(--color);
+}
+
+.track-order-btn {
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 3px;
+    background: var(--color);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.track-order-btn:hover {
+    background: #530c0c;
+}
+
+.track-order-btn:active {
+    transform: translateY(1px);
+}
+
+.verification-note {
+    margin: 15px 0 0;
+    color: var(--paragraph);
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    line-height: 1.4;
+}
+
+.specimens {
+    margin-top: 23px;
+}
+
+.sidebar-heading {
+    margin: 0 0 11px;
+    color: var(--paragraph);
+    font-size: 12px;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+}
+
+.specimen-card {
+    padding: 14px 13px;
+    margin-bottom: 13px;
+    background: var(--white);
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+}
+
+.specimen-title {
+    margin-bottom: 8px;
+    color: var(--paragraph);
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
+.specimen-card p {
+    margin: 0;
+    color:var(--heading);
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.error-specimen {
+    background: #FFF0F0;
+    border-color: #6B1D1D2B;
+}
+
+.error-title {
+    margin-bottom: 7px;
+    color:var(--color);
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.error-specimen p {
+    color: var(--heading);
+}
+
+.tracking-state {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 13px;
+    border: none;
+    border-radius: 3px;
+    background:var(--paragraph);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 13px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+}
+
+.tracking-state span {
+    margin-right: 4px;
+}
+
+.delivered-specimen {
+    padding: 14px 13px;
+}
+
+.delivered-title {
+    margin-bottom: 7px;
+    color: #3D5A45;
+    font-size: 13px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+}
+
+.delivered-specimen p {
+    font-size: 12px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: var(--heading);
+}
+
+.order-main {
+    min-width: 0;
+    margin-top: 0;
+}
+
+.status-card {
+    padding: 20px 20px 18px;
+}
+
+.status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.order-label {
+    margin-bottom: 5px;
+    color: var(--paragraph);
+    font-size: 12px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+}
+
+.status-header h2 {
+    margin: 0;
+    font-family: "Instrument Serif", Georgia, serif;
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+.status-badge {
+    flex-shrink: 0;
+    padding: 10px 15px;
+    border-radius: 4px;
+    background: var(--color);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
+.status-badge:hover {
+    background: #530c0c;
+} 
+
+.status-divider {
+    height: 1px;
+    margin: 18px 0;
+    background:var(--text-color);
+}
+
+.courier-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.courier-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.courier-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--main-color);
+}
+
+.courier-info strong {
+    display: block;
+    color:var(--primary-color) ;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Inter" ,sans-serif;
+}
+
+.courier-info span {
+    display: block;
+    margin-top: 2px;
+    color: var(--paragraph);
+    font-family: "Inter",sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.track-shipment-btn {
+    height: 25px;
+    padding: 0 14px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    background:var(--white);
+    color: var(--primary-color);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Inter" , sans-serif;
+    cursor: pointer;
+}
+
+.track-shipment-btn:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+
+.timeline-card {
+    margin-top: 17px;
+    padding: 22px 20px 18px;
+}
+
+.card-heading {
+    margin: 0 0 17px;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 27px;
+}
+
+.timeline-item {
+    position: relative;
+    min-height: 58px;
+    padding-bottom: 14px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -22px;
+    top: 7px;
+    bottom: -3px;
+    width: 1px;
+    background: #dcd6d0;
+}
+
+.timeline-item:last-child::before {
+    display: none;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -27px;
+    top: 3px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    z-index: 2;
+}
+
+.timeline-content strong {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
+.timeline-content p {
+    margin: 0;
+    color: var(--heading);
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+.timeline-item.active .timeline-marker {
+    width: 11px;
+    height: 11px;
+    left: -28px;
+    top: 2px;
+    background:var(--white);
+    border: 3px solid var(--color);
+}
+
+.timeline-item.active .timeline-content strong {
+    color: var(--color);
+}
+
+.timeline-item.active .timeline-content p {
+    color: var(--primary-color);
+}
+
+.timeline-item.upcoming .timeline-marker {
+    background:var(--paragraph);
+}
+
+.timeline-item.upcoming .timeline-content strong,
+.timeline-item.upcoming .timeline-content p {
+    color: var(--paragraph);
+}
+
+.order-details-grid {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.package-card {
+    padding: 17px 13px 8px;
+}
+
+.package-item {
+    display: grid;
+    grid-template-columns: 43px minmax(0, 1fr) auto;
+    gap: 9px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.package-item:last-child {
+    border-bottom: none;
+}
+
+.package-item img {
+    width: 43px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 2px;
+    background: var(--white);
+}
+
+.package-info {
+    min-width: 0;
+}
+
+.package-info strong {
+    display: block;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    line-height: 1.3;
+}
+
+.package-info span,
+.package-info small {
+    display: block;
+    color: var(--paragraph);
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    line-height: 1.35;
+}
+
+.package-price {
+    white-space: nowrap;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
+.address-card {
+    padding: 17px 15px;
+}
+
+.address-card strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
+.address-card p {
+    margin: 0 0 7px;
+    color:var(--heading);
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    line-height: 1.5;
+}
+
+.address-card span {
+    color: var(--paragraph);
+    font-size: 8px;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+}
+
+.summary-card {
+    padding: 17px 15px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    color: var(--paragraph);
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+}
+
+.summary-line strong {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding-top: 10px;
+    border-top: 1px solid var(--text-color);
+    color: var(--primary-color);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.summary-total strong {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.payment-detail-card {
+    position: relative;
+    padding: 17px 15px;
+}
+
+.payment-detail-card>strong {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--primary-color);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.payment-detail-card p {
+    margin: 0;
+    color: var(--paragraph);
+    font-size: 12px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+}
+
+.pending-badge {
+    position: absolute;
+    right: 15px;
+    top: 41px;
+    padding: 3px 6px;
+    border: 1px solid #D4AF37;
+    border-radius: 2px;
+    color:#B29026;
+    background: #FFF9E6;
+    font-size: 11px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+}
+
+
+.help-card {
+    grid-column: 2;
+    padding: 17px 15px;
+    background: var(--main-color);
+}
+
+.help-card h3 {
+    margin: 0 0 8px;
+    color: var(--primary-color);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.help-card p {
+    margin: 0;
+    color: var(--heading);
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* LARGE DESKTOP */
+
+@media (min-width: 1600px) {
+
+    .order-container {
+        width: 90%;
+        max-width: 1500px;
+    }
+
+    .order-layout {
+        grid-template-columns: 390px minmax(0, 1fr);
+        gap: 35px;
+    }
+
+    .track-card {
+        max-width: none;
+    }
+
+    .status-header h2 {
+        font-size: 34px;
+    }
+}
+
+
+/* DESKTOP / LAPTOP */
+
+@media (max-width: 1599px) {
+
+    .order-container {
+        width: min(92%, 1350px);
+    }
+
+    .order-layout {
+        grid-template-columns: 360px minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .track-card {
+        max-width: none;
+    }
+
+    .track-card h1 {
+        font-size: 32px;
+    }
+
+    .track-description {
+        font-size: 13px;
+    }
+
+    .status-header h2 {
+        font-size: 29px;
+    }
+
+    .courier-info strong {
+        font-size: 13px;
+    }
+
+    .courier-info span {
+        font-size: 11px;
+    }
+
+    .timeline-content strong {
+        font-size: 13px;
+    }
+
+    .timeline-content p {
+        font-size: 11px;
+    }
+
+    .package-info strong {
+        font-size: 12px;
+    }
+
+    .package-info span,
+    .package-info small {
+        font-size: 10px;
+    }
+
+    .package-price {
+        font-size: 12px;
+    }
+
+    .address-card strong,
+    .payment-detail-card > strong {
+        font-size: 12px;
+    }
+
+    .address-card p,
+    .summary-line,
+    .help-card p {
+        font-size: 11px;
+    }
+}
+
+
+/* LAPTOP */
+
+@media (max-width: 1199px) {
+
+    .order-container {
+        width: calc(100% - 60px);
+        max-width: 1100px;
+        padding-top: 18px;
+        padding-bottom: 50px;
+    }
+
+    .order-layout {
+        grid-template-columns: 310px minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .order-breadcrumb {
+        font-size: 11px;
+    }
+
+    .track-card {
+        padding: 22px 18px 19px;
+    }
+
+    .track-card h1 {
+        font-size: 29px;
+    }
+
+    .track-description {
+        font-size: 11px;
+    }
+
+    .order-field label {
+        font-size: 10px;
+    }
+
+    .order-field input {
+        height: 35px;
+        font-size: 11px;
+    }
+
+    .track-order-btn {
+        height: 36px;
+        font-size: 11px;
+    }
+
+    .verification-note {
+        font-size: 10px;
+    }
+
+    .sidebar-heading {
+        font-size: 10px;
+    }
+
+    .specimen-title {
+        font-size: 10px;
+    }
+
+    .specimen-card p {
+        font-size: 10px;
+    }
+
+    .error-title {
+        font-size: 10px;
+    }
+
+    .delivered-title {
+        font-size: 10px;
+    }
+
+    .delivered-specimen p {
+        font-size: 10px;
+    }
+
+    .status-card {
+        padding: 18px 18px 17px;
+    }
+
+    .status-header h2 {
+        font-size: 26px;
+    }
+
+    .order-label {
+        font-size: 10px;
+    }
+
+    .status-badge {
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+
+    .courier-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .courier-info strong {
+        font-size: 11px;
+    }
+
+    .courier-info span {
+        font-size: 10px;
+    }
+
+    .track-shipment-btn {
+        font-size: 10px;
+    }
+
+    .timeline-card {
+        padding: 20px 18px 17px;
+    }
+
+    .card-heading {
+        font-size: 11px;
+    }
+
+    .timeline-content strong {
+        font-size: 11px;
+    }
+
+    .timeline-content p {
+        font-size: 10px;
+    }
+
+    .package-info strong {
+        font-size: 11px;
+    }
+
+    .package-info span,
+    .package-info small {
+        font-size: 9px;
+    }
+
+    .package-price {
+        font-size: 11px;
+    }
+
+    .address-card strong,
+    .payment-detail-card > strong {
+        font-size: 11px;
+    }
+
+    .address-card p,
+    .address-card span,
+    .payment-detail-card p {
+        font-size: 9px;
+    }
+
+    .summary-line {
+        font-size: 10px;
+    }
+
+    .summary-total {
+        font-size: 11px;
+    }
+
+    .summary-total strong {
+        font-size: 14px;
+    }
+
+    .pending-badge {
+        font-size: 8px;
+    }
+
+    .help-card h3 {
+        font-size: 11px;
+    }
+
+    .help-card p {
+        font-size: 9px;
+    }
+}
+
+
+/* TABLET */
+
+@media (max-width: 1023px) {
+
+    .order-container {
+        width: calc(100% - 48px);
+        max-width: 900px;
+    }
+
+    .order-layout {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .order-sidebar {
+        width: 100%;
+    }
+
+    .track-card {
+        max-width: none;
+    }
+
+    .order-sidebar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 20px;
+        align-items: start;
+    }
+
+    .specimens {
+        margin-top: 0;
+    }
+
+    .track-card {
+        height: 100%;
+    }
+
+    .order-main {
+        width: 100%;
+    }
+
+    .order-details-grid {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+    }
+}
+
+
+/* SMALL TABLET */
+
+@media (max-width: 900px) {
+
+    .order-container {
+        width: calc(100% - 40px);
+    }
+
+    .order-sidebar {
+        grid-template-columns:
+            minmax(0, 0.9fr)
+            minmax(0, 1.1fr);
+    }
+
+    .track-card h1 {
+        font-size: 27px;
+    }
+
+    .status-header h2 {
+        font-size: 24px;
+    }
+
+    .courier-info strong {
+        font-size: 10px;
+    }
+
+    .courier-info span {
+        font-size: 9px;
+    }
+
+    .track-shipment-btn {
+        padding: 0 10px;
+        font-size: 9px;
+    }
+
+    .package-item {
+        grid-template-columns: 42px minmax(0, 1fr) auto;
+        gap: 7px;
+    }
+
+    .package-item img {
+        width: 42px;
+        height: 50px;
+    }
+
+    .package-info strong {
+        font-size: 10px;
+    }
+
+    .package-info span,
+    .package-info small {
+        font-size: 8px;
+    }
+
+    .package-price {
+        font-size: 9px;
+    }
+}
+
+
+/* MOBILE / LARGE MOBILE */
+
+@media (max-width: 767px) {
+
+    .order-section {
+        min-height: auto;
+    }
+
+    .order-container {
+        width: calc(100% - 32px);
+        padding: 16px 0 40px;
+    }
+
+    .order-breadcrumb {
+        gap: 6px;
+        margin-bottom: 15px;
+        font-size: 10px;
+    }
+
+    .order-sidebar {
+        display: block;
+    }
+
+    .track-card {
+        width: 100%;
+        height: auto;
+        padding: 22px 18px;
+    }
+
+    .track-card h1 {
+        font-size: 27px;
+    }
+
+    .track-description {
+        font-size: 10px;
+        margin-bottom: 17px;
+    }
+
+    .order-field {
+        margin-bottom: 13px;
+    }
+
+    .order-field label {
+        font-size: 9px;
+    }
+
+    .order-field input {
+        height: 39px;
+        font-size: 11px;
+    }
+
+    .track-order-btn {
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .verification-note {
+        font-size: 9px;
+    }
+
+    .specimens {
+        margin-top: 20px;
+    }
+
+    .sidebar-heading {
+        font-size: 9px;
+        margin-bottom: 10px;
+    }
+
+    .specimen-card {
+        padding: 13px 12px;
+        margin-bottom: 10px;
+    }
+
+    .specimen-title {
+        font-size: 8px;
+    }
+
+    .specimen-card p {
+        font-size: 9px;
+    }
+
+    .error-title {
+        font-size: 9px;
+    }
+
+    .delivered-title {
+        font-size: 9px;
+    }
+
+    .delivered-specimen p {
+        font-size: 8px;
+    }
+
+    .tracking-state {
+        height: 38px;
+        font-size: 9px;
+    }
+
+    .status-card {
+        padding: 18px 15px;
+    }
+
+    .status-header {
+        gap: 12px;
+    }
+
+    .status-header h2 {
+        font-size: 23px;
+        line-height: 1.25;
+    }
+
+    .order-label {
+        font-size: 8px;
+    }
+
+    .status-badge {
+        padding: 6px 10px;
+        font-size: 8px;
+    }
+
+    .status-divider {
+        margin: 15px 0;
+    }
+
+    .courier-row {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .courier-info {
+        gap: 9px;
+    }
+
+    .courier-icon {
+        width: 31px;
+        height: 31px;
+        flex-shrink: 0;
+    }
+
+    .courier-info strong {
+        font-size: 10px;
+    }
+
+    .courier-info span {
+        font-size: 8px;
+    }
+
+    .track-shipment-btn {
+        height: 34px;
+        padding: 0 12px;
+        font-size: 8px;
+    }
+
+    .timeline-card {
+        margin-top: 14px;
+        padding: 19px 15px 15px;
+    }
+
+    .card-heading {
+        font-size: 9px;
+        margin-bottom: 16px;
+    }
+
+    .timeline {
+        padding-left: 25px;
+    }
+
+    .timeline-item {
+        min-height: 62px;
+        padding-bottom: 13px;
+    }
+
+    .timeline-content strong {
+        font-size: 10px;
+        margin-bottom: 4px;
+    }
+
+    .timeline-content p {
+        font-size: 8px;
+        line-height: 1.5;
+    }
+
+    .order-details-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+        margin-top: 13px;
+    }
+
+    .help-card {
+        grid-column: auto;
+    }
+
+    .package-card {
+        padding: 15px 12px 7px;
+    }
+
+    .package-item {
+        grid-template-columns:
+            48px
+            minmax(0, 1fr)
+            auto;
+
+        gap: 9px;
+        padding: 9px 0;
+    }
+
+    .package-item img {
+        width: 48px;
+        height: 58px;
+    }
+
+    .package-info strong {
+        font-size: 9px;
+    }
+
+    .package-info span,
+    .package-info small {
+        font-size: 7px;
+    }
+
+    .package-price {
+        font-size: 9px;
+    }
+
+    .address-card {
+        padding: 15px 13px;
+    }
+
+    .address-card strong {
+        font-size: 10px;
+    }
+
+    .address-card p {
+        font-size: 8px;
+    }
+
+    .address-card span {
+        font-size: 8px;
+    }
+
+    .summary-card {
+        padding: 15px 13px;
+    }
+
+    .summary-line {
+        font-size: 9px;
+    }
+
+    .summary-total {
+        font-size: 10px;
+    }
+
+    .summary-total strong {
+        font-size: 13px;
+    }
+
+    .payment-detail-card {
+        padding: 15px 13px;
+    }
+
+    .payment-detail-card > strong {
+        font-size: 10px;
+    }
+
+    .payment-detail-card p {
+        font-size: 8px;
+    }
+
+    .pending-badge {
+        right: 13px;
+        top: 39px;
+        font-size: 7px;
+    }
+
+    .help-card {
+        padding: 15px 13px;
+    }
+
+    .help-card h3 {
+        font-size: 10px;
+    }
+
+    .help-card p {
+        font-size: 8px;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 599px) {
+
+    .order-container {
+        width: calc(100% - 24px);
+        padding-top: 13px;
+        padding-bottom: 30px;
+    }
+
+    .order-breadcrumb {
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    .track-card {
+        padding: 20px 15px 18px;
+    }
+
+    .track-card h1 {
+        font-size: 24px;
+    }
+
+    .track-description {
+        font-size: 9px;
+    }
+
+    .order-field label {
+        font-size: 8px;
+    }
+
+    .order-field input {
+        height: 38px;
+    }
+
+    .track-order-btn {
+        height: 39px;
+    }
+
+    .status-card {
+        padding: 17px 13px;
+    }
+
+    .status-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .status-header h2 {
+        font-size: 21px;
+    }
+
+    .status-badge {
+        align-self: flex-start;
+    }
+
+    .courier-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .track-shipment-btn {
+        width: 100%;
+    }
+
+    .timeline-card {
+        padding: 17px 13px 14px;
+    }
+
+    .timeline-content strong {
+        font-size: 9px;
+    }
+
+    .timeline-content p {
+        font-size: 7px;
+    }
+
+    .package-item {
+        grid-template-columns: 46px minmax(0, 1fr);
+    }
+
+    .package-item img {
+        width: 46px;
+        height: 55px;
+    }
+
+    .package-price {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: -3px;
+    }
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+
+    .order-container {
+        width: calc(100% - 20px);
+        padding-top: 11px;
+    }
+
+    .order-breadcrumb {
+        font-size: 8px;
+        gap: 5px;
+    }
+
+    .track-card {
+        padding: 18px 13px 16px;
+    }
+
+    .track-card h1 {
+        font-size: 22px;
+    }
+
+    .track-description {
+        font-size: 8px;
+        line-height: 1.45;
+    }
+
+    .order-field {
+        margin-bottom: 11px;
+    }
+
+    .order-field label {
+        font-size: 7px;
+    }
+
+    .order-field input {
+        height: 36px;
+        padding: 0 8px;
+        font-size: 10px;
+    }
+
+    .track-order-btn {
+        height: 37px;
+        font-size: 9px;
+    }
+
+    .verification-note {
+        font-size: 7px;
+    }
+
+    .sidebar-heading {
+        font-size: 8px;
+    }
+
+    .specimen-card {
+        padding: 11px 10px;
+    }
+
+    .specimen-title {
+        font-size: 7px;
+    }
+
+    .specimen-card p {
+        font-size: 8px;
+    }
+
+    .error-title {
+        font-size: 8px;
+    }
+
+    .delivered-title {
+        font-size: 8px;
+    }
+
+    .tracking-state {
+        height: 36px;
+        font-size: 8px;
+    }
+
+    .status-card {
+        padding: 15px 11px;
+    }
+
+    .order-label {
+        font-size: 7px;
+    }
+
+    .status-header h2 {
+        font-size: 19px;
+    }
+
+    .status-badge {
+        padding: 5px 8px;
+        font-size: 7px;
+    }
+
+    .courier-info strong {
+        font-size: 9px;
+    }
+
+    .courier-info span {
+        font-size: 7px;
+    }
+
+    .track-shipment-btn {
+        height: 32px;
+        font-size: 7px;
+    }
+
+    .timeline-card {
+        padding: 15px 11px 12px;
+    }
+
+    .card-heading {
+        font-size: 8px;
+        margin-bottom: 14px;
+    }
+
+    .timeline {
+        padding-left: 22px;
+    }
+
+    .timeline-item {
+        min-height: 60px;
+    }
+
+    .timeline-item::before {
+        left: -18px;
+    }
+
+    .timeline-marker {
+        left: -23px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .timeline-item.active .timeline-marker {
+        left: -24px;
+        width: 10px;
+        height: 10px;
+    }
+
+    .timeline-content strong {
+        font-size: 8px;
+    }
+
+    .timeline-content p {
+        font-size: 6.5px;
+    }
+
+    .package-card,
+    .address-card,
+    .summary-card,
+    .payment-detail-card,
+    .help-card {
+        padding: 13px 11px;
+    }
+
+    .package-item {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .package-item img {
+        width: 42px;
+        height: 50px;
+    }
+
+    .package-info strong {
+        font-size: 8px;
+    }
+
+    .package-info span,
+    .package-info small {
+        font-size: 6.5px;
+    }
+
+    .package-price {
+        font-size: 7px;
+    }
+
+    .address-card strong {
+        font-size: 9px;
+    }
+
+    .address-card p,
+    .address-card span {
+        font-size: 7px;
+    }
+
+    .summary-line {
+        font-size: 7px;
+    }
+
+    .summary-total {
+        font-size: 8px;
+    }
+
+    .summary-total strong {
+        font-size: 11px;
+    }
+
+    .payment-detail-card > strong {
+        font-size: 9px;
+    }
+
+    .payment-detail-card p {
+        font-size: 7px;
+    }
+
+    .pending-badge {
+        right: 11px;
+        top: 36px;
+        font-size: 6px;
+        padding: 2px 5px;
+    }
+
+    .help-card h3 {
+        font-size: 9px;
+    }
+
+    .help-card p {
+        font-size: 7px;
+    }
+}
+
+
+/* VERY SMALL PHONES */
+
+@media (max-width: 375px) {
+
+    .order-container {
+        width: calc(100% - 16px);
+    }
+
+    .order-breadcrumb {
+        font-size: 7px;
+    }
+
+    .track-card {
+        padding: 16px 11px 14px;
+    }
+
+    .track-card h1 {
+        font-size: 20px;
+    }
+
+    .track-description {
+        font-size: 7px;
+    }
+
+    .order-field label {
+        font-size: 6.5px;
+    }
+
+    .order-field input {
+        height: 34px;
+        font-size: 9px;
+    }
+
+    .track-order-btn {
+        height: 35px;
+        font-size: 8px;
+    }
+
+    .verification-note {
+        font-size: 6.5px;
+    }
+
+    .sidebar-heading {
+        font-size: 7px;
+    }
+
+    .status-card {
+        padding: 13px 9px;
+    }
+
+    .status-header h2 {
+        font-size: 17px;
+    }
+
+    .status-badge {
+        font-size: 6px;
+    }
+
+    .courier-info strong {
+        font-size: 8px;
+    }
+
+    .courier-info span {
+        font-size: 6px;
+    }
+
+    .track-shipment-btn {
+        height: 30px;
+        font-size: 6.5px;
+    }
+
+    .timeline-card {
+        padding: 13px 9px 10px;
+    }
+
+    .timeline {
+        padding-left: 20px;
+    }
+
+    .timeline-item::before {
+        left: -16px;
+    }
+
+    .timeline-marker {
+        left: -21px;
+        width: 7px;
+        height: 7px;
+    }
+
+    .timeline-item.active .timeline-marker {
+        left: -22px;
+        width: 9px;
+        height: 9px;
+    }
+
+    .timeline-content strong {
+        font-size: 7.5px;
+    }
+
+    .timeline-content p {
+        font-size: 6px;
+    }
+
+    .package-item {
+        grid-template-columns: 38px minmax(0, 1fr);
+    }
+
+    .package-item img {
+        width: 38px;
+        height: 46px;
+    }
+
+    .package-info strong {
+        font-size: 7px;
+    }
+
+    .package-info span,
+    .package-info small {
+        font-size: 5.8px;
+    }
+
+    .package-price {
+        font-size: 6.5px;
+    }
+
+    .address-card p,
+    .address-card span {
+        font-size: 6.5px;
+    }
+
+    .summary-line {
+        font-size: 6.5px;
+    }
+
+    .summary-total {
+        font-size: 7px;
+    }
+
+    .summary-total strong {
+        font-size: 10px;
+    }
+
+    .help-card h3 {
+        font-size: 8px;
+    }
+
+    .help-card p {
+        font-size: 6.5px;
+    }
+}
+

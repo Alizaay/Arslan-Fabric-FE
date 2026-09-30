@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale</title>
+    <link rel="stylesheet" href="css/sale-page.css">
+    <script src="js/sale-page.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="header-container"></div>
+    </header>
+
+    <main>
+
+        <!--Hero Section-->
+
+        <section class="hero">
+            <div class="hero-content">
+                <a href="#" class="hero-back">
+                    <span class="hero-back-arrow">←</span>
+                    <span>The Arsalan Edit — Special Prices</span>
+                </a>
+                <h1>The Sale Edit</h1>
+                <p>A considered collection of fine weaves, luminous silks and heirloom embroideries—chosen to become the
+                    pieces you remember.</p>
+                <div class="sale-buttons">
+                    <a href="#" class="sale-btn sale-btn-secondary">SHOP SALE</a>
+                    <a href="#" class="sale-btn sale-btn-secondary">UP TO 40% OFF</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="Assets/images/sale-page-main-banner.png" alt="Arsalan Fabrics Formal Dresses">
+            </div>
+        </section>
+
+        <!-- List Section -->
+
+        <section class="listsection">
+            <ul class="listsection-nav">
+                <li class="listsection-item"> <a href="#">All Sale </a> </li>
+                <li class="listsection-item"> <a href="#">Formal </a> </li>
+                <li class="listsection-item"> <a href="#">Semi-Formal </a> </li>
+                <li class="listsection-item"> <a href="#">Stitched </a> </li>
+                <li class="listsection-item"> <a href="#"> Unstitched </a> </li>
+            </ul>
+        </section>
+
+        <!--Filter Section -->
+
+        <section class="filter-section">
+            <div class="filter-middle">
+                <div class="filter-left">
+                    <div class="filter-by">
+                        <span class="filter-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <path d="M3 5h18L14 13v6l-4 2v-8L3 5z" />
+                            </svg>
+                        </span>
+                        <span>FILTER BY</span>
+                    </div>
+                    <div class="filter-select">
+                        <select name="fabric" id="fabric">
+                            <option value="">Fabric Type</option>
+                            <option value="cotton">Cotton</option>
+                            <option value="linen">Lawn</option>
+                            <option value="silk">Chiffon</option>
+                            <option value="velvet">Velvet</option>
+                        </select>
+                    </div>
+                    <div class="filter-select">
+                        <select name="price" id="price">
+                            <option value="">Price Range</option>
+                            <option value="low-high">Low to High</option>
+                            <option value="high-low">High to Low</option>
+                            <option value="under-5000">Under 5,000</option>
+                            <option value="5000-10000">5,000 - 10,000</option>
+                        </select>
+                    </div>
+                    <div class="filter-select">
+                        <select name="color" id="color">
+                            <option value="">Colors</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                            <option value="blue">Blue</option>
+                            <option value="brown">Brown</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-right">
+                    <span class="showing">
+                        Showing 16 of 64 luxury designs
+                    </span>
+                    <div class="sort-dropdown">
+                        <span>Sort by:</span>
+                        <select name="sort" id="sort">
+                            <option value="featured">Featured</option>
+                            <option value="newest">Newest</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+
+        <section class="products">
+            <div class="products-container">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (13).png" alt="Ziba unstitched suit">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Zariyah</h3>
+                                <div class="product-price">
+                                    <del>Rs. 19,500</del>
+                                    <span>Rs. 16,500</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Raw Silk 3.25m Shirt, 2.5m Silk Trouser
+                            </p>
+                            <p class="product-extra">
+                                Includes: Handcrafted Resham & Sequins Patches
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #741c27"></span>
+                                    <span style="--swatch: #222222"></span>
+                                    <span style="--swatch: #8c8177"></span>
+                                </div>
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add">QUICK ADD +</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (12).png" alt="Soraya embroidered suit">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Soraya</h3>
+                                <div class="product-price">
+                                    <span>Rs. 18,200</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Chiffon — 3.25m Embroidered Shirt,
+                            </p>
+                            <p class="product-extra">
+                                Includes: Interlace Sheesha Work & Thread Embroidery
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #d8c4ad"></span>
+                                    <span style="--swatch: #d9c5bf"></span>
+                                </div>
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add ">QUICK ADD +</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (11).png" alt="Dilara organza suit">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Dilara</h3>
+                                <div class="product-price">
+                                    <del>Rs. 17,500</del>
+                                    <span>Rs. 14,900</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Organza — 3.0m Embroidered Front/Back, Silk Pants
+                            </p>
+                            <p class="product-extra">
+                                Includes: Gota Zardozi & Silver Wire Work
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #60766d"></span>
+                                    <span style="--swatch: #4a5d4e"></span>
+                                </div>
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add">QUICK ADD +</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (10).png"
+                                alt="Yasmin plum embroidered suit">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Yasmin</h3>
+                                <div class="product-price">
+                                    <span>Rs. 22,000</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Velvet Embroidered Shirt, Jamawar Pants
+                            </p>
+                            <p class="product-extra">
+                                Includes: Heavily Embroidered Velvet Ghera
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #47162f"></span>
+                                    <span style="--swatch: #262124"></span>
+                                </div>
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add">QUICK ADD +</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (9).png" alt="Mehrunisa embroidered suit">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Mehrunisa</h3>
+                                <div class="product-price">
+                                    <span>Rs. 15,500</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Raw Silk — 3.25m Shirt, 2.5m Coordinating Trouser
+                            </p>
+                            <p class="product-extra">
+                                Includes: Classic Kashmiri Crewel Work Borders
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #c5a58c"></span>
+                                    <span style="--swatch: #222222"></span>
+                                </div>
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add">QUICK ADD +</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (8).png" alt="Dariya cotton net suit">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Dariya</h3>
+                                <div class="product-price">
+                                    <del>Rs. 15,800</del>
+                                    <span>Rs. 13,800</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Cotton Net — 3.25m Embroidered Shirt, Cotton Pants 2.5m
+                            </p>
+                            <p class="product-extra">
+                                Includes: Floral Resham Embroidery with Lace Accents
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #e7cba8"></span>
+                                    <span style="--swatch: #c6946d"></span>
+                                </div>
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add">QUICK ADD +</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (7).png" alt="Rania pure organza suit">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Rania</h3>
+                                <div class="product-price">
+                                    <span>Rs. 17,900</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Pure Organza — 3.25m Front Panel Shirt, Silk Pants 2.5m
+                            </p>
+                            <p class="product-extra">
+                                Includes: Kora and Dabka Artisan Neckline Panel
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #d5e6d7"></span>
+                                    <span style="--swatch: #f5f4ed"></span>
+                                </div>
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add">QUICK ADD +</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (18).png" alt="Sahar pearl accessories">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Sahar</h3>
+                                <div class="product-price">
+                                    <span>Rs. 11,200</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Premium Cotton — 3.25m Jacquard Shirt, Cotton Trouser 2.5m
+                            </p>
+                            <p class="product-extra">
+                                Includes: Delicate Threadwork & Pearl Embellishments
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #b5a06d"></span>
+                                    <span style="--swatch: #222222"></span>
+                                </div>
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add">QUICK ADD +</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (17).png" alt="Alia embroidered lawn suit">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Alia</h3>
+                                <div class="product-price">
+                                    <del>Rs. 18,500</del>
+                                    <span>Rs. 16,000</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Breeze Lawn — 3.25m Embroidered Front, Raw Silk Pants 2.5m
+                            </p>
+                            <p class="product-extra">
+                                Includes: Heavy Embroidered Chikankari Panels & Neck Patches
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #d9a4b9"></span>
+                                    <span style="--swatch: #f2eee8"></span>
+                                </div>
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add">QUICK ADD +</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (16).png" alt="Fiza raw silk suit">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Fiza</h3>
+                                <div class="product-price">
+                                    <span>Rs. 14,500</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Raw Silk — 3.25m Solid Shirt, Coordinating Pants 2.5m
+                            </p>
+                            <p class="product-extra">
+                                Includes: Gold Tilla Embroidered Border Patches & Sleeves
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #a6c9c9"></span>
+                                    <span style="--swatch: #e6e6e0"></span>
+                                </div>
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add">QUICK ADD +</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (15).png" alt="Zara soft chiffon suit">
+                            <span class="sale-badge">BEST SELLER</span>
+                            <button class="wishlist" aria-label="Add Ziba to wishlist">
+                                ♡
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Zara</h3>
+                                <div class="product-price">
+                                    <span>Rs. 19,800</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Soft Chiffon — 3.25m Panelled Shirt, Silk Pants 2.5m
+                            </p>
+                            <p class="product-extra">
+                                Includes: Heavy Pearl & Bead Hand Embellishments
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #bca16e"></span>
+                                    <span style="--swatch: #222222"></span>
+                                </div>
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add">QUICK ADD +</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Assets/images/sale-page-product-image (14).png"
+                                alt="Nisha embroidered karandi suit">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-top">
+                                <h3>Nisha</h3>
+                                <div class="product-price">
+                                    <span>Rs. 12,500</span>
+                                </div>
+                            </div>
+                            <p class="product-type">FORMAL UNSTITCHED · 3 PIECE COMPLETE</p>
+                            <p class="product-detail">
+                                Heavy Karandi — 3.25m Embroidered Front, Karandi Pants 2.5m
+                            </p>
+                            <p class="product-extra">
+                                Includes: Thick Woven Thread Embroidered Borders & Slits
+                            </p>
+                            <div class="product-bottom">
+                                <div class="product-colors">
+                                    <span style="--swatch: #c69b7c"></span>
+                                    <span style="--swatch: #ede1ce"></span>
+                                </div>
+
+                                <div class="product-rating">★★★★★</div>
+                            </div>
+                            <button class="quick-add">QUICK ADD +</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signature Section -->
+
+        <section class="signature">
+            <div class="signature-container">
+                <div class="signature-header">
+                    <span class="signature-eyebrow">
+                        THE SALE WON'T LAST FOREVER
+                    </span>
+                    <h2>
+                        Signature Pieces. Special Prices.
+                    </h2>
+                    <p>
+                        Explore selected fabrics and ensembles available at exceptional
+                        prices for a limited time.
+                    </p>
+                </div>
+                <div class="signature-products">
+                    <div class="signature-product">
+                        <div class="signature-image">
+                            <img src="Assets/images/seller-signature-image-1.png" alt="Mehrunisa">
+                        </div>
+                        <div class="signature-product-info">
+                            <div class="signature-title-row">
+                                <h3>Mehrunisa</h3>
+                                <span class="signature-price">Rs. 15,500</span>
+                            </div>
+                            <div class="signature-category">
+                                FORMAL UNSTITCHED · 3 PIECE COMPLETE
+                            </div>
+                            <div class="signature-description">
+                                Raw Silk — 3.25m Shirt, 2.5m Coordinating Trouser
+                            </div>
+                            <div class="signature-details">
+                                Includes: Classic Kashmiri Crewel Work borders
+                            </div>
+                            <div class="signature-bottom">
+                                <div class="signature-colors">
+                                    <span class="signature-color signature-beige"></span>
+                                    <span class="signature-color signature-black"></span>
+                                </div>
+                                <div class="signature-rating">
+                                    ★★★★★
+                                </div>
+                            </div>
+                            <button class="signature-add">
+                                QUICK ADD +
+                            </button>
+                        </div>
+                    </div>
+                    <div class="signature-product">
+                        <div class="signature-image">
+                            <img src="Assets/images/seller-signature-image-2.png" alt="Mehrunisa">
+                        </div>
+                        <div class="signature-product-info">
+                            <div class="signature-title-row">
+                                <h3>Mehrunisa</h3>
+                                <span class="signature-price">Rs. 15,500</span>
+                            </div>
+                            <div class="signature-category">
+                                FORMAL UNSTITCHED · 3 PIECE COMPLETE
+                            </div>
+                            <div class="signature-description">
+                                Raw Silk — 3.25m Shirt, 2.5m Coordinating Trouser
+                            </div>
+                            <div class="signature-details">
+                                Includes: Classic Kashmiri Crewel Work borders
+                            </div>
+                            <div class="signature-bottom">
+                                <div class="signature-colors">
+                                    <span class="signature-color signature-beige"></span>
+                                    <span class="signature-color signature-black"></span>
+                                </div>
+                                <div class="signature-rating">
+                                    ★★★★★
+                                </div>
+                            </div>
+                            <button class="signature-add">
+                                QUICK ADD +
+                            </button>
+                        </div>
+                    </div>
+                    <div class="signature-product">
+                        <div class="signature-image">
+                            <img src="Assets/images/seller-signature-image-3.png" alt="Mehrunisa">
+                        </div>
+                        <div class="signature-product-info">
+                            <div class="signature-title-row">
+                                <h3>Mehrunisa</h3>
+                                <span class="signature-price">Rs. 15,500</span>
+                            </div>
+                            <div class="signature-category">
+                                FORMAL UNSTITCHED · 3 PIECE COMPLETE
+                            </div>
+                            <div class="signature-description">
+                                Raw Silk — 3.25m Shirt, 2.5m Coordinating Trouser
+                            </div>
+                            <div class="signature-details">
+                                Includes: Classic Kashmiri Crewel Work borders
+                            </div>
+                            <div class="signature-bottom">
+                                <div class="signature-colors">
+                                    <span class="signature-color signature-beige"></span>
+                                    <span class="signature-color signature-black"></span>
+                                </div>
+                                <div class="signature-rating">
+                                    ★★★★★
+                                </div>
+                            </div>
+                            <button class="signature-add">
+                                QUICK ADD +
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Choose Section -->
+
+        <section class="choose" id="choose">
+            <div class="choose-container">
+                <div class="choose-item">
+                    <h3>EXCLUSIVE PRICES</h3>
+                    <p>Special pricing on selected Arsalan Fabrics designs.</p>
+                </div>
+                <div class="choose-item">
+                    <h3>PREMIUM CRAFTSMANSHIP</h3>
+                    <p>Exceptional fabrics and thoughtful details remain at the<br class="desktop-break"> heart of every
+                        piece.</p>
+                </div>
+                <div class="choose-item">
+                    <h3>LIMITED AVAILABILITY</h3>
+                    <p>Selected sale pieces are available while stocks last.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fabric Section -->
+
+        <section class="fabric" id="fabric">
+            <div class="fabric-container">
+                <div class="fabric-content">
+                    <span class="fabric-eyebrow">
+                        THE FINAL EDIT
+                    </span>
+                    <h2>
+                        Beautifully Crafted.<br>
+                        Beautifully Priced.
+                    </h2>
+                    <p>
+                        Discover selected embroidered fabrics, timeless silhouettes,
+                        and signature pieces at exceptional prices.
+                    </p>
+                </div>
+                <div class="fabric-image">
+                    <img src="Assets/images/sale-page-editor-image.png" alt="Embroidered fabric">
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Section -->
+
+        <section class="join">
+            <div class="join-container">
+                <span class="join-label">JOIN US</span>
+                <h2>Be First to Experience Modern Grace</h2>
+                <p>
+                    Subscribe for early previews of seasonal collections, exclusive drops of stitched edits,
+                    and<br class="join-desktop-break">
+                    stories from our local weaving ateliers.
+                </p>
+                <form class="join-form">
+                    <input type="email" placeholder="Enter your email address..." aria-label="Email address">
+                    <button type="submit">JOIN</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer-container"></div>
+    </footer>
+</body>
+
+</html>

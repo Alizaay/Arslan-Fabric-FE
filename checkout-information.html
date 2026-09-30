@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Information</title>
+    <link rel="stylesheet" href="css/checkout-information.css">
+    <script src="js/checkout-information.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="header-container"></div>
+    </header>
+
+    <main>
+        <section class="shipping-section">
+            <div class="checkout-wrapper">
+                <main class="checkout-left">
+                    <div class="steps">
+                        <span class="active">Information</span>
+                        <span>Shipping</span>
+                        <span>Payment</span>
+                        <span>Review</span>
+                    </div>
+                    <div class="form-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Contact Information</h2>
+                            <div class="login-text">
+                                Already have an account?
+                                <a href="#">Log in</a>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="" />
+                        </div>
+                        <label class="newsletter">
+                            <input type="checkbox" checked />
+                            <span>Email me with news, collection previews and exclusive offers</span>
+                        </label>
+                    </div>
+                    <div class="form-section">
+                        <h2 class="section-title">Shipping Address</h2>
+                        <div class="field">
+                            <label for="country">Country / Region</label>
+                            <select id="country">
+                                <option>Pakistan</option>
+                                <option>USA</option>
+                                <option>India</option>
+                                <option>Turkey</option>
+                                <option>Saudia Arabia</option>
+                            </select>
+                        </div>
+                        <div class="two-columns">
+                            <div class="field">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" placeholder="First Name" />
+                            </div>
+                            <div class="field">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" placeholder="Last Name" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" placeholder="Apartment, street address, area or sector" />
+                        </div>
+                        <div class="field">
+                            <label for="suite">
+                                Apartment, Suite, Unit etc. (Optional)
+                            </label>
+                            <input type="text" id="suite" placeholder="Suite 4B, 3rd Floor" />
+                        </div>
+                        <div class="three-columns">
+                            <div class="field">
+                                <label for="city">City</label>
+                                <input type="text" id="city" value="Lahore" />
+                            </div>
+                            <div class="field">
+                                <label for="province">Province</label>
+                                <select id="province">
+                                    <option>Punjab</option>
+                                    <option>Sindh</option>
+                                    <option>Khyber Pakhtunkhwa</option>
+                                    <option>Balochistan</option>
+                                    <option>Islamabad Capital Territory</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="postal">Postal Code</label>
+                                <input type="number" id="postal" class="error-input" placeholder="00000" />
+                                <div class="error-message">
+                                    Enter a valid postal code (e.g. 54000)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="phone">
+                                Phone Number (For Courier Contact)
+                            </label>
+                            <input type="tel" id="phone" placeholder="e.g. +92 300 1234567" />
+                        </div>
+                        <label class="save-information">
+                            <input type="checkbox" />
+                            <span>Save this information for a faster checkout next time</span>
+                        </label>
+                    </div>
+                    <div class="shipping-method">
+                        <h2 class="section-title">Shipping Method</h2>
+                        <div class="shipping-option">
+                            <div class="option-left">
+                                <span class="radio selected"></span>
+                                <div>
+                                    <div class="option-title">Courier Service</div>
+                                    <div class="option-subtitle">
+                                        Estimated delivery: 2 - 4 business days nationwide
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="option-price">
+                                PKR 275
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-section">
+                        <h2 class="section-title">Payment</h2>
+                        <div class="security-text">
+                            🔒 All transactions are secure and encrypted.
+                        </div>
+                        <div class="payment-box">
+                            <div class="payment-main">
+                                <div class="payment-label">
+                                    <span class="radio selected"></span>
+                                    <span>Debit / Credit Card</span>
+                                </div>
+                                <div class="cards">
+                                    <div class="card-logo unionpay"><img src="Assets/images/images (1) 1.png"></div>
+                                    <div class="card-logo mastercard"><img src="Assets/images/Mastercard_logo 1.png"></div>
+                                    <div class="card-logo visa"><img src="Assets/images/Visa-icon 1.png"></div>
+                                </div>
+                            </div>
+                            <div class="payment-description">
+                                You'll be redirected to complete your purchase securely
+                                via your bank's payment gateway.
+                            </div>
+                            <div class="payment-row">
+                                <span class="radio"></span>
+                                <span>JazzCash</span>
+                                <span style="margin-left:auto;">
+                                    <img width="30" src="Assets/images/Jazzcash-logo.png">
+                                </span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="radio"></span>
+                                <span>Easypaisa</span>
+                                <span style="margin-left: auto;">
+                                   <img width="40" src="Assets/images/Easypaisa-logo.png">
+                                </span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="radio"></span>
+                                <span>Cash on Delivery (COD)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="billing-section">
+                        <h2 class="section-title">Billing Address</h2>
+                        <div class="billing-description">
+                            Select the address that matches your card or payment method.
+                        </div>
+                        <div class="billing-box">
+                            <div class="billing-option">
+                                <span class="radio selected"></span>
+                                <div>
+                                    <div class="billing-title">
+                                        Same as shipping address
+                                    </div>
+                                    <div class="billing-address">
+                                        Aliza · Lahore, Punjab, Pakistan
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="billing-option">
+                                <span class="radio"></span>
+                                <div class="billing-title">
+                                    Use a different billing address
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkout-actions">
+                        <a href="#" class="return-link">
+                            Return to Product Detail
+                        </a>
+                        <button class="complete-btn">
+                            COMPLETE ORDER
+                        </button>
+                    </div>
+                </main>
+                <aside class="checkout-right">
+                    <div class="product">
+                        <div style="position:relative;">
+                            <img class="product-image" src="Assets/images/Checkout-information-image.png"
+                                alt="Noor Organza Stitched Suit" />
+                            <span class="quantity">1</span>
+                        </div>
+                        <div class="product-details">
+                            <div class="product-name">
+                                Noor Organza Stitched Suit
+                            </div>
+                            <div class="product-type">
+                                FORMAL STITCHED · 3 PIECE
+                            </div>
+                            <div class="product-variant">
+                                Color: Pale Champagne / Size: S
+                            </div>
+                        </div>
+                        <div class="product-price">
+                            Rs. 16,500
+                        </div>
+                    </div>
+                    <div class="discount">
+                        <input type="text" placeholder="Discount code or gift card" />
+                        <button class="apply-btn">
+                            APPLY
+                        </button>
+                    </div>
+                    <div class="summary">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <strong>Rs. 16,500</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <strong>PKR 275</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Discount</span>
+                            <strong class="discount-value">-Rs. 0</strong>
+                        </div>
+                        <div class="total-row">
+                            <span class="total-label">
+                                Total
+                            </span>
+                            <span class="total-price">
+                                <span class="currency">PKR</span>
+                                Rs. 16,775
+                            </span>
+                        </div>
+                    </div>
+                    <div class="benefits">
+                        <div class="benefit">
+                            <div class="benefit-icon">▱</div>
+                            <div>
+                                <div class="benefit-title">
+                                    Complimentary Express Shipping
+                                </div>
+                                <div class="benefit-text">
+                                    On orders over Rs. 15,000. Delivered in 2 - 4
+                                    business days nationwide.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon">♢</div>
+                            <div>
+                                <div class="benefit-title">
+                                    Meticulous Quality Assurance
+                                </div>
+                                <div class="benefit-text">
+                                    Each stitched attire is thoroughly inspected and
+                                    packaged in protective premium garment boxes.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#">Terms of Service</a>
+                        <span>•</span>
+                        <a href="#">Refund Policy</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer-container"></div>
+    </footer>
+</body>
+
+</html>

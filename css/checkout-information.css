@@ -1,0 +1,1622 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #F2EDE6;
+    --secondary-color: #FBF9F6;
+    --primary-color: #1F1E1C;
+    --text-color: #EAE6DF;
+    --white: #FFFFFF;
+    --muted-white: rgba(255, 255, 255, 0.72);
+    --border-light: rgba(255, 255, 255, 0.4);
+    --color: #6B1D1D;
+    --heading: #5D524A;
+    --paragraph: #8C7F74;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    margin-top: 40px;
+}
+
+.shipping-section {
+    width: 100%;
+    min-height: 100vh;
+    border-top: 1px solid var(--text-color);
+}
+
+.checkout-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(350px, 0.9fr);
+}
+
+.checkout-left {
+    padding: 46px 58px 60px;
+    border-right: 1px solid #e5e0db;
+    background: #faf9f7;
+}
+
+.steps {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 38px;
+    font-family: "Geist", sans-serif;
+    color: var(--paragraph);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.steps .active {
+    color: var(--color);
+    font-weight: 600;
+    font-size: 13px;
+    font-family: "Geist", sans-serif;
+}
+
+.steps span:not(:last-child)::after {
+    content: "›";
+    margin-left: 20px;
+    color: var(--paragraph);
+}
+
+.form-section {
+    margin-bottom: 31px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-family: "Geist", sans-serif;
+    font-weight: 600;
+    margin-bottom: 9px;
+    color: var(--primary-color);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-text {
+    color: var(--paragraph);
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Geist", sans-serif;
+}
+
+.login-text a {
+    color: var(--color);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+label {
+    display: block;
+    color: var(--paragraph);
+    font-family: "Geist", sans-serif;
+    font-size: 12px;
+    font-family: 600;
+    letter-spacing: 0.15px;
+    margin-bottom: 6px;
+}
+
+input,
+select {
+    width: 100%;
+    height: 33px;
+    border: 1px solid #1F1E1C14;
+    border-radius: 3px;
+    background: var(--white);
+    padding: 0 11px;
+    font-family: "Geist", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--primary-color);
+    outline: none;
+    font-size: 11px;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--color);
+}
+
+input::placeholder {
+    color: var(--paragraph);
+    font-family: "Geist", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.newsletter {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 10px;
+    color: var(--paragraph);
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Geist", sans-serif;
+}
+
+.newsletter input {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--color);
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.three-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.error-input {
+    border-color: var(--color);
+}
+
+.error-message {
+    color: var(--color);
+    font-size: 12px;
+    font-family: "Geist", sans-serif;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.save-information {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--paragraph);
+    font-family: "Geist", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.save-information input {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--color);
+}
+
+.shipping-method {
+    margin-top: 39px;
+}
+
+.shipping-option,
+.payment-box,
+.billing-box {
+    border: 1px solid #e6e1dc;
+    background: var(--white);
+    border-radius: 3px;
+}
+
+.shipping-option {
+    min-height: 49px;
+    border-color: var(--color);
+    display: flex;
+    align-items: center;
+    padding: 9px 11px;
+    justify-content: space-between;
+}
+
+.option-left {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.radio {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #C8BFB8;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.radio.selected {
+    border-color: var(--color);
+}
+
+.radio.selected::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--color);
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+}
+
+.option-title {
+    font-weight: 600;
+    font-family: "Geist", sans-serif;
+    font-size: 14px;
+    margin-bottom: 2px;
+    color: var(--primary-color);
+}
+
+.option-subtitle {
+    font-family: "Geist", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--paragraph);
+}
+
+.option-price {
+    font-size: 14px;
+    font-family: "Geist", sans-serif;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.payment-section {
+    margin-top: 27px;
+}
+
+.security-text {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Geist", sans-serif;
+    color: var(--paragraph);
+    margin-bottom: 13px;
+}
+
+.payment-box {
+    overflow: hidden;
+}
+
+.payment-row {
+    min-height: 43px;
+    display: flex;
+    align-items: center;
+    padding: 0 11px;
+    border-bottom: 1px solid var(--text-color);
+    gap: 9px;
+}
+
+.payment-row span {
+    font-family: "Geist", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+.payment-row:last-child {
+    border-bottom: none;
+}
+
+.payment-main {
+    min-height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 11px;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.payment-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 14px;
+    font-family: "Geist", sans-serif;
+    font-weight: 600;
+}
+
+.cards {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+
+.payment-description {
+    padding: 12px 31px;
+    border-bottom: 1px solid #ebe7e3;
+    color: var(--paragraph);
+    font-size: 14px;
+    font-family: "Geist", sans-serif;
+    font-weight: 400;
+}
+
+.billing-section {
+    margin-top: 28px;
+}
+
+.billing-description {
+    color: var(--paragraph);
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Geist", sans-serif;
+    margin-bottom: 13px;
+}
+
+.billing-box {
+    overflow: hidden;
+}
+
+.billing-option {
+    min-height: 47px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 11px;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.billing-option:last-child {
+    border-bottom: none;
+}
+
+.billing-title {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Geist", sans-serif;
+    color: var(--primary-color);
+}
+
+.billing-address {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Geist", sans-serif;
+    color: var(--heading);
+    margin-top: 2px;
+}
+
+.checkout-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.return-link {
+    color:var(--paragraph);
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Geist", sans-serif;
+    text-decoration: none;
+}
+
+.return-link::before {
+    content: "←";
+    color: var(--paragraph);
+    margin-right: 7px;
+}
+
+.complete-btn {
+    border: none;
+    background: var(--color);
+    color: var(--white);
+    height: 49px;
+    min-width: 178px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Geist", sans-serif;
+    cursor: pointer;
+}
+
+.complete-btn:hover {
+    background: #561111;
+}
+
+.checkout-right {
+    padding: 37px 57px;
+    background: #F5F2EC;
+    margin-top: 40px;
+}
+
+.product {
+    display: flex;
+    gap: 13px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1F1E1C14;
+}
+
+.product-image {
+    width: 58px;
+    height: 72px;
+    background: var(--white);
+    border-radius: 2px;
+    object-fit: cover;
+}
+
+.product-details {
+    flex: 1;
+}
+
+.product-name {
+    font-family: "Instrument Serif", serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--primary-color);
+    margin-bottom: 7px;
+}
+
+.product-type {
+    color: var(--color);
+    font-size: 12px;
+    font-family: "Geist" ,sans-serif;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.product-variant {
+    color: var(--heading);
+    font-size: 14px;
+    font-family: "Geist" ,sans-serif;
+    font-weight: 400;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Geist" ,sans-serif;
+    color: var(--primary-color);
+    white-space: nowrap;
+    margin-top: 14px;
+}
+
+.quantity {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--white);
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-left: -7px;
+    margin-top: -4px;
+}
+
+.discount {
+    display: flex;
+    gap: 9px;
+    margin-top: 24px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #1F1E1C14;
+}
+
+.discount input {
+    height: 33px;
+    flex: 1;
+    background: var(--white);
+}
+
+.apply-btn {
+    width: 79px;
+    border: none;
+    background: var(--color);
+    color:var(--white);
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Geist", sans-serif;
+}
+
+.summary {
+    padding-top: 21px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--heading);
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Geist", sans-serif;
+}
+
+.summary-row strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.discount-value {
+    color: var(--color) !important;
+}
+
+.total-row {
+    border-top: 1px solid #1F1E1C14;
+    padding-top: 18px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-label {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Geist", sans-serif;
+    color: var(--primary-color);
+
+}
+
+.total-price {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Geist", sans-serif;
+    color: var(--primary-color);
+}
+
+.currency {
+    color:var(--paragraph);
+    font-weight: 600;
+    font-family: "Geist", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    margin-right: 5px;
+}
+
+.benefits {
+    margin-top: 27px;
+    background: var(--secondary-color);
+    border: 1px solid #1F1E1C14;
+    border-radius: 3px;
+    padding: 13px;
+}
+
+.benefit {
+    display: flex;
+    gap: 9px;
+}
+
+.benefit+.benefit {
+    margin-top: 14px;
+}
+
+.benefit-icon {
+    color: var(--color);
+    font-size: 18px;
+    width: 15px;
+}
+
+.benefit-title {
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "Geist", sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 2px;
+}
+
+.benefit-text {
+    font-size: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Geist", sans-serif;
+    line-height: 1.35;
+    color: var(--heading);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    margin-top: 39px;
+    color: var(--paragraph);
+    font-size: 12px;
+    font-family: "Geist", sans-serif;
+}
+
+.footer-links a {
+    color: inherit;
+}
+
+/* LARGE LAPTOPS / DESKTOP */
+
+@media (max-width: 1399px) {
+
+    .checkout-wrapper {
+        grid-template-columns: minmax(0, 1.3fr) minmax(330px, 0.8fr);
+    }
+
+    .checkout-left {
+        padding: 42px 48px 55px;
+    }
+
+    .checkout-right {
+        padding: 34px 42px;
+    }
+
+    .product-name {
+        font-size: clamp(19px, 1.5vw, 22px);
+    }
+
+    .product-variant {
+        font-size: 13px;
+    }
+
+    .product-price {
+        font-size: 15px;
+    }
+
+    .section-title {
+        font-size: 17px;
+    }
+
+    .total-price {
+        font-size: 22px;
+    }
+}
+
+
+/* LAPTOPS */
+
+@media (max-width: 1199px) {
+
+    .checkout-wrapper {
+        grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+    }
+
+    .checkout-left {
+        padding: 38px 36px 50px;
+    }
+
+    .checkout-right {
+        padding: 32px 30px;
+    }
+
+    .steps {
+        gap: 10px;
+        margin-bottom: 32px;
+        font-size: 12px;
+    }
+
+    .steps .active {
+        font-size: 12px;
+    }
+
+    .steps span:not(:last-child)::after {
+        margin-left: 13px;
+    }
+
+    .section-title {
+        font-size: 16px;
+    }
+
+    .login-text {
+        font-size: 12px;
+    }
+
+    label {
+        font-size: 11px;
+    }
+
+    input,
+    select {
+        height: 38px;
+        font-size: 13px;
+    }
+
+    input::placeholder {
+        font-size: 12px;
+    }
+
+    .newsletter,
+    .save-information {
+        font-size: 12px;
+    }
+
+    .option-title {
+        font-size: 13px;
+    }
+
+    .option-subtitle {
+        font-size: 11px;
+    }
+
+    .option-price {
+        font-size: 13px;
+    }
+
+    .payment-row span,
+    .payment-label,
+    .payment-description,
+    .billing-title {
+        font-size: 12px;
+    }
+
+    .billing-description {
+        font-size: 11px;
+    }
+
+    .billing-address {
+        font-size: 10px;
+    }
+
+    .complete-btn {
+        min-width: 160px;
+        height: 46px;
+        font-size: 12px;
+    }
+
+    .return-link {
+        font-size: 12px;
+    }
+
+    .product {
+        gap: 10px;
+    }
+
+    .product-image {
+        width: 55px;
+        height: 68px;
+    }
+
+    .product-name {
+        font-size: 18px;
+    }
+
+    .product-type {
+        font-size: 10px;
+    }
+
+    .product-variant {
+        font-size: 11px;
+    }
+
+    .product-price {
+        font-size: 13px;
+        margin-top: 10px;
+    }
+
+    .summary-row {
+        font-size: 12px;
+    }
+
+    .total-label {
+        font-size: 16px;
+    }
+
+    .total-price {
+        font-size: 20px;
+    }
+
+    .benefit-title {
+        font-size: 11px;
+    }
+
+    .benefit-text {
+        font-size: 10px;
+    }
+
+    .footer-links {
+        font-size: 10px;
+    }
+}
+
+
+/* TABLETS / SMALL LAPTOPS */
+
+@media (max-width: 991px) {
+
+    .checkout-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .checkout-left {
+        width: 100%;
+        padding: 38px 40px 50px;
+        border-right: none;
+    }
+
+    .checkout-right {
+        width: 100%;
+        margin-top: 0;
+        padding: 35px 40px 45px;
+        border-top: 1px solid #1F1E1C14;
+    }
+
+    .two-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-columns {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .product {
+        max-width: 850px;
+        margin: 0 auto;
+    }
+
+    .discount,
+    .summary,
+    .benefits,
+    .footer-links {
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .discount {
+        margin-top: 24px;
+    }
+
+    .summary {
+        padding-top: 21px;
+    }
+
+    .benefits {
+        margin-top: 27px;
+    }
+
+    .footer-links {
+        margin-top: 35px;
+    }
+}
+
+
+/* TABLETS */
+
+@media (max-width: 767px) {
+
+    .checkout-left {
+        padding: 30px 28px 40px;
+    }
+
+    .checkout-right {
+        padding: 30px 28px 40px;
+    }
+
+    .steps {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        margin-bottom: 28px;
+        scrollbar-width: none;
+    }
+
+    .steps::-webkit-scrollbar {
+        display: none;
+    }
+
+    .steps span {
+        flex-shrink: 0;
+    }
+
+    .steps span:not(:last-child)::after {
+        margin-left: 12px;
+        margin-right: 2px;
+    }
+
+    .section-header {
+        gap: 20px;
+    }
+
+    .section-title {
+        font-size: 16px;
+    }
+
+    .login-text {
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .two-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .three-columns {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    input,
+    select {
+        height: 40px;
+    }
+
+    .newsletter,
+    .save-information {
+        align-items: flex-start;
+        line-height: 1.4;
+    }
+
+    .shipping-option {
+        min-height: 58px;
+    }
+
+    .option-subtitle {
+        line-height: 1.4;
+    }
+
+    .payment-main {
+        min-height: 52px;
+    }
+
+    .payment-description {
+        line-height: 1.5;
+    }
+
+    .checkout-actions {
+        margin-top: 32px;
+    }
+
+    .complete-btn {
+        min-width: 160px;
+        height: 45px;
+    }
+
+    .product-name {
+        font-size: 19px;
+    }
+
+    .product-price {
+        font-size: 14px;
+    }
+
+    .total-price {
+        font-size: 21px;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 599px) {
+
+    .shipping-section {
+        min-height: auto;
+    }
+
+    .checkout-left {
+        padding: 25px 20px 35px;
+    }
+
+    .checkout-right {
+        padding: 28px 20px 35px;
+    }
+
+    .steps {
+        margin-bottom: 25px;
+        gap: 8px;
+        font-size: 11px;
+    }
+
+    .steps .active {
+        font-size: 11px;
+    }
+
+    .steps span:not(:last-child)::after {
+        margin-left: 8px;
+    }
+
+    .section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .section-title {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .login-text {
+        font-size: 11px;
+    }
+
+    .two-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .three-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .field {
+        margin-bottom: 14px;
+    }
+
+    label {
+        font-size: 10px;
+    }
+
+    input,
+    select {
+        height: 42px;
+        font-size: 13px;
+    }
+
+    input::placeholder {
+        font-size: 12px;
+    }
+
+    .newsletter,
+    .save-information {
+        font-size: 11px;
+    }
+
+    .shipping-option {
+        align-items: flex-start;
+        gap: 15px;
+        padding: 12px;
+    }
+
+    .option-left {
+        align-items: flex-start;
+    }
+
+    .option-title {
+        font-size: 12px;
+    }
+
+    .option-subtitle {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .option-price {
+        font-size: 12px;
+        white-space: nowrap;
+        padding-top: 2px;
+    }
+
+    .payment-main {
+        min-height: 58px;
+        padding: 10px 11px;
+        gap: 10px;
+    }
+
+    .payment-label {
+        font-size: 11px;
+    }
+
+    .cards {
+        gap: 4px;
+    }
+
+    .cards img {
+        max-width: 30px;
+        max-height: 20px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .payment-description {
+        padding: 11px 25px;
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .payment-row {
+        min-height: 47px;
+        padding: 0 11px;
+    }
+
+    .payment-row span {
+        font-size: 11px;
+    }
+
+    .payment-row img {
+        max-width: 40px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .billing-option {
+        min-height: 52px;
+    }
+
+    .billing-title {
+        font-size: 11px;
+    }
+
+    .billing-address {
+        font-size: 10px;
+    }
+
+    .billing-description {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .checkout-actions {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: stretch;
+        gap: 18px;
+        margin-top: 30px;
+    }
+
+    .complete-btn {
+        width: 100%;
+        min-width: 0;
+        height: 48px;
+    }
+
+    .return-link {
+        text-align: center;
+        font-size: 11px;
+    }
+
+    .product {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr);
+        column-gap: 11px;
+        row-gap: 10px;
+    }
+
+    .product-price {
+        grid-column: 2;
+        margin-top: 0;
+        font-size: 13px;
+    }
+
+    .product-name {
+        font-size: 18px;
+        line-height: 1.2;
+    }
+
+    .product-type {
+        font-size: 9px;
+    }
+
+    .product-variant {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .discount {
+        margin-top: 20px;
+        gap: 7px;
+    }
+
+    .discount input {
+        height: 40px;
+        min-width: 0;
+        font-size: 11px;
+    }
+
+    .apply-btn {
+        width: 70px;
+        min-width: 70px;
+        font-size: 11px;
+    }
+
+    .summary-row {
+        font-size: 11px;
+        margin-bottom: 9px;
+    }
+
+    .total-row {
+        padding-top: 15px;
+    }
+
+    .total-label {
+        font-size: 15px;
+    }
+
+    .total-price {
+        font-size: 19px;
+    }
+
+    .currency {
+        font-size: 10px;
+    }
+
+    .benefits {
+        padding: 12px;
+    }
+
+    .benefit {
+        gap: 8px;
+    }
+
+    .benefit-title {
+        font-size: 10px;
+    }
+
+    .benefit-text {
+        font-size: 9px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 9px;
+        margin-top: 28px;
+    }
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+
+    .checkout-left {
+        padding: 22px 16px 32px;
+    }
+
+    .checkout-right {
+        padding: 25px 16px 32px;
+    }
+
+    .steps {
+        font-size: 10px;
+        gap: 6px;
+    }
+
+    .steps .active {
+        font-size: 10px;
+    }
+
+    .steps span:not(:last-child)::after {
+        margin-left: 6px;
+    }
+
+    .section-title {
+        font-size: 15px;
+    }
+
+    .login-text {
+        font-size: 10px;
+    }
+
+    input,
+    select {
+        height: 41px;
+    }
+
+    .newsletter,
+    .save-information {
+        font-size: 10px;
+    }
+
+    .shipping-method {
+        margin-top: 32px;
+    }
+
+    .payment-section {
+        margin-top: 24px;
+    }
+
+    .billing-section {
+        margin-top: 25px;
+    }
+
+    .shipping-option {
+        padding: 11px 10px;
+    }
+
+    .option-title {
+        font-size: 11px;
+    }
+
+    .option-subtitle {
+        font-size: 9px;
+    }
+
+    .option-price {
+        font-size: 11px;
+    }
+
+    .payment-label {
+        font-size: 10px;
+    }
+
+    .payment-description {
+        font-size: 9px;
+        padding: 10px 22px;
+    }
+
+    .payment-row span {
+        font-size: 10px;
+    }
+
+    .product {
+        grid-template-columns: 52px minmax(0, 1fr);
+    }
+
+    .product-image {
+        width: 52px;
+        height: 65px;
+    }
+
+    .product-name {
+        font-size: 17px;
+    }
+
+    .product-type {
+        font-size: 8px;
+    }
+
+    .product-variant {
+        font-size: 9px;
+    }
+
+    .product-price {
+        font-size: 12px;
+    }
+
+    .discount input {
+        height: 38px;
+    }
+
+    .apply-btn {
+        height: 38px;
+        width: 65px;
+        min-width: 65px;
+    }
+
+    .total-label {
+        font-size: 14px;
+    }
+
+    .total-price {
+        font-size: 18px;
+    }
+
+    .benefit-title {
+        font-size: 9px;
+    }
+
+    .benefit-text {
+        font-size: 8px;
+    }
+}
+
+
+/* VERY SMALL PHONES */
+
+@media (max-width: 375px) {
+
+    .checkout-left {
+        padding: 20px 12px 28px;
+    }
+
+    .checkout-right {
+        padding: 22px 12px 28px;
+    }
+
+    .steps {
+        font-size: 9px;
+        gap: 5px;
+    }
+
+    .steps .active {
+        font-size: 9px;
+    }
+
+    .steps span:not(:last-child)::after {
+        margin-left: 5px;
+    }
+
+    .section-title {
+        font-size: 14px;
+    }
+
+    .login-text {
+        font-size: 9px;
+    }
+
+    label {
+        font-size: 9px;
+    }
+
+    input,
+    select {
+        height: 40px;
+        padding: 0 9px;
+        font-size: 12px;
+    }
+
+    input::placeholder {
+        font-size: 11px;
+    }
+
+    .newsletter,
+    .save-information {
+        font-size: 9px;
+    }
+
+    .shipping-option {
+        padding: 10px 8px;
+    }
+
+    .option-left {
+        gap: 7px;
+    }
+
+    .option-title {
+        font-size: 10px;
+    }
+
+    .option-subtitle {
+        font-size: 8px;
+    }
+
+    .option-price {
+        font-size: 10px;
+    }
+
+    .radio {
+        width: 13px;
+        height: 13px;
+    }
+
+    .radio.selected::after {
+        width: 5px;
+        height: 5px;
+        top: 3px;
+        left: 3px;
+    }
+
+    .payment-main {
+        padding: 8px;
+    }
+
+    .payment-label {
+        font-size: 9px;
+        gap: 6px;
+    }
+
+    .cards {
+        gap: 2px;
+    }
+
+    .cards img {
+        max-width: 24px;
+        max-height: 17px;
+    }
+
+    .payment-description {
+        padding: 9px 17px;
+        font-size: 8px;
+    }
+
+    .payment-row {
+        min-height: 43px;
+        padding: 0 8px;
+    }
+
+    .payment-row span {
+        font-size: 9px;
+    }
+
+    .billing-option {
+        min-height: 48px;
+        padding: 0 8px;
+    }
+
+    .billing-title {
+        font-size: 9px;
+    }
+
+    .billing-address {
+        font-size: 8px;
+    }
+
+    .billing-description {
+        font-size: 9px;
+    }
+
+    .complete-btn {
+        height: 45px;
+        font-size: 10px;
+    }
+
+    .return-link {
+        font-size: 10px;
+    }
+
+    .product {
+        grid-template-columns: 48px minmax(0, 1fr);
+        column-gap: 9px;
+    }
+
+    .product-image {
+        width: 48px;
+        height: 60px;
+    }
+
+    .product-name {
+        font-size: 15px;
+    }
+
+    .product-type {
+        font-size: 7px;
+    }
+
+    .product-variant {
+        font-size: 8px;
+    }
+
+    .product-price {
+        font-size: 11px;
+    }
+
+    .discount {
+        gap: 5px;
+    }
+
+    .discount input {
+        height: 36px;
+        font-size: 9px;
+    }
+
+    .apply-btn {
+        width: 58px;
+        min-width: 58px;
+        height: 36px;
+        font-size: 9px;
+    }
+
+    .summary-row {
+        font-size: 9px;
+    }
+
+    .total-label {
+        font-size: 13px;
+    }
+
+    .total-price {
+        font-size: 16px;
+    }
+
+    .currency {
+        font-size: 8px;
+    }
+
+    .benefits {
+        padding: 9px;
+    }
+
+    .benefit {
+        gap: 6px;
+    }
+
+    .benefit-icon {
+        font-size: 14px;
+        width: 12px;
+    }
+
+    .benefit-title {
+        font-size: 8px;
+    }
+
+    .benefit-text {
+        font-size: 7px;
+    }
+
+    .footer-links {
+        font-size: 8px;
+        gap: 5px;
+    }
+}
