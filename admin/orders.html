@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders | Atelier Portal</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar"><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+    <div class="admin-main">
+      <header class="admin-topbar"><h1>Customer Orders</h1></header>
+      <main class="admin-content panel">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
+          <button class="btn-outline" data-status="all">All</button>
+          <button class="btn-outline" data-status="new">New</button>
+          <button class="btn-outline" data-status="processing">Processing</button>
+          <button class="btn-outline" data-status="shipped">Shipped</button>
+          <button class="btn-outline" data-status="delivered">Delivered</button>
+        </div>
+        <table><thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Payment</th><th>Status</th><th></th></tr></thead><tbody id="orders-body"></tbody></table>
+      </main>
+    </div>
+  </div>
+  <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
+  <script>
+    AdminAuth.require(); AdminSidebar.render('orders.html');
+    let status = 'all';
+    const load = () => AdminAPI.request(`/orders?status=${status}`).then((orders) => {
+      document.getElementById('orders-body').innerHTML = orders.map(o => `
+        <tr><td>${o.orderNumber}</td><td>${o.customerName}</td><td>Rs. ${o.total?.toLocaleString()}</td><td>${o.paymentMethod}</td><td>${o.status}</td>
+        <td><a href="order-detail.html?id=${o._id}">View</a></td></tr>`).join('');
+    });
+    document.querySelectorAll('[data-status]').forEach(btn => btn.addEventListener('click', () => { status = btn.dataset.status; load(); }));
+    load();
+  </script>
+</body>
+</html>

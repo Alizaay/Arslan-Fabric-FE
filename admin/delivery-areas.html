@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Areas | Atelier Portal</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar" data-admin-sidebar>
+      <div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div>
+      <nav data-admin-nav></nav>
+      <button class="btn-outline" type="button" data-admin-logout>Logout</button>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button type="button" class="btn-outline admin-menu-btn" data-admin-menu-toggle>Menu</button>
+        <h1>Delivery Areas</h1>
+        <div class="admin-topbar-actions">
+          <a class="btn-outline" href="delivery-charges.html">Shipping Rules</a>
+          <a class="btn" href="delivery-area-form.html">+ Add Delivery Area</a>
+        </div>
+      </header>
+      <main class="admin-content panel">
+        <table>
+          <thead><tr><th>City / Area</th><th>Charge</th><th>ETA</th><th>Status</th><th></th></tr></thead>
+          <tbody id="areas-body"></tbody>
+        </table>
+      </main>
+    </div>
+  </div>
+  <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
+  <script>
+    AdminAuth.require();
+    AdminSidebar.render('delivery-charges.html');
+    AdminAPI.request('/delivery/areas').then((areas) => {
+      document.getElementById('areas-body').innerHTML = areas.map((a) => `
+        <tr>
+          <td>${a.city}</td>
+          <td>Rs. ${a.charge}</td>
+          <td>${a.estimatedTime || '—'}</td>
+          <td>${a.isActive ? 'ACTIVE' : 'INACTIVE'}</td>
+          <td><a href="delivery-area-form.html?id=${a._id}">Edit</a></td>
+        </tr>`).join('') || '<tr><td colspan="5">No delivery areas yet.</td></tr>';
+    });
+  </script>
+</body>
+</html>

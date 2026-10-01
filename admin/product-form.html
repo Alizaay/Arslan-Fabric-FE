@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product | Atelier Portal</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar"><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+    <div class="admin-main">
+      <header class="admin-topbar"><h1>Add New Design</h1></header>
+      <main class="admin-content panel">
+        <form id="product-form" class="login-card" style="width:100%;max-width:900px;">
+          <label>Product Name<input name="name" required></label>
+          <label>Article Code<input name="articleCode" required></label>
+          <label>Price (Rs.)<input name="price" type="number" required></label>
+          <label>Stock<input name="stock" type="number" required></label>
+          <label>Description<textarea name="description" rows="4"></textarea></label>
+          <label><input type="checkbox" name="showOnWebsite" checked> Show on Website</label>
+          <label><input type="checkbox" name="featured"> Featured Product</label>
+          <label><input type="checkbox" name="newArrival"> New Arrival</label>
+          <button class="btn" type="submit">Publish Product</button>
+        </form>
+      </main>
+    </div>
+  </div>
+  <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
+  <script>
+    AdminAuth.require(); AdminSidebar.render('products.html');
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id');
+    const form = document.getElementById('product-form');
+    if (id) {
+      AdminAPI.request(`/products/${id}`).then((p) => {
+        form.name.value = p.name; form.articleCode.value = p.articleCode; form.price.value = p.price;
+        form.stock.value = p.stock; form.description.value = p.description || '';
+        form.showOnWebsite.checked = p.showOnWebsite; form.featured.checked = p.featured; form.newArrival.checked = p.newArrival;
+      });
+    }
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const payload = {
+        name: fd.get('name'), articleCode: fd.get('articleCode'), price: Number(fd.get('price')), stock: Number(fd.get('stock')),
+        description: fd.get('description'), showOnWebsite: fd.get('showOnWebsite') === 'on', featured: fd.get('featured') === 'on', newArrival: fd.get('newArrival') === 'on',
+      };
+      if (id) await AdminAPI.request(`/products/${id}`, { method: 'PUT', body: JSON.stringify(payload) });
+      else await AdminAPI.request('/products', { method: 'POST', body: JSON.stringify(payload) });
+      location.href = 'products.html';
+    });
+  </script>
+</body>
+</html>

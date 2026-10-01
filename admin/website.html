@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Settings | Atelier Portal</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar"><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+    <div class="admin-main"><header class="admin-topbar"><h1>Website Settings</h1></header>
+      <main class="admin-content panel">
+        <form id="site-form" class="login-card" style="width:100%;max-width:640px;">
+          <label>Announcement Bar<input name="announcementText"></label>
+          <label>Free Shipping Threshold (Rs.)<input name="freeShippingThreshold" type="number"></label>
+          <label>Support Email<input name="contactEmail"></label>
+          <button class="btn" type="submit">Save Website Settings</button>
+        </form>
+      </main>
+    </div>
+  </div>
+  <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
+  <script>
+    AdminAuth.require(); AdminSidebar.render('website.html');
+    fetch('/api/settings/public').then(r=>r.json()).then(s=>{
+      site-form.announcementText.value=s.announcementText||''; site-form.freeShippingThreshold.value=s.freeShippingThreshold||15000; site-form.contactEmail.value=s.contactEmail||'';
+    });
+    site-form.addEventListener('submit', async (e) => {
+      e.preventDefault(); const fd = new FormData(site-form);
+      for (const [key,value] of [['announcementText', fd.get('announcementText')], ['freeShippingThreshold', Number(fd.get('freeShippingThreshold'))], ['contactEmail', fd.get('contactEmail')]]) {
+        await AdminAPI.request('/settings', { method:'PUT', body: JSON.stringify({ key, value }) });
+      }
+      alert('Saved');
+    });
+  </script>
+</body></html>

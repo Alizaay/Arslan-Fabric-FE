@@ -1,0 +1,10 @@
+{
+  "name": "arsalan-fabrics-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Arsalan Fabrics storefront + Atelier Portal admin (static HTML/CSS/JS)",
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "dev:api": "echo Start backend separately: cd ../backend && npm run dev"
+  }
+}

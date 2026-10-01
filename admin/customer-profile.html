@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Profile | Atelier Portal</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar" data-admin-sidebar><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+    <div class="admin-main">
+      <header class="admin-topbar"><button type="button" class="btn-outline admin-menu-btn" data-admin-menu-toggle>Menu</button><h1>Customer Profile</h1></header>
+      <main class="admin-content">
+        <p><a href="customers.html">← Back to Customers</a></p>
+        <section class="panel" id="profile-card"></section>
+        <section class="panel" style="margin-top:24px;">
+          <h3>Order History</h3>
+          <table><thead><tr><th>Order</th><th>Total</th><th>Status</th></tr></thead><tbody id="orders-body"></tbody></table>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
+  <script>
+    AdminAuth.require();
+    AdminSidebar.render('customers.html');
+    const id = new URLSearchParams(location.search).get('id');
+    if (!id) location.href = 'customers.html';
+    AdminAPI.request(`/customers/${id}`).then(({ customer, orders }) => {
+      document.getElementById('profile-card').innerHTML = `
+        <h2>${customer.name}</h2>
+        <p>${customer.email} · ${customer.phone || ''}</p>
+        <p>Status: ${customer.status || 'active'}</p>
+        <textarea id="notes" rows="4" style="width:100%;margin-top:12px;" placeholder="Atelier owner notes">${customer.notes || ''}</textarea>
+        <button class="btn" type="button" id="save-notes">Save Notes</button>
+        <button class="btn-outline" type="button" id="disable-user" style="margin-left:8px;">Disable Account</button>`;
+      document.getElementById('orders-body').innerHTML = orders.map((o) =>
+        `<tr><td>${o.orderNumber}</td><td>Rs. ${o.total?.toLocaleString()}</td><td>${o.status}</td></tr>`).join('');
+      document.getElementById('save-notes').onclick = () =>
+        AdminAPI.request(`/customers/${id}`, { method: 'PATCH', body: JSON.stringify({ notes: notes.value }) }).then(() => alert('Saved'));
+      document.getElementById('disable-user').onclick = () =>
+        AdminAPI.request(`/customers/${id}`, { method: 'PATCH', body: JSON.stringify({ status: 'inactive' }) }).then(() => alert('Account disabled'));
+    });
+  </script>
+</body>
+</html>

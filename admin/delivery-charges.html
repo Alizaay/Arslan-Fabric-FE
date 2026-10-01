@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Settings | Atelier Portal</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar"><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+    <div class="admin-main"><header class="admin-topbar"><h1>Delivery Settings</h1></header>
+      <main class="admin-content panel">
+        <p><a href="delivery-areas.html">Manage city-specific delivery areas →</a></p>
+        <form id="delivery-form" class="login-card" style="width:100%;max-width:640px;">
+          <label>Standard Delivery Charge (Rs.)<input name="standardCharge" type="number"></label>
+          <label>Free shipping above (Rs.)<input name="freeShippingMin" type="number"></label>
+          <label><input type="checkbox" name="freeShippingEnabled"> Enable free shipping option</label>
+          <button class="btn" type="submit">Save Shipping Rules</button>
+        </form>
+      </main>
+    </div>
+  </div>
+  <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
+  <script>
+    AdminAuth.require(); AdminSidebar.render('delivery-charges.html');
+    AdminAPI.request('/delivery/settings').then(s=>{
+      delivery-form.standardCharge.value=s.standardCharge; delivery-form.freeShippingMin.value=s.freeShippingMin; delivery-form.freeShippingEnabled.checked=s.freeShippingEnabled;
+    });
+    delivery-form.addEventListener('submit', async (e) => {
+      e.preventDefault(); const fd = new FormData(delivery-form);
+      await AdminAPI.request('/delivery/settings', { method:'PUT', body: JSON.stringify({
+        standardCharge: Number(fd.get('standardCharge')), freeShippingMin: Number(fd.get('freeShippingMin')), freeShippingEnabled: fd.get('freeShippingEnabled')==='on'
+      })});
+      alert('Saved');
+    });
+  </script>
+</body></html>
