@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Profile | Delivery Addresses</title>
+    <link rel="stylesheet" href="css/delivery-addresses.css">
+    <script src="js/delivery-addresses.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="header-container"></div>
+    </header>
+
+    <main>
+
+        <!-- Delivery Section -->
+
+        <section class="delivery">
+            <div class="delivery-container">
+                <aside class="delivery-sidebar">
+                    <nav class="delivery-nav">
+                        <a class="delivery-nav-item" href="#">Dashboard</a>
+                        <a class="delivery-nav-item" href="#">Profile Settings</a>
+                        <a class="delivery-nav-item active" href="#">Delivery Addresses</a>
+                        <a class="delivery-nav-item" href="#">Order History</a>
+                        <a class="delivery-nav-item" href="#">Wishlist</a>
+                        <a class="delivery-nav-item" href="#">Atelier Support</a>
+                    </nav>
+                </aside>
+                <main class="delivery-main">
+                    <div class="delivery-welcome">
+                        <div class="welcome-content">
+                            <span>WELCOME BACK</span>
+                            <h1>Ayesha Khan</h1>
+                        </div>
+                        <div class="store-credit">
+                            <span>STORE CREDIT</span>
+                            <strong>Rs. 0</strong>
+                        </div>
+                    </div>
+                    <div class="saved-address-header">
+                        <h2>Saved Addresses</h2>
+                        <button type="button">+ ADD NEW ADDRESS</button>
+                    </div>
+                    <div class="address-grid">
+                        <div class="address-card default-address">
+                            <div class="address-top">
+                                <span class="default-label">DEFAULT ADDRESS</span>
+                                <span class="address-type">Home</span>
+                            </div>
+                            <h3>Ayesha Khan</h3>
+                            <p>
+                                House 42-B, Sector L, Gulberg III, Lahore, 54660, Pakistan
+                            </p>
+                            <span class="phone">
+                                Phone: +92 300 1234567
+                            </span>
+                            <div class="address-actions">
+                                <a href="#">Edit</a>
+                                <a href="#">Delete</a>
+                            </div>
+                        </div>
+                        <div class="address-card">
+                            <div class="address-top">
+                                <a href="#" class="set-default">Set as Default</a>
+                                <span class="address-type">Office</span>
+                            </div>
+                            <h3>Ayesha Khan</h3>
+                            <p>
+                                Capital Spire, 4th Floor, Sector E-7 Markaz, Islamabad,
+                                44000, Pakistan
+                            </p>
+                            <span class="phone">
+                                Phone: +92 312 9876543
+                            </span>
+                            <div class="address-actions">
+                                <a href="#">Edit</a>
+                                <a href="#">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-address">
+                        <h2>Add New Delivery Address</h2>
+                        <form>
+                            <div class="form-row two-columns">
+                                <div class="form-group">
+                                    <label for="first-name">FIRST NAME *</label>
+                                    <input type="text" id="first-name" value="Ayesha">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">LAST NAME *</label>
+                                    <input type="text" id="last-name" value="Khan">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="street">STREET ADDRESS *</label>
+                                <input type="text" id="street"
+                                    placeholder="Apartment, Suite, Unit, House Number, Sector...">
+                            </div>
+                            <div class="form-row three-columns">
+                                <div class="form-group">
+                                    <label for="city">CITY *</label>
+                                    <input type="text" id="city" value="Lahore">
+                                </div>
+                                <div class="form-group">
+                                    <label for="province">PROVINCE / STATE *</label>
+                                    <input type="text" id="province" value="Punjab">
+                                </div>
+                                <div class="form-group">
+                                    <label for="postal">POSTAL CODE *</label>
+                                    <input type="text" id="postal" value="54660">
+                                </div>
+                            </div>
+                            <div class="form-buttons">
+                                <button type="submit" class="save-btn">
+                                    SAVE ADDRESS
+                                </button>
+                                <button type="button" class="cancel-btn">
+                                    CANCEL
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div id="footer-container"></div>
+    </footer>
+</body>
+
+</html>

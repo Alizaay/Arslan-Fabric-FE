@@ -1,0 +1,1010 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #F2EDE6;
+    --secondary-color: #FBF9F6;
+    --primary-color: #1F1E1C;
+    --text-color: #EAE6DF;
+    --white: #FFFFFF;
+    --muted-white: rgba(255, 255, 255, 0.72);
+    --border-light: rgba(255, 255, 255, 0.4);
+    --color: #6B1D1D;
+    --heading: #5D524A;
+    --paragraph: #8C7F74;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    margin-top: 85px;
+}
+
+
+/* Delivery Section */
+/* Section No.1 */
+
+.delivery {
+    width: 100%;
+    padding: 12px 5.6% 68px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    font-family: "Inter", Arial, sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.delivery-container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 205px minmax(0, 1fr);
+    gap: 31px;
+}
+
+.delivery-sidebar {
+    width: 100%;
+}
+
+.delivery-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery-nav-item {
+    width: 100%;
+    min-height: 45px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+    margin-bottom: 5px;
+}
+
+.delivery-nav-item:hover {
+    background: var(--main-color);
+}
+
+.delivery-nav-item.active {
+    background: var(--main-color);
+    font-weight: 600;
+}
+
+.delivery-main {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.delivery-welcome {
+    width: 100%;
+    min-height: 96px;
+    padding: 21px 22px;
+    border: 1px solid var(--text-color);
+    border-radius: 8px;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.welcome-content span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--paragraph);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.welcome-content h1 {
+    margin: 0;
+    color: var(--primary-color);
+    font-family: "Instrument Serif", Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.store-credit {
+    text-align: right;
+}
+
+.store-credit span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--paragraph);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
+.store-credit strong {
+    color: #3D5A45;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.saved-address-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 26px 0 17px;
+    gap: 15px;
+}
+
+.saved-address-header h2 {
+    margin: 0;
+    color: var(--primary-color);
+    font-family: "Instrument Serif", serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.saved-address-header button {
+    flex-shrink: 0;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 10px 19px;
+    background: var(--primary-color);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.saved-address-header button:hover {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+.address-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.address-card {
+    min-height: 168px;
+    padding: 21px 22px;
+    border: 1px solid var(--text-color);
+    border-radius: 6px;
+    background: var(--white);
+    box-sizing: border-box;
+}
+
+.address-card.default-address {
+    border-color: var(--primary-color);
+}
+
+.address-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 17px;
+    margin-bottom: 11px;
+    gap: 10px;
+}
+
+.default-label {
+    color: #3D5A45;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.set-default {
+    color: var(--paragraph);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.address-type {
+    flex-shrink: 0;
+    padding: 4px 8px;
+    border-radius: 2px;
+    background: var(--main-color);
+    color: var(--primary-color);
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.address-card h3 {
+    margin: 0 0 7px;
+    color: var(--primary-color);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.address-card p {
+    max-width: 95%;
+    margin: 0 0 7px;
+    color: var(--heading);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.address-card .phone {
+    display: block;
+    color: var(--paragraph);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.address-actions {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 12px;
+}
+
+.address-actions a {
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.address-actions a:last-child {
+    color: var(--color);
+}
+
+.add-address {
+    width: 100%;
+    margin-top: 17px;
+    padding: 25px 23px 22px;
+    border-radius: 8px;
+    background: var(--main-color);
+    box-sizing: border-box;
+}
+
+.add-address h2 {
+    margin: 0 0 21px;
+    color: var(--primary-color);
+    font-family: "Instrument Serif", serif;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.form-row {
+    width: 100%;
+    display: grid;
+}
+
+.two-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.three-columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 13px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--paragraph);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.form-group input {
+    width: 100%;
+    height: 29px;
+    padding: 0 11px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    outline: none;
+    background: var(--white);
+    color: var(--primary-color);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #99928b;
+}
+
+.form-group input:focus {
+    border-color: #aaa39b;
+}
+
+.form-buttons {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 4px;
+}
+
+.form-buttons button {
+    height: 32px;
+    padding: 0 17px;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.save-btn {
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.cancel-btn {
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--primary-color);
+}
+
+.save-btn:hover {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+.cancel-btn:hover {
+    background: var(--color);
+    color: var(--white);
+    border-color: var(--color);
+}
+
+/* LARGE LAPTOP */
+
+@media (max-width: 1399px) {
+
+    .delivery {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .delivery-container {
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 25px;
+    }
+
+    .delivery-nav-item {
+        min-height: 43px;
+        font-size: 13px;
+    }
+
+    .delivery-welcome {
+        min-height: 92px;
+        padding: 20px;
+    }
+
+    .welcome-content h1 {
+        font-size: 34px;
+    }
+
+    .saved-address-header h2 {
+        font-size: 30px;
+    }
+
+    .address-card {
+        padding: 19px 20px;
+    }
+
+    .address-card p {
+        font-size: 13px;
+    }
+}
+
+
+/* LAPTOP */
+
+@media (max-width: 1199px) {
+
+    .delivery {
+        padding: 7px 4.5% 55px;
+    }
+
+    .delivery-container {
+        grid-template-columns: 175px minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .delivery-nav-item {
+        min-height: 42px;
+        padding: 0 12px;
+        font-size: 12px;
+    }
+
+    .delivery-welcome {
+        min-height: 88px;
+        padding: 18px;
+    }
+
+    .welcome-content span {
+        font-size: 11px;
+    }
+
+    .welcome-content h1 {
+        font-size: 31px;
+    }
+
+    .store-credit span {
+        font-size: 10px;
+    }
+
+    .store-credit strong {
+        font-size: 18px;
+    }
+
+    .saved-address-header {
+        margin-top: 22px;
+    }
+
+    .saved-address-header h2 {
+        font-size: 28px;
+    }
+
+    .saved-address-header button {
+        padding: 9px 15px;
+        font-size: 11px;
+    }
+
+    .address-grid {
+        gap: 13px;
+    }
+
+    .address-card {
+        min-height: 160px;
+        padding: 18px;
+    }
+
+    .address-card p {
+        font-size: 12px;
+    }
+
+    .address-card .phone {
+        font-size: 12px;
+    }
+
+    .add-address {
+        padding: 22px 20px 20px;
+    }
+
+    .add-address h2 {
+        font-size: 26px;
+    }
+}
+
+
+/* TABLET */
+
+@media (max-width: 991px) {
+
+    .delivery {
+        padding: 15px 4% 50px;
+    }
+
+    .delivery-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .delivery-sidebar {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .delivery-nav {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 7px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 3px;
+        scrollbar-width: thin;
+    }
+
+    .delivery-nav-item {
+        width: auto;
+        min-width: max-content;
+        min-height: 40px;
+        margin: 0;
+        padding: 0 14px;
+        justify-content: center;
+        white-space: nowrap;
+        background: transparent;
+    }
+
+    .delivery-nav-item.active {
+        background: var(--main-color);
+    }
+
+    .delivery-main {
+        width: 100%;
+    }
+
+    .delivery-welcome {
+        min-height: 86px;
+    }
+
+    .address-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .address-card {
+        min-height: 165px;
+    }
+
+    .three-columns {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+}
+
+
+/* SMALL TABLET */
+
+@media (max-width: 767px) {
+
+    .delivery {
+        padding: 15px 25px 45px;
+    }
+
+    .delivery-container {
+        gap: 18px;
+    }
+
+    .delivery-nav {
+        gap: 6px;
+    }
+
+    .delivery-nav-item {
+        min-height: 39px;
+        padding: 0 12px;
+        font-size: 11px;
+    }
+
+    .delivery-welcome {
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .welcome-content span {
+        font-size: 10px;
+    }
+
+    .welcome-content h1 {
+        font-size: 28px;
+    }
+
+    .store-credit span {
+        font-size: 9px;
+    }
+
+    .store-credit strong {
+        font-size: 17px;
+    }
+
+    .saved-address-header {
+        margin: 20px 0 14px;
+    }
+
+    .saved-address-header h2 {
+        font-size: 26px;
+    }
+
+    .saved-address-header button {
+        padding: 9px 12px;
+        font-size: 10px;
+    }
+
+    .address-grid {
+        gap: 12px;
+    }
+
+    .address-card {
+        min-height: 170px;
+        padding: 17px;
+    }
+
+    .default-label,
+    .set-default {
+        font-size: 11px;
+    }
+
+    .address-card p {
+        max-width: 100%;
+        font-size: 12px;
+    }
+
+    .address-card .phone {
+        font-size: 11px;
+    }
+
+    .address-actions {
+        margin-top: 10px;
+    }
+
+    .address-actions a {
+        font-size: 11px;
+    }
+
+    .add-address {
+        margin-top: 14px;
+        padding: 21px 18px;
+    }
+
+    .add-address h2 {
+        margin-bottom: 18px;
+        font-size: 25px;
+    }
+
+    .two-columns {
+        gap: 10px;
+    }
+
+    .three-columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .form-group input {
+        height: 36px;
+        font-size: 12px;
+    }
+
+    .form-group label {
+        font-size: 10px;
+    }
+
+    .form-buttons button {
+        height: 34px;
+        padding: 0 15px;
+        font-size: 11px;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 599px) {
+
+    .delivery {
+        padding: 12px 18px 40px;
+    }
+
+    .delivery-container {
+        gap: 16px;
+    }
+
+    .delivery-sidebar {
+        width: 100%;
+    }
+
+    .delivery-nav {
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 2px 0 5px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .delivery-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .delivery-nav-item {
+        flex: 0 0 auto;
+        width: auto;
+        min-width: max-content;
+        min-height: 37px;
+        margin: 0;
+        padding: 0 11px;
+        border-radius: 4px;
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    .delivery-welcome {
+        min-height: 85px;
+        padding: 16px;
+        border-radius: 6px;
+    }
+
+    .welcome-content span {
+        margin-bottom: 4px;
+        font-size: 9px;
+    }
+
+    .welcome-content h1 {
+        font-size: 25px;
+    }
+
+    .store-credit span {
+        margin-bottom: 4px;
+        font-size: 8px;
+    }
+
+    .store-credit strong {
+        font-size: 16px;
+    }
+
+    .saved-address-header {
+        align-items: flex-start;
+        margin: 18px 0 13px;
+    }
+
+    .saved-address-header h2 {
+        font-size: 24px;
+    }
+
+    .saved-address-header button {
+        padding: 8px 10px;
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    .address-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .address-card {
+        min-height: auto;
+        padding: 16px;
+    }
+
+    .address-top {
+        margin-bottom: 10px;
+    }
+
+    .default-label,
+    .set-default {
+        font-size: 10px;
+    }
+
+    .address-type {
+        padding: 3px 7px;
+        font-size: 9px;
+    }
+
+    .address-card h3 {
+        margin-bottom: 6px;
+        font-size: 14px;
+    }
+
+    .address-card p {
+        margin-bottom: 7px;
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .address-card .phone {
+        font-size: 10px;
+    }
+
+    .address-actions {
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .address-actions a {
+        font-size: 10px;
+    }
+
+    .add-address {
+        padding: 20px 15px;
+        border-radius: 6px;
+    }
+
+    .add-address h2 {
+        margin-bottom: 17px;
+        font-size: 23px;
+    }
+
+    .two-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .three-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-group label {
+        margin-bottom: 5px;
+        font-size: 9px;
+    }
+
+    .form-group input {
+        height: 36px;
+        padding: 0 10px;
+        font-size: 11px;
+    }
+
+    .form-buttons {
+        gap: 8px;
+        margin-top: 3px;
+    }
+
+    .form-buttons button {
+        height: 35px;
+        padding: 0 13px;
+        font-size: 10px;
+    }
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 479px) {
+
+    .delivery {
+        padding: 10px 14px 35px;
+    }
+
+    .delivery-container {
+        gap: 14px;
+    }
+
+    .delivery-nav {
+        gap: 5px;
+    }
+
+    .delivery-nav-item {
+        min-height: 35px;
+        padding: 0 9px;
+        font-size: 9px;
+    }
+
+    .delivery-welcome {
+        padding: 14px;
+    }
+
+    .welcome-content h1 {
+        font-size: 23px;
+    }
+
+    .store-credit strong {
+        font-size: 15px;
+    }
+
+    .saved-address-header {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .saved-address-header h2 {
+        font-size: 22px;
+    }
+
+    .saved-address-header button {
+        padding: 7px 9px;
+        font-size: 8px;
+    }
+
+    .address-card {
+        padding: 14px;
+    }
+
+    .address-card p {
+        font-size: 10px;
+    }
+
+    .add-address {
+        padding: 18px 13px;
+    }
+
+    .add-address h2 {
+        font-size: 21px;
+    }
+
+    .form-group input {
+        height: 35px;
+        font-size: 10px;
+    }
+
+    .form-buttons {
+        flex-wrap: wrap;
+    }
+
+    .form-buttons button {
+        min-width: 110px;
+    }
+}
+
+
+/* VERY SMALL MOBILE */
+
+@media (max-width: 375px) {
+
+    .delivery {
+        padding: 8px 11px 30px;
+    }
+
+    .delivery-nav-item {
+        min-height: 34px;
+        padding: 0 8px;
+        font-size: 8px;
+    }
+
+    .delivery-welcome {
+        padding: 13px;
+    }
+
+    .welcome-content h1 {
+        font-size: 21px;
+    }
+
+    .store-credit strong {
+        font-size: 14px;
+    }
+
+    .saved-address-header h2 {
+        font-size: 20px;
+    }
+
+    .saved-address-header button {
+        font-size: 8px;
+        padding: 7px 8px;
+    }
+
+    .address-card {
+        padding: 13px;
+    }
+
+    .address-card p {
+        font-size: 10px;
+    }
+
+    .add-address h2 {
+        font-size: 20px;
+    }
+
+    .form-buttons button {
+        flex: 1;
+        min-width: 0;
+        padding: 0 10px;
+    }
+}

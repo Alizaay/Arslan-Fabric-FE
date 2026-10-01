@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Profile | Order History</title>
+    <link rel="stylesheet" href="css/order-history.css">
+    <script src="js/order-history.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="header-container"></div>
+    </header>
+
+    <main>
+
+        <!-- Order History Section -->
+
+        <section class="order-history" id="order-history">
+            <div class="order-history-layout">
+                <aside class="order-history-sidebar">
+                    <nav class="order-history-nav">
+                        <a href="#" class="order-history-nav-link">
+                            Dashboard
+                        </a>
+                        <a href="#" class="order-history-nav-link">
+                            Profile Settings
+                        </a>
+                        <a href="#" class="order-history-nav-link">
+                            Delivery Addresses
+                        </a>
+                        <a href="#" class="order-history-nav-link active">
+                            Order History
+                        </a>
+                        <a href="#" class="order-history-nav-link">
+                            Wishlist
+                        </a>
+                        <a href="#" class="order-history-nav-link">
+                            Atelier Support
+                        </a>
+                    </nav>
+                </aside>
+                <main class="order-history-main">
+                    <div class="order-history-welcome">
+                        <div class="order-history-welcome-text">
+                            <span>WELCOME BACK</span>
+                            <h1>Ayesha Khan</h1>
+                        </div>
+                        <div class="order-history-credit">
+                            <span>STORE CREDIT</span>
+                            <strong>Rs. 0</strong>
+                        </div>
+                    </div>
+                    <div class="order-history-card">
+                        <div class="order-history-card-header">
+                            <h2>Order History</h2>
+                            <div class="order-history-controls">
+                                <input type="text" placeholder="Search Order ID..." class="order-history-search">
+                                <select class="order-history-filter">
+                                    <option>Last 6 Months</option>
+                                    <option>Last 3 Months</option>
+                                    <option>Last 12 Months</option>
+                                    <option>All Orders</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="order-history-order">
+                            <div class="order-history-order-header">
+                                <div class="order-history-order-info">
+                                    <strong>#AF1024</strong>
+                                    <span>Placed on 15 Sept 2026</span>
+                                </div>
+                                <div class="order-history-order-right">
+                                    <strong>Rs. 22,250</strong>
+                                    <span class="order-history-status shipped">
+                                        SHIPPED
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="order-history-products">
+                                <div class="order-history-product">
+                                    <div class="order-history-product-image">
+                                        <img src="Assets/images/order-history-page-image (4).jpg"
+                                            alt="Ziba Raw Silk 3-Piece">
+                                    </div>
+                                    <div class="order-history-product-details">
+                                        <h3>Ziba Raw Silk 3-Piece</h3>
+                                        <p>Qty: 1 · Size: S</p>
+                                    </div>
+                                </div>
+                                <div class="order-history-product">
+                                    <div class="order-history-product-image">
+                                        <img src="Assets/images/order-history-page-image (3).jpg"
+                                            alt="Classic Chiffon Dupatta">
+                                    </div>
+                                    <div class="order-history-product-details">
+                                        <h3>Classic Chiffon Dupatta</h3>
+                                        <p>Qty: 1 · Size: One Size</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-history-order-footer">
+                                <div class="order-history-order-links">
+                                    <a href="#">
+                                        View Details
+                                    </a>
+                                    <a href="#" class="track-link">
+                                        Track Shipment
+                                    </a>
+                                </div>
+                                <button class="order-history-buy-button">
+                                    Buy Again
+                                </button>
+                            </div>
+                        </div>
+                        <div class="order-history-order">
+                            <div class="order-history-order-header">
+                                <div class="order-history-order-info">
+                                    <strong>#AF0988</strong>
+                                    <span>Placed on 24 Aug 2026</span>
+                                </div>
+                                <div class="order-history-order-right">
+                                    <strong>Rs. 18,500</strong>
+                                    <span class="order-history-status delivered">
+                                        DELIVERED
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="order-history-products">
+                                <div class="order-history-product">
+                                    <div class="order-history-product-image">
+                                        <img src="Assets/images/order-history-page-image (2).jpg"
+                                            alt="Meher Organza 3-Piece">
+                                    </div>
+                                    <div class="order-history-product-details">
+                                        <h3>Meher Organza 3-Piece</h3>
+                                        <p>Qty: 1 · Size: M</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-history-order-footer">
+                                <div class="order-history-order-links">
+                                    <a href="#">
+                                        View Details
+                                    </a>
+                                </div>
+                                <button class="order-history-buy-button">
+                                    Buy Again
+                                </button>
+                            </div>
+                        </div>
+                        <div class="order-history-order">
+                            <div class="order-history-order-header">
+                                <div class="order-history-order-info">
+                                    <strong>#AF0812</strong>
+                                    <span>Placed on 02 Jul 2026</span>
+                                </div>
+                                <div class="order-history-order-right">
+                                    <strong>Rs. 13,000</strong>
+                                    <span class="order-history-status delivered">
+                                        DELIVERED
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="order-history-products">
+                                <div class="order-history-product">
+                                    <div class="order-history-product-image">
+                                        <img src="Assets/images/order-history-page-image (1).jpg"
+                                            alt="Leyla Cotton Net 3-Piece">
+                                    </div>
+                                    <div class="order-history-product-details">
+                                        <h3>Leyla Cotton Net 3-Piece</h3>
+                                        <p>Qty: 1 · Size: S</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-history-order-footer">
+                                <div class="order-history-order-links">
+                                    <a href="#">
+                                        View Details
+                                    </a>
+                                </div>
+                                <button class="order-history-buy-button">
+                                    Buy Again
+                                </button>
+                            </div>
+                        </div>
+                        <div class="order-history-bottom">
+                            <span>
+                                Showing 1-3 of 12 orders
+                            </span>
+                            <div class="order-history-pagination">
+                                <button class="active">1</button>
+                                <button>2</button>
+                                <button>3</button>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer-container"></div>
+    </footer>
+</body>
+
+</html>

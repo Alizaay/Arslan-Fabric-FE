@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Profile | Dashboard</title>
+    <link rel="stylesheet" href="css/customer-profile-dashboard.css">
+    <script src="js/customer-profile-dashboard.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="header-container"></div>
+    </header>
+
+    <main>
+
+        <!-- Dashboard Section -->
+
+        <section class="dashboard">
+            <div class="dashboard-container">
+                <aside class="dashboard-sidebar">
+                    <nav class="dashboard-nav">
+                        <a href="#" class="dashboard-nav-link active">Dashboard</a>
+                        <a href="#" class="dashboard-nav-link">Profile Settings</a>
+                        <a href="#" class="dashboard-nav-link">Delivery Addresses</a>
+                        <a href="#" class="dashboard-nav-link">Order History</a>
+                        <a href="#" class="dashboard-nav-link">Wishlist</a>
+                        <a href="#" class="dashboard-nav-link">Atelier Support</a>
+                    </nav>
+                </aside>
+                <div class="dashboard-main">
+                    <div class="dashboard-welcome dashboard-card">
+                        <div class="welcome-content">
+                            <span class="dashboard-label">WELCOME BACK</span>
+                            <h1>Ayesha Khan</h1>
+                        </div>
+                        <div class="store-credit">
+                            <span>STORE CREDIT</span>
+                            <strong>Rs. 0</strong>
+                        </div>
+                    </div>
+                    <div class="dashboard-two-column">
+                        <div class="dashboard-card profile-card">
+                            <span class="dashboard-label">PERSONAL PROFILE</span>
+                            <div class="profile-information">
+                                <div class="profile-item">
+                                    <span>FULL NAME</span>
+                                    <p>Ayesha Khan</p>
+                                </div>
+                                <div class="profile-item">
+                                    <span>EMAIL ADDRESS</span>
+                                    <p>ayesha.khan@gmail.com</p>
+                                </div>
+                                <div class="profile-item">
+                                    <span>PHONE NUMBER</span>
+                                    <p>+92 300 1234567</p>
+                                </div>
+                            </div>
+                            <button class="dashboard-btn light-btn">
+                                EDIT PROFILE
+                            </button>
+                        </div>
+                        <div class="dashboard-card address-card">
+                            <span class="dashboard-label">PRIMARY DELIVERY ADDRESS</span>
+                            <div class="address-information">
+                                <strong>Ayesha Khan</strong>
+                                <p>
+                                    House 42-B, Sector L, Gulberg III, Lahore,
+                                    54660, Pakistan
+                                </p>
+                                <span>Phone: +92 300 1234567</span>
+                            </div>
+                            <div class="address-buttons">
+                                <button class="dashboard-btn light-btn">
+                                    MANAGE ADDRESS BOOK
+                                </button>
+                                <button class="dashboard-btn dark-btn">
+                                    ADD NEW
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card orders-card">
+                        <span class="dashboard-label">RECENT ORDERS</span>
+                        <div class="order-row">
+                            <div class="order-details">
+                                <strong>#AF1024</strong>
+                                <span>Placed on 15 September 2026</span>
+                            </div>
+                            <div class="order-price">
+                                Rs. 22,250
+                            </div>
+                            <span class="order-status shipped">
+                                SHIPPED
+                            </span>
+                        </div>
+                        <div class="order-row">
+                            <div class="order-details">
+                                <strong>#AF0988</strong>
+                                <span>Placed on 24 August 2026</span>
+                            </div>
+                            <div class="order-price">
+                                Rs. 18,500
+                            </div>
+                            <span class="order-status delivered">
+                                DELIVERED
+                            </span>
+                        </div>
+                        <button class="dashboard-btn light-btn orders-button">
+                            VIEW ALL ORDERS
+                        </button>
+                    </div>
+                    <div class="dashboard-two-column bottom-dashboard">
+                        <div class="dashboard-card wishlist-card">
+                            <span class="dashboard-label">
+                                MY WISHLIST (2)
+                            </span>
+                            <div class="wishlist-products">
+                                <div class="wishlist-product">
+                                    <img src="Assets/images/meher-dashboard-image.jpg" alt="Ziba Raw Silk">
+                                    <div>
+                                        <strong>Ziba Raw Silk</strong>
+                                        <span>Rs. 18,500</span>
+                                    </div>
+                                </div>
+                                <div class="wishlist-product">
+                                    <img src="Assets/images/ziba-dashboard-image.jpg" alt="Meher Organza">
+                                    <div>
+                                        <strong>Meher Organza</strong>
+                                        <span>Rs. 14,200</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="dashboard-btn light-btn wishlist-button">
+                                VIEW WISHLIST
+                            </button>
+                        </div>
+                        <div class="dashboard-card security-card">
+                            <span class="dashboard-label">
+                                PREFERENCES &amp; SECURITY
+                            </span>
+                            <div class="preference-row">
+                                <span>
+                                    Email newsletters &amp; collection previews
+                                </span>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="preference-row">
+                                <span>
+                                    SMS order tracking &amp; hub notifications
+                                </span>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <button class="dashboard-btn light-btn password-button">
+                                CHANGE PASSWORD
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fabric Section -->
+
+        <section class="fabric">
+            <div class="fabric-container">
+                <div class="fabric-content">
+                    <span class="fabric-eyebrow">
+                        ATELIER CRAFTSMANSHIP
+                    </span>
+                    <h2>
+                        Woven with Meticulous
+                        Intention
+                    </h2>
+                    <p>
+                        Our fabrics represent a timeless dialogue between master weavers and heritage designs. Each
+                        collection features hand-embellished karandis, exquisite silk paneling, and delicate chiffon
+                        drapes that honor ancient South Asian tailoring.
+                    </p>
+                </div>
+                <div class="fabric-image">
+                    <img src="Assets/images/profile-banner-image.png"
+                        alt="Artisan working on traditional fabric embroidery">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer-container"></div>
+    </footer>
+</body>
+
+</html>
