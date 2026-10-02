@@ -7,9 +7,28 @@
 </head>
 <body>
   <div class="admin-layout">
-    <aside class="admin-sidebar"><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
-    <div class="admin-main"><header class="admin-topbar"><h1>All Categories</h1></header><main class="admin-content panel"><table><thead><tr><th>Name</th><th>Status</th></tr></thead><tbody id="cat-body"></tbody></table></main></div>
+    <aside class="admin-sidebar" data-admin-sidebar><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <h1>All Categories</h1>
+        <a class="btn" href="category-form.html">Add Category</a>
+      </header>
+      <main class="admin-content panel">
+        <table><thead><tr><th>Name</th><th>Slug</th><th>Status</th><th></th></tr></thead><tbody id="cat-body"></tbody></table>
+      </main>
+    </div>
   </div>
   <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
-  <script>AdminAuth.require(); AdminSidebar.render('categories.html'); AdminAPI.request('/categories').then(c=>document.getElementById('cat-body').innerHTML=c.map(x=>`<tr><td>${x.name}</td><td>${x.websiteStatus}</td></tr>`).join(''));</script>
+  <script>
+    AdminAuth.require(); AdminSidebar.render('categories.html');
+    AdminAPI.request('/categories').then((c) => {
+      document.getElementById('cat-body').innerHTML = c.map(x => `
+        <tr>
+          <td>${x.name}</td>
+          <td>${x.slug}</td>
+          <td>${x.websiteStatus}</td>
+          <td><a href="category-detail.html?id=${x._id}">View</a> · <a href="category-form.html?id=${x._id}">Edit</a></td>
+        </tr>`).join('');
+    });
+  </script>
 </body></html>

@@ -84,6 +84,8 @@ footer {
     max-height: 20px;
     width: auto;
     height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 1;
 }
 
 .footer-column {

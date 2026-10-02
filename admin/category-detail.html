@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category Detail | Atelier Portal</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar" data-admin-sidebar><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <h1 id="cat-name">Category</h1>
+        <div class="admin-topbar-actions">
+          <a class="btn-outline" href="categories.html">Back</a>
+          <a class="btn" id="edit-link" href="#">Edit</a>
+        </div>
+      </header>
+      <main class="admin-content">
+        <div class="panel" id="cat-meta"></div>
+        <div class="panel" style="margin-top:24px;">
+          <h2>Products in this category</h2>
+          <table><thead><tr><th>Name</th><th>SKU</th><th>Price</th><th>Status</th></tr></thead><tbody id="cat-products"></tbody></table>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
+  <script>
+    AdminAuth.require(); AdminSidebar.render('categories.html');
+    const id = new URLSearchParams(location.search).get('id');
+    document.getElementById('edit-link').href = `category-form.html?id=${id}`;
+    Promise.all([AdminAPI.request('/categories'), AdminAPI.request('/products')]).then(([cats, products]) => {
+      const c = cats.find((x) => x._id === id);
+      if (!c) return;
+      document.getElementById('cat-name').textContent = c.name;
+      document.getElementById('cat-meta').innerHTML = `
+        <p><strong>Slug:</strong> ${c.slug}</p>
+        <p><strong>Website:</strong> ${c.websiteStatus}</p>
+        <p><strong>Homepage:</strong> ${c.showOnHomepage ? 'Yes' : 'No'}</p>
+        <p><strong>Sort:</strong> ${c.sortOrder || 0}</p>`;
+      const rows = products.filter((p) => String(p.category?._id || p.category) === id);
+      document.getElementById('cat-products').innerHTML = rows.map((p) => `
+        <tr>
+          <td><a href="product-form.html?id=${p._id}">${p.name}</a></td>
+          <td>${p.articleCode}</td>
+          <td>Rs. ${(p.salePrice || p.price).toLocaleString()}</td>
+          <td>${p.showOnWebsite ? 'Live' : 'Hidden'}</td>
+        </tr>`).join('') || '<tr><td colspan="4">No products yet.</td></tr>';
+    });
+  </script>
+</body>
+</html>

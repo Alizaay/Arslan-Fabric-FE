@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Information</title>
     <link rel="stylesheet" href="css/checkout-information.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/shared-overlays.css">
@@ -91,11 +91,11 @@
                                     <option>Islamabad Capital Territory</option>
                                 </select>
                             </div>
-                            <div class="field">
+                            <div class="field" id="postal-field">
                                 <label for="postal">Postal Code</label>
-                                <input type="number" id="postal" class="error-input" placeholder="00000" />
-                                <div class="error-message">
-                                    Enter a valid postal code (e.g. 54000)
+                                <input type="text" id="postal" inputmode="numeric" maxlength="5" placeholder="54000" autocomplete="postal-code" />
+                                <div class="error-message" id="postal-error" hidden>
+                                    Enter a valid 5-digit postal code (e.g. 54000)
                                 </div>
                             </div>
                         </div>
@@ -294,11 +294,11 @@
     <footer>
         <div id="footer-container"></div>
     </footer>
-    <script src="js/config.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/include.js"></script>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/include.js"></script>
 </body>
 
 </html>

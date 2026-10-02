@@ -1,56 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atelier Support | Arsalan Fabrics</title>
-  <link rel="stylesheet" href="css/customer-profile-dashboard.css">
-  <link rel="stylesheet" href="css/shared-overlays.css">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier Support | Arsalan Fabrics</title>
+    <link rel="stylesheet" href="css/profile-setting.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/shared-overlays.css">
 </head>
+
 <body>
-  <header><div id="header-container"></div></header>
-  <main class="account-layout">
-    <aside class="account-sidebar">
-      <a href="customer-profile-dashboard.html">Dashboard</a>
-      <a href="profile-setting.html">Profile Settings</a>
-      <a href="delivery-addresses.html">Delivery Addresses</a>
-      <a href="order-history.html">Order History</a>
-      <a href="my-wishlist.html">Wishlist</a>
-      <a class="active" href="atelier-support.html">Atelier Support</a>
-    </aside>
-    <section class="account-content">
-      <h1>Atelier Support</h1>
-      <p>How can we help you today?</p>
-      <form id="support-form" class="support-form">
-        <label>Topic<input name="topic" required></label>
-        <label>Order Number (optional)<input name="orderNumber"></label>
-        <label>Subject<input name="subject" required></label>
-        <label>Message<textarea name="message" rows="5" required></textarea></label>
-        <button class="af-btn" type="submit">Submit Support Ticket</button>
-      </form>
-      <div id="ticket-list"></div>
-    </section>
-  </main>
-  <footer><div id="footer-container"></div></footer>
-  <script src="js/config.js"></script>
-    <script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/cart.js"></script><script src="js/include.js"></script>
-  <script>
-    const user = ArsalanAuth.user();
-    if (!user) location.href = 'index.html';
-    document.getElementById('support-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const fd = new FormData(e.target);
-      await fetch('/api/support/tickets', { method:'POST', headers:{'Content-Type':'application/json', Authorization:`Bearer ${localStorage.getItem('af_token')}`}, body: JSON.stringify(Object.fromEntries(fd)) });
-      alert('Ticket submitted');
-      loadTickets();
-    });
-    async function loadTickets() {
-      const tickets = await fetch('/api/support/tickets', { headers:{ Authorization:`Bearer ${localStorage.getItem('af_token')}` } }).then(r=>r.json());
-      document.getElementById('ticket-list').innerHTML = tickets.map(t=>`<p>${t.ticketNumber} · ${t.subject} · ${t.status}</p>`).join('');
-    }
-    loadTickets();
-  </script>
-  <style>.support-form{display:grid;gap:12px;max-width:720px}.support-form input,.support-form textarea{width:100%;padding:10px;border:1px solid #eae6df;border-radius:6px}</style>
+    <header>
+        <div id="header-container"></div>
+    </header>
+
+    <main>
+        <section class="account-page">
+            <div class="account-container">
+                <aside class="account-sidebar">
+                    <nav class="account-nav">
+                        <a href="#" class="account-nav-item">Dashboard</a>
+                        <a href="#" class="account-nav-item">Profile Settings</a>
+                        <a href="#" class="account-nav-item">Delivery Addresses</a>
+                        <a href="#" class="account-nav-item">Order History</a>
+                        <a href="#" class="account-nav-item">Wishlist</a>
+                        <a href="#" class="account-nav-item active">Atelier Support</a>
+                    </nav>
+                </aside>
+                <main class="account-main">
+                    <div class="welcome-card">
+                        <div class="welcome-content">
+                            <span class="welcome-label">ATELIER CARE</span>
+                            <h1 data-support-greeting>Atelier Support</h1>
+                        </div>
+                        <div class="store-credit support-hours">
+                            <span>RESPONSE TIME</span>
+                            <strong>Within 24 hours</strong>
+                        </div>
+                    </div>
+
+                    <section class="profile-card support-card">
+                        <h2>Submit a request</h2>
+                        <p class="support-intro">How can we help you today? Share your question and our team will get back to you by email.</p>
+                        <form id="support-form" class="profile-form support-form">
+                            <div class="form-group">
+                                <label for="support-topic">Topic</label>
+                                <select id="support-topic" name="topic" required>
+                                    <option value="">Select a topic</option>
+                                    <option value="order">Order &amp; delivery</option>
+                                    <option value="returns">Returns &amp; exchanges</option>
+                                    <option value="product">Product &amp; sizing</option>
+                                    <option value="account">Account</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="support-order">Order number (optional)</label>
+                                <input type="text" id="support-order" name="orderNumber" placeholder="e.g. AF1024">
+                            </div>
+                            <div class="form-group">
+                                <label for="support-subject">Subject</label>
+                                <input type="text" id="support-subject" name="subject" required placeholder="Brief summary">
+                            </div>
+                            <div class="form-group">
+                                <label for="support-message">Message</label>
+                                <textarea id="support-message" name="message" rows="6" required placeholder="Tell us more about your request…"></textarea>
+                            </div>
+                            <button type="submit" class="save-button">Submit support ticket</button>
+                        </form>
+                    </section>
+
+                    <section class="profile-card ticket-history-card">
+                        <h2>Your tickets</h2>
+                        <div id="ticket-list" class="ticket-list">
+                            <p class="ticket-empty">No support tickets yet.</p>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer-container"></div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/include.js"></script>
 </body>
+
 </html>

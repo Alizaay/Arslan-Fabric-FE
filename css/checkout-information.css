@@ -181,6 +181,27 @@ input::placeholder {
     margin-top: 5px;
 }
 
+.error-message:not([hidden]) {
+    display: block;
+}
+
+.checkout-choice {
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+}
+
+.checkout-choice:hover {
+    background: rgba(242, 237, 230, 0.45);
+}
+
+.payment-box .payment-main.checkout-choice-selected,
+.payment-box .payment-row.checkout-choice-selected,
+.billing-box .billing-option.checkout-choice-selected,
+.shipping-option.checkout-choice-selected {
+    background: rgba(242, 237, 230, 0.35);
+}
+
 .save-information {
     display: flex;
     align-items: center;

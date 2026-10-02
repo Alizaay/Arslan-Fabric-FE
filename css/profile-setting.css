@@ -197,7 +197,8 @@ main {
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
     width: 100%;
     height: 30px;
     padding: 0 11px;
@@ -212,8 +213,17 @@ main {
     font-weight: 400;
 }
 
+.form-group textarea {
+    height: auto;
+    min-height: 140px;
+    padding: 10px 11px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
 .form-group input:focus,
-.form-group select:focus {
+.form-group select:focus,
+.form-group textarea:focus {
     border-color: #A49B91;
 }
 
@@ -872,4 +882,63 @@ main {
         font-size: 11px;
     }
 
+}
+
+/* Atelier Support */
+.support-card {
+    margin-bottom: 22px;
+}
+
+.support-intro {
+    margin: -8px 0 20px;
+    color: var(--paragraph);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 640px;
+}
+
+.support-hours strong {
+    font-size: 15px;
+}
+
+.ticket-history-card h2 {
+    margin-bottom: 16px;
+}
+
+.ticket-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ticket-item {
+    padding: 14px 16px;
+    background: var(--secondary-color);
+    border: 1px solid var(--text-color);
+    border-radius: 6px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--primary-color);
+}
+
+.ticket-item strong {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.ticket-item span {
+    color: var(--paragraph);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.ticket-empty {
+    margin: 0;
+    color: var(--paragraph);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
 }

@@ -1,0 +1,465 @@
+/* Store chrome: nav drawer, cart, auth — aligned to reference UI */
+
+.af-overlay {
+  z-index: 10050;
+}
+
+.af-drawer-nav-main {
+  width: min(38vw, 480px);
+  max-width: 100%;
+  background: #fbf9f6;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 8px 0 32px rgba(31, 30, 28, 0.12);
+}
+
+.af-nav-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 32px 20px;
+}
+
+.af-nav-drawer-head .af-drawer-brand {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(26px, 2.2vw, 32px);
+  letter-spacing: 0.06em;
+  margin: 0;
+  text-transform: uppercase;
+  color: #1f1e1c;
+  line-height: 1;
+}
+
+.af-nav-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #cfc7bc;
+  background: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: #1f1e1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.af-nav-tabs {
+  display: flex;
+  gap: 32px;
+  padding: 0 32px;
+  margin-bottom: 4px;
+}
+
+.af-nav-tabs button {
+  background: none;
+  border: none;
+  padding: 0 0 16px;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #a89a8e;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.af-nav-tabs button.active {
+  color: #1f1e1c;
+  border-bottom-color: #6b1d1d;
+}
+
+.af-nav-menu {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 0 20px;
+}
+
+.af-nav-item {
+  border-bottom: 1px solid #ece7df;
+}
+
+.af-nav-item > button,
+.af-nav-item > a.af-nav-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1f1e1c;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.af-nav-item.sale > a {
+  color: #6b1d1d;
+}
+
+.af-nav-toggle-icon {
+  font-size: 20px;
+  font-weight: 300;
+  color: #8c8177;
+  line-height: 1;
+}
+
+.af-nav-sub {
+  display: none;
+  padding: 4px 32px 18px 48px;
+  margin-left: 32px;
+  border-left: 1px solid #d8d0c4;
+}
+
+.af-nav-item.open .af-nav-sub {
+  display: block;
+}
+
+.af-nav-sub a {
+  display: block;
+  padding: 11px 0;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #5d524a;
+  text-decoration: none;
+  font-family: Inter, sans-serif;
+}
+
+.af-nav-sub a:hover {
+  color: #6b1d1d;
+}
+
+.af-nav-footer {
+  padding: 22px 32px 28px;
+  border-top: 1px solid #eae6df;
+  background: #f7f4ef;
+}
+
+.af-nav-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #1f1e1c;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+
+.af-nav-track-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.af-nav-track img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.85;
+}
+
+.af-nav-footer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #8c8177;
+  margin-bottom: 18px;
+}
+
+.af-nav-footer-meta a {
+  color: #8c8177;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.af-nav-social {
+  display: flex;
+  gap: 12px;
+}
+
+.af-nav-social a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e5dfd4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.af-nav-social img {
+  width: 16px;
+  height: 16px;
+  /* SVGs are white strokes; darken for light footer circles */
+  filter: brightness(0) saturate(100%);
+  opacity: 0.72;
+}
+
+.af-nav-social a:hover img {
+  opacity: 1;
+}
+
+.cart {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -9px;
+  right: -11px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #1f1e1c;
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.af-cart-drawer {
+  width: min(92vw, 440px);
+  padding: 0;
+  background: #fbf9f6;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -8px 0 32px rgba(31, 30, 28, 0.12);
+}
+
+.af-cart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28px 32px 22px;
+  border-bottom: 1px solid #eae6df;
+}
+
+.af-cart-head h3 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: clamp(24px, 2vw, 30px);
+  margin: 0;
+  color: #1f1e1c;
+  line-height: 1.1;
+}
+
+.af-cart-close {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #cfc7bc;
+  background: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: #1f1e1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.af-cart-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.af-cart-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 32px 40px;
+  gap: 12px;
+}
+
+.af-cart-empty-title {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f1e1c;
+}
+
+.af-cart-empty-hint {
+  margin: 0 0 12px;
+  max-width: 260px;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8c8177;
+}
+
+.af-cart-filled {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.af-cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 32px;
+}
+
+.af-cart-foot {
+  padding: 20px 32px 28px;
+  border-top: 1px solid #eae6df;
+  background: #f7f4ef;
+}
+
+.af-cart-subtotal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  color: #5d524a;
+}
+
+.af-cart-subtotal-row strong {
+  font-size: 16px;
+  color: #1f1e1c;
+}
+
+.af-btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 14px 20px;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.af-cart-items .cart-line {
+  grid-template-columns: 72px 1fr auto;
+  gap: 14px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ece7df;
+}
+
+.af-cart-items .cart-line:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.af-cart-items .cart-line img {
+  width: 72px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.af-cart-items .cart-line strong {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f1e1c;
+}
+
+.af-cart-items .cart-line p {
+  margin: 4px 0 0;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  color: #8c8177;
+}
+
+.af-cart-items .cart-line button {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  color: #8c8177;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.af-auth-modal {
+  text-align: center;
+  max-width: 480px;
+}
+
+.af-auth-modal h2 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: 34px;
+  margin-bottom: 8px;
+  color: #1f1e1c;
+}
+
+.af-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.af-search-modal {
+  max-width: 520px;
+  text-align: left;
+}
+
+.af-search-modal h2 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: 32px;
+  margin: 0 0 8px;
+  color: #1f1e1c;
+}
+
+.af-search-hint {
+  margin: 0 0 20px;
+  color: #8c8177;
+  font-size: 14px;
+}
+
+.af-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.af-search-form input[type='search'] {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #cfc7bc;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  .af-drawer-nav-main {
+    width: min(100vw, 400px);
+  }
+}

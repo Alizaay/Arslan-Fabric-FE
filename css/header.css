@@ -85,8 +85,10 @@ header {
     width: 15%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: clamp(24px, 3.5vw, 56px);
     margin: 0;
+    cursor: pointer;
 }
 
 .menuicon img {
@@ -107,7 +109,7 @@ header {
     color: var(--primary-color);
     font-family: "Instrument Serif", serif;
     font-weight: 400;
-    font-size: 34px;
+    font-size: clamp(30px, 2.4vw, 38px);
     font-style: normal;
     line-height: 1;
 }
@@ -116,14 +118,40 @@ header {
     width: 15%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 22px;
+    justify-content: flex-end;
+    padding-right: clamp(24px, 3.5vw, 56px);
+    gap: clamp(14px, 2vw, 24px);
 }
 
 .icons span {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+.header .header-wishlist {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.header .header-wishlist svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    stroke: var(--primary-color);
+    fill: none;
+    stroke-width: 1.6;
 }
 
 .icons img {

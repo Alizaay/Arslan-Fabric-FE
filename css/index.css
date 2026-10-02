@@ -256,7 +256,7 @@ main{
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background-image: url("/Assets/images/main-image.png");
+    background-image: url("../Assets/images/main-image.png");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -286,7 +286,7 @@ main{
     width: 100%;
     max-width: 650px;
     margin-left: clamp(46px, 7vw, 110px);
-    padding-top: 90px;
+    padding-top: clamp(48px, 8vh, 90px);
     padding-bottom: 80px;
     box-sizing: border-box;
 }
@@ -297,8 +297,7 @@ main{
     align-items: center;
     justify-content: center;
     padding: 5px 12px;
-    margin-top: 70px;
-    margin-left: 105px;
+    margin-bottom: 22px;
     border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 20px;
     background: rgba(31, 30, 28, 0.18);
@@ -389,6 +388,31 @@ main{
 .btn-primary:hover {
     background: transparent;
     color: var(--white);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--white);
+}
+
+.hero-scroll {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
 }
 
 .hero-stats {
@@ -6838,7 +6862,7 @@ main{
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    background-image: url("/Assets/images/signature-main-image.png");
+    background-image: url("../Assets/images/signature-main-image.png");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;

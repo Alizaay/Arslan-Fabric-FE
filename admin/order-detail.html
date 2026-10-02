@@ -9,29 +9,56 @@
 </head>
 <body>
   <div class="admin-layout">
-    <aside class="admin-sidebar"><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+    <aside class="admin-sidebar" data-admin-sidebar><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
     <div class="admin-main">
-      <header class="admin-topbar"><h1 id="order-title">Order Detail</h1></header>
-      <main class="admin-content panel" id="order-panel"></main>
+      <header class="admin-topbar">
+        <h1 id="order-title">Order Detail</h1>
+        <a class="btn-outline" href="orders.html">Back to Orders</a>
+      </header>
+      <main class="admin-content order-detail-grid" id="order-panel"></main>
     </div>
   </div>
   <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
   <script>
     AdminAuth.require(); AdminSidebar.render('orders.html');
     const id = new URLSearchParams(location.search).get('id');
+
     AdminAPI.request(`/orders/${id}`).then((o) => {
       document.getElementById('order-title').textContent = o.orderNumber;
       document.getElementById('order-panel').innerHTML = `
-        <p>Customer: ${o.customerName} · ${o.customerEmail}</p>
-        <p>Total: Rs. ${o.total?.toLocaleString()} · Status: ${o.status}</p>
-        <label>Tracking ID<input id="trackingId" value="${o.trackingId || ''}"></label>
-        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <button class="btn-outline" data-action="processing">Mark Processing</button>
-          <button class="btn-outline" data-action="shipped">Mark Shipped</button>
-          <button class="btn" data-action="delivered">Mark Delivered</button>
+        <div class="panel">
+          <h2>Customer</h2>
+          <p>${o.customerName}</p>
+          <p>${o.customerEmail} · ${o.customerPhone || ''}</p>
+          <h3 style="margin-top:20px;">Items</h3>
+          <table><thead><tr><th>Product</th><th>Qty</th><th>Price</th></tr></thead>
+          <tbody>${(o.items || []).map(i => `<tr><td>${i.name} (${i.size || ''})</td><td>${i.quantity}</td><td>Rs. ${(i.price * i.quantity).toLocaleString()}</td></tr>`).join('')}</tbody></table>
+          <h3 style="margin-top:20px;">Timeline</h3>
+          <ul>${(o.timeline || []).map(t => `<li><strong>${t.title || t.status}</strong> — ${t.detail || ''}</li>`).join('')}</ul>
+        </div>
+        <div class="panel">
+          <p><strong>Status:</strong> <span class="badge-status">${o.status}</span></p>
+          <p>Subtotal: Rs. ${o.subtotal?.toLocaleString()}</p>
+          <p>Shipping: Rs. ${o.shipping?.toLocaleString()}</p>
+          <p><strong>Total: Rs. ${o.total?.toLocaleString()}</strong></p>
+          <label style="display:grid;gap:6px;margin-top:16px;">Courier<input id="courier" value="${o.courier || 'Leopards Courier'}"></label>
+          <label style="display:grid;gap:6px;margin-top:12px;">Tracking ID<input id="trackingId" value="${o.trackingId || ''}"></label>
+          <div class="order-tabs" style="margin-top:16px;">
+            <button type="button" class="btn-outline" data-action="new">New</button>
+            <button type="button" class="btn-outline" data-action="processing">Processing</button>
+            <button type="button" class="btn" data-action="shipped">Shipped</button>
+            <button type="button" class="btn-outline" data-action="delivered">Delivered</button>
+          </div>
         </div>`;
       document.querySelectorAll('[data-action]').forEach(btn => btn.addEventListener('click', async () => {
-        await AdminAPI.request(`/orders/${id}`, { method: 'PATCH', body: JSON.stringify({ status: btn.dataset.action, trackingId: document.getElementById('trackingId').value, courier: 'Leopards Courier' }) });
+        await AdminAPI.request(`/orders/${id}`, {
+          method: 'PATCH',
+          body: JSON.stringify({
+            status: btn.dataset.action,
+            trackingId: document.getElementById('trackingId').value,
+            courier: document.getElementById('courier').value,
+          }),
+        });
         location.reload();
       }));
     });

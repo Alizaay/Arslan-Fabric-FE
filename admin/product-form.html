@@ -9,20 +9,63 @@
 </head>
 <body>
   <div class="admin-layout">
-    <aside class="admin-sidebar"><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+    <aside class="admin-sidebar" data-admin-sidebar><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
     <div class="admin-main">
-      <header class="admin-topbar"><h1>Add New Design</h1></header>
-      <main class="admin-content panel">
-        <form id="product-form" class="login-card" style="width:100%;max-width:900px;">
-          <label>Product Name<input name="name" required></label>
-          <label>Article Code<input name="articleCode" required></label>
-          <label>Price (Rs.)<input name="price" type="number" required></label>
-          <label>Stock<input name="stock" type="number" required></label>
-          <label>Description<textarea name="description" rows="4"></textarea></label>
-          <label><input type="checkbox" name="showOnWebsite" checked> Show on Website</label>
-          <label><input type="checkbox" name="featured"> Featured Product</label>
-          <label><input type="checkbox" name="newArrival"> New Arrival</label>
-          <button class="btn" type="submit">Publish Product</button>
+      <header class="admin-topbar">
+        <button type="button" class="btn-outline admin-menu-btn" data-admin-menu-toggle>Menu</button>
+        <h1 id="form-title">Add New Design</h1>
+      </header>
+      <main class="admin-content">
+        <div class="wizard-steps">
+          <button type="button" class="wizard-step active" data-step-nav="1">1. Basic Info</button>
+          <button type="button" class="wizard-step" data-step-nav="2">2. Details &amp; Inventory</button>
+          <button type="button" class="wizard-step" data-step-nav="3">3. Media</button>
+          <button type="button" class="wizard-step" data-step-nav="4">4. Publish</button>
+        </div>
+        <form id="product-form" class="panel wizard-panel">
+          <section class="wizard-pane active" data-step="1">
+            <h2>Basic Information</h2>
+            <label>Product Name<input name="name" required></label>
+            <label>Article Code<input name="articleCode" required></label>
+            <label>Category<select name="category" id="category-select"><option value="">Select category</option></select></label>
+            <label>Description<textarea name="description" rows="4"></textarea></label>
+          </section>
+          <section class="wizard-pane" data-step="2">
+            <h2>Details &amp; Inventory</h2>
+            <div class="form-row-2">
+              <label>Price (Rs.)<input name="price" type="number" required></label>
+              <label>Sale Price (optional)<input name="salePrice" type="number"></label>
+            </div>
+            <div class="form-row-2">
+              <label>Product Type<input name="productType" placeholder="Ready to Wear"></label>
+              <label>Piece Type<input name="pieceType" placeholder="3 Piece"></label>
+            </div>
+            <div class="form-row-2">
+              <label>Fabric<input name="fabric"></label>
+              <label>Color<input name="color"></label>
+            </div>
+            <label>Stock (total)<input name="stock" type="number" required></label>
+            <label>Sizes (comma separated, e.g. XS,S,M,L)<input name="sizes" placeholder="XS,S,M,L,XL"></label>
+          </section>
+          <section class="wizard-pane" data-step="3">
+            <h2>Media</h2>
+            <label>Image URLs (one per line)<textarea name="images" rows="5" placeholder="Assets/images/products-detail-main-image (4).png"></textarea></label>
+            <label>Upload image<input type="file" id="image-upload" accept="image/*"></label>
+            <p class="muted" id="upload-status"></p>
+          </section>
+          <section class="wizard-pane" data-step="4">
+            <h2>Publish to Website</h2>
+            <label class="checkbox-row"><input type="checkbox" name="showOnWebsite" checked> Show on Website</label>
+            <label class="checkbox-row"><input type="checkbox" name="featured"> Featured Product</label>
+            <label class="checkbox-row"><input type="checkbox" name="newArrival"> New Arrival</label>
+            <label>Tags (comma separated)<input name="tags" placeholder="bestseller, formal"></label>
+            <div class="wizard-review" id="wizard-review"></div>
+          </section>
+          <div class="wizard-actions">
+            <button type="button" class="btn-outline" id="wizard-prev">Back</button>
+            <button type="button" class="btn" id="wizard-next">Continue</button>
+            <button type="submit" class="btn" id="wizard-publish" hidden>Publish Product</button>
+          </div>
         </form>
       </main>
     </div>
@@ -32,20 +75,104 @@
     AdminAuth.require(); AdminSidebar.render('products.html');
     const params = new URLSearchParams(location.search);
     const id = params.get('id');
+    let step = 1;
     const form = document.getElementById('product-form');
-    if (id) {
-      AdminAPI.request(`/products/${id}`).then((p) => {
-        form.name.value = p.name; form.articleCode.value = p.articleCode; form.price.value = p.price;
-        form.stock.value = p.stock; form.description.value = p.description || '';
-        form.showOnWebsite.checked = p.showOnWebsite; form.featured.checked = p.featured; form.newArrival.checked = p.newArrival;
-      });
+    const panes = () => [...document.querySelectorAll('.wizard-pane')];
+    const steps = () => [...document.querySelectorAll('.wizard-step')];
+
+    function showStep(n) {
+      step = n;
+      panes().forEach((p) => p.classList.toggle('active', Number(p.dataset.step) === step));
+      steps().forEach((s) => s.classList.toggle('active', Number(s.dataset.stepNav) === step));
+      document.getElementById('wizard-prev').hidden = step === 1;
+      document.getElementById('wizard-next').hidden = step === 4;
+      document.getElementById('wizard-publish').hidden = step !== 4;
+      if (step === 4) renderReview();
     }
+
+    function renderReview() {
+      const fd = new FormData(form);
+      document.getElementById('wizard-review').innerHTML = `
+        <p><strong>${fd.get('name')}</strong> · ${fd.get('articleCode')}</p>
+        <p>Rs. ${fd.get('price')}${fd.get('salePrice') ? ` (Sale: Rs. ${fd.get('salePrice')})` : ''}</p>
+        <p>${fd.get('pieceType') || ''} · ${fd.get('fabric') || ''}</p>`;
+    }
+
+    AdminAPI.request('/categories').then((cats) => {
+      const sel = document.getElementById('category-select');
+      sel.innerHTML += cats.map((c) => `<option value="${c._id}">${c.name}</option>`).join('');
+      if (id) loadProduct();
+    });
+
+    async function loadProduct() {
+      document.getElementById('form-title').textContent = 'Edit Design';
+      const p = await AdminAPI.request(`/products/${id}`);
+      form.name.value = p.name;
+      form.articleCode.value = p.articleCode;
+      form.category.value = p.category?._id || p.category || '';
+      form.description.value = p.description || '';
+      form.price.value = p.price;
+      form.salePrice.value = p.salePrice || '';
+      form.productType.value = p.productType || '';
+      form.pieceType.value = p.pieceType || '';
+      form.fabric.value = p.fabric || '';
+      form.color.value = p.color || '';
+      form.stock.value = p.stock || 0;
+      form.sizes.value = (p.sizeInventory || []).map((s) => s.size).join(',');
+      form.images.value = (p.images || []).join('\n');
+      form.showOnWebsite.checked = p.showOnWebsite;
+      form.featured.checked = p.featured;
+      form.newArrival.checked = p.newArrival;
+      form.tags.value = (p.tags || []).join(', ');
+    }
+
+    document.querySelectorAll('[data-step-nav]').forEach((btn) => {
+      btn.addEventListener('click', () => showStep(Number(btn.dataset.stepNav)));
+    });
+    document.getElementById('wizard-prev').addEventListener('click', () => showStep(step - 1));
+    document.getElementById('wizard-next').addEventListener('click', () => showStep(step + 1));
+
+    document.getElementById('image-upload').addEventListener('change', async (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const body = new FormData();
+      body.append('file', file);
+      const token = localStorage.getItem('af_admin_token');
+      const res = await fetch(`${AdminAPI.base}/api/admin/upload`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
+        body,
+      });
+      const data = await res.json();
+      if (data.url) {
+        const ta = form.images;
+        ta.value = (ta.value ? ta.value + '\n' : '') + data.url;
+        document.getElementById('upload-status').textContent = 'Uploaded: ' + data.url;
+      }
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const fd = new FormData(form);
+      const sizes = (fd.get('sizes') || '').split(',').map((s) => s.trim()).filter(Boolean);
       const payload = {
-        name: fd.get('name'), articleCode: fd.get('articleCode'), price: Number(fd.get('price')), stock: Number(fd.get('stock')),
-        description: fd.get('description'), showOnWebsite: fd.get('showOnWebsite') === 'on', featured: fd.get('featured') === 'on', newArrival: fd.get('newArrival') === 'on',
+        name: fd.get('name'),
+        articleCode: fd.get('articleCode'),
+        category: fd.get('category') || undefined,
+        description: fd.get('description'),
+        price: Number(fd.get('price')),
+        salePrice: fd.get('salePrice') ? Number(fd.get('salePrice')) : undefined,
+        productType: fd.get('productType'),
+        pieceType: fd.get('pieceType'),
+        fabric: fd.get('fabric'),
+        color: fd.get('color'),
+        stock: Number(fd.get('stock')),
+        sizeInventory: sizes.map((size) => ({ size, quantity: Math.max(1, Math.floor(Number(fd.get('stock')) / sizes.length)) })),
+        images: (fd.get('images') || '').split('\n').map((s) => s.trim()).filter(Boolean),
+        showOnWebsite: fd.get('showOnWebsite') === 'on',
+        featured: fd.get('featured') === 'on',
+        newArrival: fd.get('newArrival') === 'on',
+        tags: (fd.get('tags') || '').split(',').map((t) => t.trim()).filter(Boolean),
       };
       if (id) await AdminAPI.request(`/products/${id}`, { method: 'PUT', body: JSON.stringify(payload) });
       else await AdminAPI.request('/products', { method: 'POST', body: JSON.stringify(payload) });

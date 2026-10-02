@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category Form | Atelier Portal</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar" data-admin-sidebar><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+    <div class="admin-main">
+      <header class="admin-topbar"><h1 id="title">Add Category</h1></header>
+      <main class="admin-content panel">
+        <form id="cat-form" class="login-card" style="width:100%;max-width:640px;">
+          <label>Name<input name="name" required></label>
+          <label>Slug<input name="slug" required placeholder="formal-stitched"></label>
+          <label>Website Status
+            <select name="websiteStatus">
+              <option value="showing">Showing</option>
+              <option value="hidden">Hidden</option>
+            </select>
+          </label>
+          <label class="checkbox-row"><input type="checkbox" name="showOnHomepage"> Show on Homepage</label>
+          <label>Sort Order<input name="sortOrder" type="number" value="0"></label>
+          <button class="btn" type="submit">Save Category</button>
+        </form>
+      </main>
+    </div>
+  </div>
+  <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
+  <script>
+    AdminAuth.require(); AdminSidebar.render('categories.html');
+    const id = new URLSearchParams(location.search).get('id');
+    const form = document.getElementById('cat-form');
+    if (id) {
+      document.getElementById('title').textContent = 'Edit Category';
+      AdminAPI.request(`/categories`).then((cats) => {
+        const c = cats.find((x) => x._id === id);
+        if (!c) return;
+        form.name.value = c.name;
+        form.slug.value = c.slug;
+        form.websiteStatus.value = c.websiteStatus;
+        form.showOnHomepage.checked = c.showOnHomepage;
+        form.sortOrder.value = c.sortOrder || 0;
+      });
+    }
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const payload = {
+        name: fd.get('name'),
+        slug: fd.get('slug'),
+        websiteStatus: fd.get('websiteStatus'),
+        showOnHomepage: fd.get('showOnHomepage') === 'on',
+        sortOrder: Number(fd.get('sortOrder') || 0),
+      };
+      if (id) await AdminAPI.request(`/categories/${id}`, { method: 'PUT', body: JSON.stringify(payload) });
+      else await AdminAPI.request('/categories', { method: 'POST', body: JSON.stringify(payload) });
+      location.href = id ? `category-detail.html?id=${id}` : 'categories.html';
+    });
+  </script>
+</body>
+</html>

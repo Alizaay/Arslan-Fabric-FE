@@ -9,16 +9,19 @@
 </head>
 <body>
   <div class="admin-layout">
-    <aside class="admin-sidebar"><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+    <aside class="admin-sidebar" data-admin-sidebar><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
     <div class="admin-main">
-      <header class="admin-topbar"><h1>Customer Orders</h1></header>
+      <header class="admin-topbar">
+        <button type="button" class="btn-outline admin-menu-btn" data-admin-menu-toggle>Menu</button>
+        <h1>Customer Orders</h1>
+      </header>
       <main class="admin-content panel">
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
-          <button class="btn-outline" data-status="all">All</button>
-          <button class="btn-outline" data-status="new">New</button>
-          <button class="btn-outline" data-status="processing">Processing</button>
-          <button class="btn-outline" data-status="shipped">Shipped</button>
-          <button class="btn-outline" data-status="delivered">Delivered</button>
+        <div class="order-tabs" id="order-tabs">
+          <button type="button" data-status="all" class="active">All <span data-count="all"></span></button>
+          <button type="button" data-status="new">New <span data-count="new"></span></button>
+          <button type="button" data-status="processing">Processing <span data-count="processing"></span></button>
+          <button type="button" data-status="shipped">Shipped <span data-count="shipped"></span></button>
+          <button type="button" data-status="delivered">Delivered <span data-count="delivered"></span></button>
         </div>
         <table><thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Payment</th><th>Status</th><th></th></tr></thead><tbody id="orders-body"></tbody></table>
       </main>
@@ -28,12 +31,44 @@
   <script>
     AdminAuth.require(); AdminSidebar.render('orders.html');
     let status = 'all';
+    const counts = { all: 0, new: 0, processing: 0, shipped: 0, delivered: 0 };
+
+    function badge(s) {
+      return `<span class="badge-status">${s}</span>`;
+    }
+
+    async function loadCounts() {
+      const all = await AdminAPI.request('/orders?status=all');
+      counts.all = all.length;
+      ['new', 'processing', 'shipped', 'delivered'].forEach(async (st) => {
+        const list = await AdminAPI.request(`/orders?status=${st}`);
+        counts[st] = list.length;
+        const el = document.querySelector(`[data-count="${st}"]`);
+        if (el) el.textContent = list.length ? `(${list.length})` : '';
+      });
+      const allEl = document.querySelector('[data-count="all"]');
+      if (allEl) allEl.textContent = counts.all ? `(${counts.all})` : '';
+    }
+
     const load = () => AdminAPI.request(`/orders?status=${status}`).then((orders) => {
       document.getElementById('orders-body').innerHTML = orders.map(o => `
-        <tr><td>${o.orderNumber}</td><td>${o.customerName}</td><td>Rs. ${o.total?.toLocaleString()}</td><td>${o.paymentMethod}</td><td>${o.status}</td>
-        <td><a href="order-detail.html?id=${o._id}">View</a></td></tr>`).join('');
+        <tr>
+          <td>${o.orderNumber}</td>
+          <td>${o.customerName}<br><small>${o.customerEmail || ''}</small></td>
+          <td>Rs. ${o.total?.toLocaleString()}</td>
+          <td>${(o.paymentMethod || '').toUpperCase()}</td>
+          <td>${badge(o.status)}</td>
+          <td><a href="order-detail.html?id=${o._id}">View</a></td>
+        </tr>`).join('') || '<tr><td colspan="6">No orders in this tab.</td></tr>';
     });
-    document.querySelectorAll('[data-status]').forEach(btn => btn.addEventListener('click', () => { status = btn.dataset.status; load(); }));
+
+    document.querySelectorAll('#order-tabs [data-status]').forEach(btn => btn.addEventListener('click', () => {
+      status = btn.dataset.status;
+      document.querySelectorAll('#order-tabs button').forEach(b => b.classList.toggle('active', b === btn));
+      load();
+    }));
+
+    loadCounts();
     load();
   </script>
 </body>

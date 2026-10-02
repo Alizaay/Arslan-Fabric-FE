@@ -1,1 +1,1 @@
-/* Page-specific hooks can be added here; chrome is initialized in include.js */
+/* Header/footer and overlays load via include.js */
