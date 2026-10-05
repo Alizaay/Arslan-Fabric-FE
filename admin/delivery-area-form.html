@@ -1,55 +1,185 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <base href="/admin/">
+
   <title>Add Delivery Area | Atelier Portal</title>
+
   <link rel="stylesheet" href="css/admin.css">
+
 </head>
-<body>
+
+<body class="admin-app">
+
   <div class="admin-layout">
-    <aside class="admin-sidebar" data-admin-sidebar><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
+
+    <aside class="admin-sidebar" data-admin-sidebar>
+
+      <div class="admin-sidebar-brand">
+
+        <h1 class="admin-brand">Arsalan Fabrics</h1>
+
+        <small>ATELIER PORTAL</small>
+
+      </div>
+
+      <nav data-admin-nav></nav>
+
+      <div class="admin-sidebar-foot">
+
+        <a class="admin-store-link" href="../index.html" target="_blank" rel="noopener">View storefront</a>
+
+        <button class="dashboard-btn light-btn btn-logout" type="button" data-admin-logout>Log out</button>
+
+      </div>
+
+    </aside>
+
     <div class="admin-main">
-      <header class="admin-topbar"><button type="button" class="btn-outline admin-menu-btn" data-admin-menu-toggle>Menu</button><h1>Add Delivery Area</h1></header>
-      <main class="admin-content panel">
-        <form id="area-form" class="login-card" style="width:100%;max-width:640px;">
-          <label>Area / City<input name="city" required></label>
-          <label>Delivery Charge (Rs.)<input name="charge" type="number" required></label>
-          <label>Estimated Delivery Time<input name="estimatedTime" placeholder="2–3 business days"></label>
-          <label><input type="checkbox" name="isActive" checked> Active</label>
-          <button class="btn" type="submit">Save Delivery Area</button>
-        </form>
+
+      <header class="admin-topbar">
+
+        <h1 id="page-title">Add delivery area</h1>
+
+      </header>
+
+      <main class="admin-content">
+
+        <section class="af-card admin-settings-card">
+
+          <p class="admin-settings-lead">
+
+            <a href="delivery-areas.html">← Back to delivery areas</a>
+
+          </p>
+
+          <form id="area-form" class="admin-form">
+
+            <label class="admin-field">
+
+              <span class="af-label">Area / city</span>
+
+              <input name="city" type="text" required>
+
+            </label>
+
+            <label class="admin-field">
+
+              <span class="af-label">Delivery charge (Rs.)</span>
+
+              <input name="charge" type="number" min="0" step="1" required>
+
+            </label>
+
+            <label class="admin-field">
+
+              <span class="af-label">Estimated delivery time</span>
+
+              <input name="estimatedTime" type="text" placeholder="2–3 business days">
+
+            </label>
+
+            <label class="admin-field admin-field--checkbox">
+
+              <input type="checkbox" name="isActive" checked>
+
+              <span>Active</span>
+
+            </label>
+
+            <div class="admin-form-actions">
+
+              <button class="btn" type="submit">Save delivery area</button>
+
+            </div>
+
+          </form>
+
+        </section>
+
       </main>
+
     </div>
+
   </div>
-  <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
+
+  <script src="js/env.js"></script>
+  <script src="js/config.js"></script>
+
+  <script src="js/api.js"></script>
+
+  <script src="js/auth.js"></script>
+
+  <script src="js/sidebar.js"></script>
+
   <script>
+
     AdminAuth.require();
-    AdminSidebar.render('delivery-charges.html');
+
+    AdminSidebar.render('delivery-area-form.html');
+
+    const areaForm = document.getElementById('area-form');
+
     const id = new URLSearchParams(location.search).get('id');
+
     if (id) {
+
+      document.getElementById('page-title').textContent = 'Edit delivery area';
+
       AdminAPI.request('/delivery/areas').then((areas) => {
+
         const a = areas.find((x) => x._id === id);
+
         if (!a) return;
-        area-form.city.value = a.city;
-        area-form.charge.value = a.charge;
-        area-form.estimatedTime.value = a.estimatedTime || '';
-        area-form.isActive.checked = a.isActive;
+
+        areaForm.elements.city.value = a.city;
+
+        areaForm.elements.charge.value = a.charge;
+
+        areaForm.elements.estimatedTime.value = a.estimatedTime || '';
+
+        areaForm.elements.isActive.checked = a.isActive;
+
       });
+
     }
-    area-form.addEventListener('submit', async (e) => {
+
+    areaForm.addEventListener('submit', async (e) => {
+
       e.preventDefault();
-      const fd = new FormData(area-form);
+
+      const fd = new FormData(areaForm);
+
       const body = {
+
         city: fd.get('city'),
+
         charge: Number(fd.get('charge')),
+
         estimatedTime: fd.get('estimatedTime'),
+
         isActive: fd.get('isActive') === 'on',
+
       };
+
       if (id) await AdminAPI.request(`/delivery/areas/${id}`, { method: 'PUT', body: JSON.stringify(body) });
+
       else await AdminAPI.request('/delivery/areas', { method: 'POST', body: JSON.stringify(body) });
-      location.href = 'delivery-areas.html';
+
+      window.location.href = 'delivery-areas.html';
+
     });
+
   </script>
+
 </body>
+
 </html>
+

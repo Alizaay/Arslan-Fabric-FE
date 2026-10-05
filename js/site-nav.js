@@ -101,5 +101,31 @@
     if (t.includes('MANAGE ADDRESS')) btn.addEventListener('click', () => (window.location.href = 'delivery-addresses.html'));
     if (t.includes('VIEW ALL ORDERS')) btn.addEventListener('click', () => (window.location.href = 'order-history.html'));
     if (t.includes('ADD NEW')) btn.addEventListener('click', () => (window.location.href = 'delivery-addresses.html'));
+    if (t.includes('VIEW WISHLIST')) btn.addEventListener('click', () => (window.location.href = 'my-wishlist.html'));
+    if (t.includes('CHANGE PASSWORD')) btn.addEventListener('click', () => (window.location.href = 'profile-setting.html'));
+  });
+
+  document.querySelector('.wishlist-move-all')?.addEventListener('click', async () => {
+    if (!ArsalanAuth.user()) return ArsalanAuth.openModal('signin');
+    try {
+      const products = await ArsalanAPI.getWishlist();
+      products.forEach((p) => {
+        ArsalanCart.add({
+          productId: p._id,
+          name: p.name,
+          price: p.salePrice || p.price,
+          image: ArsalanAPI.assetUrl(p.images?.[0]),
+          size: p.sizeInventory?.[0]?.size || 'M',
+          color: p.color || '',
+          quantity: 1,
+        });
+      });
+      ArsalanCart.updateBadge();
+      ArsalanCart.renderDrawer();
+      document.querySelector('[data-cart-drawer]')?.classList.add('open');
+      document.body.classList.add('overlay-open');
+    } catch {
+      /* empty wishlist */
+    }
   });
 })();

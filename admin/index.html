@@ -1,50 +1,257 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <base href="/admin/">
+
   <title>Dashboard | Atelier Portal</title>
+
   <link rel="stylesheet" href="css/admin.css">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
 </head>
-<body>
+
+<body class="admin-app admin-page-dashboard">
+
   <div class="admin-layout">
-    <aside class="admin-sidebar">
-      <div>
+
+    <aside class="admin-sidebar" data-admin-sidebar>
+
+      <div class="admin-sidebar-brand">
+
         <h1 class="admin-brand">Arsalan Fabrics</h1>
+
         <small>ATELIER PORTAL</small>
+
       </div>
-      <nav data-admin-nav></nav>
-      <button class="btn-outline" type="button" data-admin-logout>Logout</button>
+
+      <nav data-admin-nav aria-label="Admin navigation"></nav>
+
+      <div class="admin-sidebar-foot">
+
+        <a class="admin-store-link" href="../index.html" target="_blank" rel="noopener">View storefront</a>
+
+        <button class="dashboard-btn light-btn btn-logout" type="button" data-admin-logout>Log out</button>
+
+      </div>
+
     </aside>
+
     <div class="admin-main">
-      <header class="admin-topbar"><h1>Store Overview</h1><div>Arsalan Admin</div></header>
+
       <main class="admin-content">
-        <h2>Hi, Arsalan</h2>
-        <p>Welcome back. Here’s what’s happening with your store today.</p>
-        <section class="card-grid" id="stats-grid"></section>
-        <section class="panel" style="margin-top:24px;">
-          <h3>New Orders Received</h3>
-          <table><thead><tr><th>Order ID</th><th>Customer</th><th>Amount</th><th>Status</th></tr></thead><tbody id="orders-body"></tbody></table>
+
+        <header class="admin-dashboard-head">
+
+          <h1 class="admin-page-title">Store Overview</h1>
+
+          <p class="admin-user-line" data-admin-user-label>Arsalan Admin</p>
+
+        </header>
+
+
+
+        <section class="af-card admin-welcome-card">
+
+          <div class="welcome-content">
+
+            <span class="af-label">WELCOME BACK</span>
+
+            <h2 class="admin-greeting" data-admin-greeting>Hi, Arsalan</h2>
+
+            <p class="admin-welcome-copy">Welcome back. Here&rsquo;s what&rsquo;s happening with your store today.</p>
+
+          </div>
+
+          <div class="admin-head-metric" id="head-metric" aria-live="polite">
+
+            <span class="af-label">TOTAL SALES</span>
+
+            <strong>—</strong>
+
+          </div>
+
         </section>
+
+
+
+        <section class="admin-stats-grid" id="stats-grid" aria-live="polite">
+
+          <article class="af-card admin-stat-card stat-card--loading">
+
+            <span class="af-label">Loading</span>
+
+            <p class="admin-stat-value">—</p>
+
+          </article>
+
+        </section>
+
+
+
+        <section class="admin-quick-bar">
+
+          <a class="dashboard-btn light-btn" href="product-form.html">Add product</a>
+
+          <a class="dashboard-btn light-btn" href="orders.html">Manage orders</a>
+
+          <a class="dashboard-btn dark-btn" href="website.html">Website settings</a>
+
+        </section>
+
+
+
+        <section class="af-card admin-orders-card">
+
+          <div class="admin-orders-head">
+
+            <span class="af-label">NEW ORDERS RECEIVED</span>
+
+            <a class="dashboard-btn light-btn" href="orders.html">View all orders</a>
+
+          </div>
+
+          <div class="admin-orders-list" id="orders-list">
+
+            <p class="admin-orders-empty">Loading orders…</p>
+
+          </div>
+
+        </section>
+
       </main>
+
     </div>
+
   </div>
-  <script src="js/config.js"></script><script src="js/api.js"></script>
+
+  <script src="js/env.js"></script>
+  <script src="js/config.js"></script>
+
+  <script src="js/api.js"></script>
+
   <script src="js/auth.js"></script>
+
   <script src="js/sidebar.js"></script>
+
   <script>
+
     AdminAuth.require();
+
     AdminSidebar.render('index.html');
-    Promise.all([AdminAPI.request('/stats'), AdminAPI.request('/orders?status=new')]).then(([stats, orders]) => {
-      document.getElementById('stats-grid').innerHTML = `
-        <article class="stat-card"><h3>Total Products</h3><p>${stats.products}</p></article>
-        <article class="stat-card"><h3>Total Orders</h3><p>${stats.orders}</p></article>
-        <article class="stat-card"><h3>New Orders</h3><p>${stats.newOrders}</p></article>
-        <article class="stat-card"><h3>Total Sales</h3><p>Rs. ${stats.sales.toLocaleString()}</p></article>`;
-      document.getElementById('orders-body').innerHTML = orders.slice(0, 5).map(o => `
-        <tr><td>${o.orderNumber}</td><td>${o.customerName || '-'}</td><td>Rs. ${o.total?.toLocaleString()}</td><td><span class="badge badge-new">${o.status}</span></td></tr>`).join('');
-    });
+
+
+
+    const user = AdminAuth.user();
+
+    if (user?.name) {
+
+      document.querySelector('[data-admin-greeting]').textContent = `Hi, ${user.name.split(' ')[0]}`;
+
+      document.querySelector('[data-admin-user-label]').textContent = user.name;
+
+    }
+
+
+
+    function statCard(label, value) {
+
+      return `<article class="af-card admin-stat-card">
+
+        <span class="af-label">${label}</span>
+
+        <p class="admin-stat-value">${value}</p>
+
+      </article>`;
+
+    }
+
+
+
+    function statusClass(status) {
+
+      const s = (status || 'new').toLowerCase().replace(/\s+/g, '-');
+
+      return s;
+
+    }
+
+
+
+    Promise.all([AdminAPI.request('/stats'), AdminAPI.request('/orders?status=new')])
+
+      .then(([stats, orders]) => {
+
+        document.getElementById('head-metric').innerHTML = `
+
+          <span class="af-label">TOTAL SALES</span>
+
+          <strong>Rs. ${Number(stats.sales || 0).toLocaleString()}</strong>`;
+
+
+
+        document.getElementById('stats-grid').innerHTML = [
+
+          statCard('Total products', stats.products ?? 0),
+
+          statCard('Total orders', stats.orders ?? 0),
+
+          statCard('New orders', stats.newOrders ?? 0),
+
+          statCard('Total sales', `Rs. ${Number(stats.sales || 0).toLocaleString()}`),
+
+        ].join('');
+
+
+
+        const rows = (orders || []).slice(0, 8);
+
+        document.getElementById('orders-list').innerHTML = rows.length
+
+          ? rows.map((o) => `
+
+            <div class="admin-order-row">
+
+              <div class="admin-order-details">
+
+                <strong>${o.orderNumber}</strong>
+
+                <span>${o.customerName || o.email || '—'}</span>
+
+              </div>
+
+              <div class="admin-order-price">Rs. ${Number(o.total || 0).toLocaleString()}</div>
+
+              <span class="admin-order-status ${statusClass(o.status)}">${(o.status || 'new').toUpperCase()}</span>
+
+              <a class="admin-order-view" href="order-detail.html?id=${o._id}">View</a>
+
+            </div>`).join('')
+
+          : '<p class="admin-orders-empty">No new orders right now.</p>';
+
+      })
+
+      .catch((err) => {
+
+        document.getElementById('stats-grid').innerHTML =
+
+          '<article class="af-card admin-stat-card admin-stat-card--error"><span class="af-label">Stats</span><p class="admin-stat-value">API offline</p></article>';
+
+        document.getElementById('orders-list').innerHTML =
+
+          `<p class="admin-orders-empty">${err.message || 'Could not load orders. Start the API on port 5000.'}</p>`;
+
+      });
+
   </script>
+
 </body>
+
 </html>
+

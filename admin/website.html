@@ -1,36 +1,165 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <base href="/admin/">
+
   <title>Website Settings | Atelier Portal</title>
+
   <link rel="stylesheet" href="css/admin.css">
+
 </head>
-<body>
+
+<body class="admin-app">
+
   <div class="admin-layout">
-    <aside class="admin-sidebar"><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
-    <div class="admin-main"><header class="admin-topbar"><h1>Website Settings</h1></header>
-      <main class="admin-content panel">
-        <form id="site-form" class="login-card" style="width:100%;max-width:640px;">
-          <label>Announcement Bar<input name="announcementText"></label>
-          <label>Free Shipping Threshold (Rs.)<input name="freeShippingThreshold" type="number"></label>
-          <label>Support Email<input name="contactEmail"></label>
-          <button class="btn" type="submit">Save Website Settings</button>
-        </form>
+
+    <aside class="admin-sidebar" data-admin-sidebar>
+
+      <div class="admin-sidebar-brand">
+
+        <h1 class="admin-brand">Arsalan Fabrics</h1>
+
+        <small>ATELIER PORTAL</small>
+
+      </div>
+
+      <nav data-admin-nav></nav>
+
+      <div class="admin-sidebar-foot">
+
+        <a class="admin-store-link" href="../index.html" target="_blank" rel="noopener">View storefront</a>
+
+        <button class="dashboard-btn light-btn btn-logout" type="button" data-admin-logout>Log out</button>
+
+      </div>
+
+    </aside>
+
+    <div class="admin-main">
+
+      <header class="admin-topbar">
+
+        <h1>Website Settings</h1>
+
+      </header>
+
+      <main class="admin-content">
+
+        <section class="af-card admin-settings-card">
+
+          <h2 class="admin-form-title">Storefront &amp; announcement</h2>
+
+          <p class="admin-form-hint">These settings appear on the public store header and checkout.</p>
+
+          <form id="site-form" class="admin-form">
+
+            <label class="admin-field">
+
+              <span class="af-label">Announcement bar</span>
+
+              <input name="announcementText" type="text" placeholder="Free nationwide delivery on orders over PKR 25,000…">
+
+            </label>
+
+            <label class="admin-field">
+
+              <span class="af-label">Free shipping threshold (Rs.)</span>
+
+              <input name="freeShippingThreshold" type="number" min="0" step="1" required>
+
+            </label>
+
+            <label class="admin-field">
+
+              <span class="af-label">Support email</span>
+
+              <input name="contactEmail" type="email" placeholder="support@arsalanfabrics.com" required>
+
+            </label>
+
+            <div class="admin-form-actions">
+
+              <button class="btn" type="submit">Save website settings</button>
+
+            </div>
+
+          </form>
+
+        </section>
+
       </main>
+
     </div>
+
   </div>
-  <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
+
+  <script src="js/env.js"></script>
+  <script src="js/config.js"></script>
+
+  <script src="js/api.js"></script>
+
+  <script src="js/auth.js"></script>
+
+  <script src="js/sidebar.js"></script>
+
   <script>
-    AdminAuth.require(); AdminSidebar.render('website.html');
-    fetch(`${AdminAPI.base}/api/settings/public`).then(r=>r.json()).then(s=>{
-      site-form.announcementText.value=s.announcementText||''; site-form.freeShippingThreshold.value=s.freeShippingThreshold||15000; site-form.contactEmail.value=s.contactEmail||'';
-    });
-    site-form.addEventListener('submit', async (e) => {
-      e.preventDefault(); const fd = new FormData(site-form);
-      for (const [key,value] of [['announcementText', fd.get('announcementText')], ['freeShippingThreshold', Number(fd.get('freeShippingThreshold'))], ['contactEmail', fd.get('contactEmail')]]) {
-        await AdminAPI.request('/settings', { method:'PUT', body: JSON.stringify({ key, value }) });
+
+    AdminAuth.require();
+
+    AdminSidebar.render('website.html');
+
+    const siteForm = document.getElementById('site-form');
+
+    fetch(`${AdminAPI.base}/api/settings/public`)
+
+      .then((r) => r.json())
+
+      .then((s) => {
+
+        siteForm.elements.announcementText.value = s.announcementText || '';
+
+        siteForm.elements.freeShippingThreshold.value = s.freeShippingThreshold || 15000;
+
+        siteForm.elements.contactEmail.value = s.contactEmail || '';
+
+      })
+
+      .catch(() => {});
+
+    siteForm.addEventListener('submit', async (e) => {
+
+      e.preventDefault();
+
+      const fd = new FormData(siteForm);
+
+      for (const [key, value] of [
+
+        ['announcementText', fd.get('announcementText')],
+
+        ['freeShippingThreshold', Number(fd.get('freeShippingThreshold'))],
+
+        ['contactEmail', fd.get('contactEmail')],
+
+      ]) {
+
+        await AdminAPI.request('/settings', { method: 'PUT', body: JSON.stringify({ key, value }) });
+
       }
+
       alert('Saved');
+
     });
+
   </script>
-</body></html>
+
+</body>
+
+</html>
+

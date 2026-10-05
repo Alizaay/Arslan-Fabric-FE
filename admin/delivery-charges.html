@@ -1,37 +1,169 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <base href="/admin/">
+
   <title>Delivery Settings | Atelier Portal</title>
+
   <link rel="stylesheet" href="css/admin.css">
+
 </head>
-<body>
+
+<body class="admin-app">
+
   <div class="admin-layout">
-    <aside class="admin-sidebar"><div><h1 class="admin-brand">Arsalan Fabrics</h1><small>ATELIER PORTAL</small></div><nav data-admin-nav></nav><button class="btn-outline" type="button" data-admin-logout>Logout</button></aside>
-    <div class="admin-main"><header class="admin-topbar"><h1>Delivery Settings</h1></header>
-      <main class="admin-content panel">
-        <p><a href="delivery-areas.html">Manage city-specific delivery areas →</a></p>
-        <form id="delivery-form" class="login-card" style="width:100%;max-width:640px;">
-          <label>Standard Delivery Charge (Rs.)<input name="standardCharge" type="number"></label>
-          <label>Free shipping above (Rs.)<input name="freeShippingMin" type="number"></label>
-          <label><input type="checkbox" name="freeShippingEnabled"> Enable free shipping option</label>
-          <button class="btn" type="submit">Save Shipping Rules</button>
-        </form>
+
+    <aside class="admin-sidebar" data-admin-sidebar>
+
+      <div class="admin-sidebar-brand">
+
+        <h1 class="admin-brand">Arsalan Fabrics</h1>
+
+        <small>ATELIER PORTAL</small>
+
+      </div>
+
+      <nav data-admin-nav></nav>
+
+      <div class="admin-sidebar-foot">
+
+        <a class="admin-store-link" href="../index.html" target="_blank" rel="noopener">View storefront</a>
+
+        <button class="dashboard-btn light-btn btn-logout" type="button" data-admin-logout>Log out</button>
+
+      </div>
+
+    </aside>
+
+    <div class="admin-main">
+
+      <header class="admin-topbar">
+
+        <h1>Delivery Settings</h1>
+
+      </header>
+
+      <main class="admin-content">
+
+        <section class="af-card admin-settings-card">
+
+          <p class="admin-settings-lead">
+
+            <a href="delivery-areas.html">Manage city-specific delivery areas →</a>
+
+          </p>
+
+          <h2 class="admin-form-title">Shipping rules</h2>
+
+          <form id="delivery-form" class="admin-form">
+
+            <label class="admin-field">
+
+              <span class="af-label">Standard delivery charge (Rs.)</span>
+
+              <input name="standardCharge" type="number" min="0" step="1" required>
+
+            </label>
+
+            <label class="admin-field">
+
+              <span class="af-label">Free shipping above (Rs.)</span>
+
+              <input name="freeShippingMin" type="number" min="0" step="1" required>
+
+            </label>
+
+            <label class="admin-field admin-field--checkbox">
+
+              <input type="checkbox" name="freeShippingEnabled" id="freeShippingEnabled">
+
+              <span>Enable free shipping option</span>
+
+            </label>
+
+            <div class="admin-form-actions">
+
+              <button class="btn" type="submit">Save shipping rules</button>
+
+            </div>
+
+          </form>
+
+        </section>
+
       </main>
+
     </div>
+
   </div>
-  <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
+
+  <script src="js/env.js"></script>
+  <script src="js/config.js"></script>
+
+  <script src="js/api.js"></script>
+
+  <script src="js/auth.js"></script>
+
+  <script src="js/sidebar.js"></script>
+
   <script>
-    AdminAuth.require(); AdminSidebar.render('delivery-charges.html');
-    AdminAPI.request('/delivery/settings').then(s=>{
-      delivery-form.standardCharge.value=s.standardCharge; delivery-form.freeShippingMin.value=s.freeShippingMin; delivery-form.freeShippingEnabled.checked=s.freeShippingEnabled;
-    });
-    delivery-form.addEventListener('submit', async (e) => {
-      e.preventDefault(); const fd = new FormData(delivery-form);
-      await AdminAPI.request('/delivery/settings', { method:'PUT', body: JSON.stringify({
-        standardCharge: Number(fd.get('standardCharge')), freeShippingMin: Number(fd.get('freeShippingMin')), freeShippingEnabled: fd.get('freeShippingEnabled')==='on'
-      })});
+
+    AdminAuth.require();
+
+    AdminSidebar.render('delivery-charges.html');
+
+    const deliveryForm = document.getElementById('delivery-form');
+
+    AdminAPI.request('/delivery/settings')
+
+      .then((s) => {
+
+        deliveryForm.elements.standardCharge.value = s.standardCharge ?? '';
+
+        deliveryForm.elements.freeShippingMin.value = s.freeShippingMin ?? '';
+
+        deliveryForm.elements.freeShippingEnabled.checked = Boolean(s.freeShippingEnabled);
+
+      })
+
+      .catch(() => {});
+
+    deliveryForm.addEventListener('submit', async (e) => {
+
+      e.preventDefault();
+
+      const fd = new FormData(deliveryForm);
+
+      await AdminAPI.request('/delivery/settings', {
+
+        method: 'PUT',
+
+        body: JSON.stringify({
+
+          standardCharge: Number(fd.get('standardCharge')),
+
+          freeShippingMin: Number(fd.get('freeShippingMin')),
+
+          freeShippingEnabled: fd.get('freeShippingEnabled') === 'on',
+
+        }),
+
+      });
+
       alert('Saved');
+
     });
+
   </script>
-</body></html>
+
+</body>
+
+</html>
+

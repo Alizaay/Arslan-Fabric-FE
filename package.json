@@ -5,6 +5,8 @@
   "description": "Arsalan Fabrics storefront + Atelier Portal admin (static HTML/CSS/JS)",
   "scripts": {
     "dev": "npx serve . -l 3000",
-    "dev:api": "echo Start backend separately: cd ../backend && npm run dev"
+    "dev:api": "echo Start backend separately: cd ../backend && npm run dev",
+    "build": "node scripts/generate-env.js",
+    "predev": "node scripts/generate-env.js"
   }
 }

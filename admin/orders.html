@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/admin/">
   <title>Orders | Atelier Portal</title>
   <link rel="stylesheet" href="css/admin.css">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,7 +16,8 @@
         <button type="button" class="btn-outline admin-menu-btn" data-admin-menu-toggle>Menu</button>
         <h1>Customer Orders</h1>
       </header>
-      <main class="admin-content panel">
+      <main class="admin-content">
+        <section class="af-card panel">
         <div class="order-tabs" id="order-tabs">
           <button type="button" data-status="all" class="active">All <span data-count="all"></span></button>
           <button type="button" data-status="new">New <span data-count="new"></span></button>
@@ -23,10 +25,14 @@
           <button type="button" data-status="shipped">Shipped <span data-count="shipped"></span></button>
           <button type="button" data-status="delivered">Delivered <span data-count="delivered"></span></button>
         </div>
-        <table><thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Payment</th><th>Status</th><th></th></tr></thead><tbody id="orders-body"></tbody></table>
+        <div class="table-wrap admin-table-wrap">
+        <table class="admin-table"><thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Payment</th><th>Status</th><th></th></tr></thead><tbody id="orders-body"></tbody></table>
+        </div>
+        </section>
       </main>
     </div>
   </div>
+  <script src="js/env.js"></script>
   <script src="js/config.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/sidebar.js"></script>
   <script>
     AdminAuth.require(); AdminSidebar.render('orders.html');

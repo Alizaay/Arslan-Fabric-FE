@@ -5,6 +5,16 @@
     window.API_BASE = stored;
     return;
   }
+  if (typeof window.__ARSALAN_API_BASE__ === 'string' && window.__ARSALAN_API_BASE__) {
+    window.API_BASE = window.__ARSALAN_API_BASE__;
+    return;
+  }
   const devPorts = ['3000', '5173', '5500', '8080', '4173'];
-  window.API_BASE = devPorts.includes(window.location.port) ? 'http://localhost:5000' : '';
+  const isLocal =
+    window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  if (isLocal && devPorts.includes(window.location.port)) {
+    window.API_BASE = 'http://localhost:5000';
+    return;
+  }
+  window.API_BASE = '';
 })();

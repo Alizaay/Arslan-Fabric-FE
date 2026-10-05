@@ -57,10 +57,23 @@
   }
 
   function readFilters() {
+    const q = new URLSearchParams(location.search).get('search');
+    if (q) {
+      const base = { search: q };
+      const fabric = document.querySelector('#fabric, select[name="fabric"]')?.value;
+      const price = document.querySelector('#price, select[name="price"]')?.value;
+      if (fabric) base.fabric = fabric;
+      if (price === 'low-high') base.sort = 'price-asc';
+      if (price === 'high-low') base.sort = 'price-desc';
+      if (price === 'under-5000') base.maxPrice = '5000';
+      if (price === '5000-10000') {
+        base.minPrice = '5000';
+        base.maxPrice = '10000';
+      }
+      return base;
+    }
     const page = location.pathname.split('/').pop() || 'index.html';
     const base = { ...(PLP_BY_PAGE[page] || {}) };
-    const q = new URLSearchParams(location.search).get('search');
-    if (q) base.search = q;
     const fabric = document.querySelector('#fabric, select[name="fabric"]')?.value;
     const price = document.querySelector('#price, select[name="price"]')?.value;
     if (fabric) base.fabric = fabric;
@@ -74,13 +87,35 @@
     return base;
   }
 
+  function resolveGrid() {
+    let grid = document.querySelector('.products-grid');
+    if (grid) return grid;
+    const legacy = document.querySelector('section.products .products-container');
+    if (legacy?.querySelector('.product-card')) {
+      legacy.classList.add('products-grid');
+      return legacy;
+    }
+    return null;
+  }
+
   function wirePlpChrome() {
     const subNavMap = {
       'All Best Sellers': 'best-seller.html',
+      'All New Arrivals': 'arrival-page.html',
+      'New Arrivals': 'arrival-page.html',
       'Formal Stitched': 'formal-stitched-page.html',
       'Formal Unstitched': 'formal-unstitched-page.html',
       'Semi-Formal Stitched': 'semi-formal.html',
       'Semi-Formal Unstitched': 'semi-formal.html',
+      'Ready to Wear': 'ready-to-wear.html',
+      'All Ready to Wear': 'ready-to-wear.html',
+      '2 Piece': '2-pieces-collection-page.html',
+      '3 Piece': '3-pieces-collection.html',
+      'Lawn': 'fabric.html',
+      'Cotton': 'fabric.html',
+      'All Fabrics': 'fabric.html',
+      'Sale': 'sale-page.html',
+      'All Sale': 'sale-page.html',
     };
     document.querySelectorAll('.listsection-nav a').forEach((a) => {
       const href = subNavMap[a.textContent.trim()];
@@ -96,7 +131,7 @@
   }
 
   async function loadGrid() {
-    const grid = document.querySelector('.products-grid');
+    const grid = resolveGrid();
     if (!grid) return;
     wirePlpChrome();
     grid.setAttribute('aria-busy', 'true');

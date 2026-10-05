@@ -139,24 +139,35 @@ window.ArsalanApp = {
   </div>
 </div>
 <div class="af-overlay" data-logout-modal>
-  <div class="af-modal af-modal-sm">
-    <h3>Log out of your account?</h3>
-    <p>You can sign in again anytime to view orders and saved items.</p>
-    <div class="af-modal-actions">
-      <button type="button" data-cancel-logout>Cancel</button>
-      <button type="button" class="af-btn" data-confirm-logout>Log Out</button>
+  <div class="af-modal af-modal-sm af-logout-modal" role="dialog" aria-labelledby="af-logout-title">
+    <h3 id="af-logout-title">Log out of your account?</h3>
+    <p class="af-logout-copy">You can sign in again anytime to view orders and saved items.</p>
+    <div class="af-modal-actions af-logout-actions">
+      <button type="button" class="af-btn af-btn-ghost" data-cancel-logout>Cancel</button>
+      <button type="button" class="af-btn" data-confirm-logout>Log out</button>
     </div>
   </div>
 </div>
-<div class="af-overlay" data-search-modal>
-  <div class="af-modal af-search-modal">
-    <button type="button" class="af-close" data-close-search aria-label="Close search">&times;</button>
-    <h2>Search the collection</h2>
-    <p class="af-search-hint">Find suits, fabrics, or enter an article code.</p>
-    <form data-search-form class="af-search-form">
-      <input type="search" name="q" placeholder="Search…" autocomplete="off" required>
-      <button type="submit" class="af-btn">Search</button>
-    </form>
+<div class="af-overlay" data-wishlist-drawer>
+  <div class="af-drawer af-drawer-right af-wishlist-drawer">
+    <div class="af-cart-head">
+      <h3>Wishlist</h3>
+      <button type="button" class="af-cart-close" data-close-wishlist aria-label="Close wishlist">&times;</button>
+    </div>
+    <div class="af-cart-body">
+      <div class="af-cart-empty" data-wishlist-empty>
+        <p class="af-cart-empty-title">Your wishlist is empty</p>
+        <p class="af-cart-empty-hint">Save pieces you love with the heart icon on any product.</p>
+        <button type="button" class="af-btn af-btn-block" data-wishlist-signin hidden>Sign in to save items</button>
+        <a href="arrival-page.html" class="af-btn af-btn-block">Shop New Arrivals</a>
+      </div>
+      <div class="af-cart-filled" data-wishlist-filled hidden>
+        <div class="af-wishlist-items" data-wishlist-items></div>
+        <div class="af-cart-foot">
+          <a href="my-wishlist.html" class="af-btn af-btn-block af-btn-outline-dark">View full wishlist</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>`;
     document.body.appendChild(root);
@@ -184,9 +195,207 @@ window.ArsalanApp = {
     document.querySelectorAll('.af-overlay').forEach((o) => o.classList.remove('open'));
     document.body.classList.remove('overlay-open');
     ArsalanAuth.closeModal();
+    this.closeHeaderSearch();
+  },
+
+  updateHeaderOffset() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    const h = Math.ceil(header.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--af-header-offset', `${h}px`);
+  },
+
+  headerSearchRoot() {
+    return document.getElementById('header-container') || document.querySelector('header');
+  },
+
+  closeHeaderSearch() {
+    const root = this.headerSearchRoot();
+    const bar = root?.querySelector('[data-header-search]');
+    const toggle = root?.querySelector('[data-header-search-toggle]');
+    if (!bar) return;
+    bar.classList.remove('open');
+    bar.setAttribute('aria-hidden', 'true');
+    bar.inert = true;
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Open search');
+    document.body.classList.remove('header-search-open');
+    const input = bar.querySelector('[data-header-search-input]');
+    input?.setAttribute('tabindex', '-1');
+    input?.blur();
+    if (document.activeElement?.closest('[data-header-search]')) {
+      document.activeElement.blur();
+    }
+    window.setTimeout(() => this.updateHeaderOffset(), 320);
+  },
+
+  openHeaderSearch() {
+    const root = this.headerSearchRoot();
+    const bar = root?.querySelector('[data-header-search]');
+    const toggle = root?.querySelector('[data-header-search-toggle]');
+    if (!bar) return;
+    bar.classList.remove('inert');
+    bar.inert = false;
+    bar.classList.add('open');
+    bar.setAttribute('aria-hidden', 'false');
+    toggle?.setAttribute('aria-expanded', 'true');
+    toggle?.setAttribute('aria-label', 'Close search');
+    document.body.classList.add('header-search-open');
+    const input = bar.querySelector('[data-header-search-input]');
+    input?.setAttribute('tabindex', '0');
+    requestAnimationFrame(() => {
+      this.updateHeaderOffset();
+      input?.focus();
+    });
+  },
+
+  wireHeaderSearch() {
+    const root = this.headerSearchRoot();
+    if (!root || root.dataset.searchWired === 'true') return;
+    root.dataset.searchWired = 'true';
+
+    const bar = root.querySelector('[data-header-search]');
+    if (bar) {
+      bar.inert = true;
+      bar.querySelector('[data-header-search-input]')?.setAttribute('tabindex', '-1');
+    }
+
+    root.addEventListener('click', (e) => {
+      if (e.target.closest('[data-close-header-search]')) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.closeHeaderSearch();
+        return;
+      }
+      if (e.target.closest('[data-header-search-toggle]')) {
+        e.preventDefault();
+        e.stopPropagation();
+        const searchBar = root.querySelector('[data-header-search]');
+        if (searchBar?.classList.contains('open')) this.closeHeaderSearch();
+        else this.openHeaderSearch();
+      }
+    });
+
+    root.querySelector('[data-header-search-form]')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = root.querySelector('[data-header-search-input]');
+      const term = String(input?.value || '').trim();
+      if (!term) {
+        input?.focus();
+        return;
+      }
+      window.location.href = `best-seller.html?search=${encodeURIComponent(term)}`;
+    });
+
+    const preset = new URLSearchParams(window.location.search).get('search');
+    const input = root.querySelector('[data-header-search-input]');
+    if (preset && input) input.value = preset;
+  },
+
+  async renderWishlistDrawer() {
+    const emptyEl = document.querySelector('[data-wishlist-empty]');
+    const filledEl = document.querySelector('[data-wishlist-filled]');
+    const listEl = document.querySelector('[data-wishlist-items]');
+    const signInBtn = document.querySelector('[data-wishlist-signin]');
+    if (!emptyEl || !filledEl || !listEl) return;
+
+    const user = ArsalanAuth.user();
+    const hasToken = Boolean(localStorage.getItem('af_token'));
+    if (signInBtn) signInBtn.hidden = Boolean(user && hasToken);
+
+    if (!user || !hasToken) {
+      filledEl.hidden = true;
+      emptyEl.hidden = false;
+      emptyEl.querySelector('.af-cart-empty-title').textContent = 'Sign in to view your wishlist';
+      emptyEl.querySelector('.af-cart-empty-hint').textContent =
+        'Save your favorite suits and fabrics, then add them to your bag anytime.';
+      if (signInBtn) {
+        signInBtn.hidden = false;
+        signInBtn.onclick = () => {
+          this.closeAllOverlays();
+          ArsalanAuth.openModal('signin');
+        };
+      }
+      return;
+    }
+
+    try {
+      const products = await ArsalanAPI.getWishlist();
+      if (!products.length) {
+        filledEl.hidden = true;
+        emptyEl.hidden = false;
+        emptyEl.querySelector('.af-cart-empty-title').textContent = 'Your wishlist is empty';
+        emptyEl.querySelector('.af-cart-empty-hint').textContent =
+          'Save pieces you love with the heart icon on any product.';
+        if (signInBtn) signInBtn.hidden = true;
+        return;
+      }
+
+      emptyEl.hidden = true;
+      filledEl.hidden = false;
+      listEl.innerHTML = products
+        .map(
+          (p) => `
+        <div class="af-wishlist-line" data-wish-id="${p._id}">
+          <a href="product-detail-page.html?id=${p._id}" class="af-wishlist-thumb">
+            <img src="${ArsalanAPI.assetUrl(p.images?.[0])}" alt="">
+          </a>
+          <div class="af-wishlist-meta">
+            <a href="product-detail-page.html?id=${p._id}" class="af-wishlist-name">${p.name}</a>
+            <p class="af-wishlist-price">Rs. ${(p.salePrice || p.price).toLocaleString()}</p>
+            <button type="button" class="af-wishlist-add-btn" data-add-wish-cart="${p._id}">Add to bag</button>
+          </div>
+          <button type="button" class="af-wishlist-remove" data-remove-wish="${p._id}" aria-label="Remove">&times;</button>
+        </div>`
+        )
+        .join('');
+
+      listEl.querySelectorAll('[data-add-wish-cart]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const p = products.find((x) => x._id === btn.dataset.addWishCart);
+          if (!p) return;
+          ArsalanCart.add({
+            productId: p._id,
+            name: p.name,
+            price: p.salePrice || p.price,
+            image: ArsalanAPI.assetUrl(p.images?.[0]),
+            size: p.sizeInventory?.[0]?.size || 'M',
+            color: p.color || '',
+            quantity: 1,
+          });
+          ArsalanCart.updateBadge();
+          ArsalanCart.renderDrawer();
+          document.querySelector('[data-wishlist-drawer]')?.classList.remove('open');
+          document.querySelector('[data-cart-drawer]')?.classList.add('open');
+        });
+      });
+
+      listEl.querySelectorAll('[data-remove-wish]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          await ArsalanAPI.removeWishlist(btn.dataset.removeWish);
+          this.renderWishlistDrawer();
+        });
+      });
+    } catch {
+      filledEl.hidden = true;
+      emptyEl.hidden = false;
+    }
   },
 
   bindUI() {
+    document.querySelectorAll('[data-open-signin]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        ArsalanAuth.openModal('signin');
+      });
+    });
+    document.querySelectorAll('[data-open-register]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        ArsalanAuth.openModal('register');
+      });
+    });
+
     document.querySelector('.menuicon')?.addEventListener('click', () => {
       document.querySelector('[data-menu-drawer]')?.classList.add('open');
       document.body.classList.add('overlay-open');
@@ -196,27 +405,30 @@ window.ArsalanApp = {
       document.querySelector('[data-cart-drawer]')?.classList.add('open');
       document.body.classList.add('overlay-open');
     });
-    document.querySelector('.header-wishlist')?.addEventListener('click', () => {
-      const user = ArsalanAuth.user();
-      if (user) window.location.href = 'my-wishlist.html';
-      else ArsalanAuth.openModal('signin');
-    });
-    document.querySelector('.search')?.addEventListener('click', () => {
-      document.querySelector('[data-search-modal]')?.classList.add('open');
+    document.querySelector('.header-wishlist')?.addEventListener('click', async () => {
+      await this.renderWishlistDrawer();
+      document.querySelector('[data-wishlist-drawer]')?.classList.add('open');
       document.body.classList.add('overlay-open');
-      setTimeout(() => document.querySelector('[data-search-form] input')?.focus(), 50);
     });
-    document.querySelector('[data-close-search]')?.addEventListener('click', () => this.closeAllOverlays());
-    document.querySelector('[data-search-form]')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const q = new FormData(e.target).get('q');
-      if (q) window.location.href = `best-seller.html?search=${encodeURIComponent(String(q).trim())}`;
-    });
+    this.wireHeaderSearch();
+    if (!this._searchEscapeBound) {
+      this._searchEscapeBound = true;
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') this.closeHeaderSearch();
+      });
+      document.addEventListener('click', (e) => {
+        const root = this.headerSearchRoot();
+        const bar = root?.querySelector('[data-header-search]');
+        if (!bar?.classList.contains('open')) return;
+        if (e.target.closest('[data-header-search]') || e.target.closest('[data-header-search-toggle]')) return;
+        this.closeHeaderSearch();
+      });
+    }
     document.querySelector('.logo p')?.addEventListener('click', () => {
       window.location.href = 'index.html';
     });
 
-    document.querySelectorAll('[data-close-menu],[data-close-cart],[data-close-auth]').forEach((el) => {
+    document.querySelectorAll('[data-close-menu],[data-close-cart],[data-close-auth],[data-close-wishlist]').forEach((el) => {
       el.addEventListener('click', () => this.closeAllOverlays());
     });
 
@@ -284,6 +496,10 @@ window.ArsalanApp = {
     });
 
     this.wireCategoryTicker();
+    this.wireHeaderSearch();
+    this.closeHeaderSearch();
+    this.updateHeaderOffset();
+    window.addEventListener('resize', () => this.updateHeaderOffset());
   },
 
   wireCategoryTicker() {
@@ -310,7 +526,10 @@ window.ArsalanApp = {
   loadPageScripts() {
     const page = location.pathname.split('/').pop() || '';
     const scripts = [];
-    if (document.querySelector('.products-grid') && page !== 'my-wishlist.html') scripts.push('js/plp.js');
+    const hasPlpGrid =
+      document.querySelector('.products-grid') ||
+      (document.querySelector('section.products .products-container')?.querySelector('.product-card'));
+    if (hasPlpGrid && page !== 'my-wishlist.html') scripts.push('js/plp.js');
     if (page === 'product-detail-page.html') scripts.push('js/pdp.js');
     const storePages = [
       'checkout-information.html',

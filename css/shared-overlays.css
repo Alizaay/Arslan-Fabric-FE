@@ -7,6 +7,11 @@
   --af-burgundy: #6b1d1d;
   --af-cream: #faf9f6;
   --af-border: #eae6df;
+  --af-header-offset: 85px;
+}
+
+body:not(.login-body) main {
+  margin-top: var(--af-header-offset) !important;
 }
 
 .overlay-open {
@@ -154,7 +159,8 @@
   .af-drawer:not(.af-cart-drawer):not(.af-drawer-nav-main) {
     width: min(40vw, 420px);
   }
-  .af-cart-drawer {
+  .af-cart-drawer,
+  .af-wishlist-drawer {
     width: min(40vw, 440px);
   }
 }
